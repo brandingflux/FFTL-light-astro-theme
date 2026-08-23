@@ -57,7 +57,19 @@ if (type === 'all') {
 		@apply bg-neutral-200 dark:bg-neutral-700;
 	}
 	.decoration-border--dashed .decoration-border__top {
-		@apply bg-[repeating-linear-gradient(90deg,theme(colors.neutral.200)_0_4px,transparent_4px_8px)] dark:bg-[repeating-linear-gradient(90deg,theme(colors.neutral.700)_0_4px,transparent_4px_8px)];
+		background-image: repeating-linear-gradient(
+			90deg,
+			var(--color-neutral-200) 0 4px,
+			transparent 4px 8px
+		);
+	}
+
+	.dark .decoration-border--dashed .decoration-border__top {
+		background-image: repeating-linear-gradient(
+			90deg,
+			var(--color-neutral-700) 0 4px,
+			transparent 4px 8px
+		);
 	}
 	.decoration-border__right {
 		@apply top-0 right-0 bottom-0 w-px;
@@ -66,7 +78,19 @@ if (type === 'all') {
 		@apply bg-neutral-200 dark:bg-neutral-700;
 	}
 	.decoration-border--dashed .decoration-border__right {
-		@apply bg-[repeating-linear-gradient(0deg,theme(colors.neutral.200)_0_4px,transparent_4px_8px)] dark:bg-[repeating-linear-gradient(0deg,theme(colors.neutral.700)_0_4px,transparent_4px_8px)];
+		background-image: repeating-linear-gradient(
+			0deg,
+			var(--color-neutral-200) 0 4px,
+			transparent 4px 8px
+		);
+	}
+
+	.dark .decoration-border--dashed .decoration-border__right {
+		background-image: repeating-linear-gradient(
+			0deg,
+			var(--color-neutral-700) 0 4px,
+			transparent 4px 8px
+		);
 	}
 	.decoration-border__bottom {
 		@apply absolute right-0 bottom-0 left-0 z-[1] h-px;
@@ -75,7 +99,19 @@ if (type === 'all') {
 		@apply bg-neutral-200 dark:bg-neutral-700;
 	}
 	.decoration-border--dashed .decoration-border__bottom {
-		@apply bg-[repeating-linear-gradient(90deg,theme(colors.neutral.200)_0_4px,transparent_4px_8px)] dark:bg-[repeating-linear-gradient(90deg,theme(colors.neutral.700)_0_4px,transparent_4px_8px)];
+		background-image: repeating-linear-gradient(
+			90deg,
+			var(--color-neutral-200) 0 4px,
+			transparent 4px 8px
+		);
+	}
+
+	.dark .decoration-border--dashed .decoration-border__bottom {
+		background-image: repeating-linear-gradient(
+			90deg,
+			var(--color-neutral-700) 0 4px,
+			transparent 4px 8px
+		);
 	}
 	.decoration-border__left {
 		@apply absolute top-0 bottom-0 left-0 z-[1] w-px;
@@ -84,6 +120,18 @@ if (type === 'all') {
 		@apply bg-neutral-200 dark:bg-neutral-700;
 	}
 	.decoration-border--dashed .decoration-border__left {
-		@apply bg-[repeating-linear-gradient(0deg,theme(colors.neutral.200)_0_4px,transparent_4px_8px)] dark:bg-[repeating-linear-gradient(0deg,theme(colors.neutral.700)_0_4px,transparent_4px_8px)];
+		background-image: repeating-linear-gradient(
+			0deg,
+			var(--color-neutral-200) 0 4px,
+			transparent 4px 8px
+		);
+	}
+
+	.dark .decoration-border--dashed .decoration-border__left {
+		background-image: repeating-linear-gradient(
+			0deg,
+			var(--color-neutral-700) 0 4px,
+			transparent 4px 8px
+		);
 	}
 </style>
