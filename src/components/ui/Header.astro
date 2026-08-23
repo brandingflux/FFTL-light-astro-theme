@@ -24,7 +24,7 @@ import DecorationBorder from './DecorationBorder.astro'
 type Props = {
 	subtitle?: string
 	subtitleClasses?: string
-	title: string
+	title?: string
 	headingLevel?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 	titleClasses?: string
 	titleWidth?: string
@@ -45,6 +45,8 @@ const {
 	type = 'basic',
 	decorationClasses
 } = Astro.props
+
+const hasTitleSlot = !!Astro.slots.title
 ---
 
 <header
@@ -57,7 +59,11 @@ const {
 	{
 		headingLevel === 'h1' && (
 			<h1 class:list={[`header__title h1`, { [`${titleClasses}`]: titleClasses }]}>
-				<span class:list={[`header__title-text`, { [`${titleWidth}`]: titleWidth }]}>{title}</span>
+				{hasTitleSlot ? (
+					<slot name="title" class="header__title-text" />
+				) : (
+					<span class:list={[`header__title-text`, { [`${titleWidth}`]: titleWidth }]}>{title}</span>
+				)}
 				<DecorationBorder type="top bottom" extraClasses={decorationClasses} />
 			</h1>
 		)
@@ -65,7 +71,11 @@ const {
 	{
 		headingLevel === 'h2' && (
 			<h2 class:list={[`header__title h2`, { [`${titleClasses}`]: titleClasses }]}>
-				<span class:list={[`header__title-text`, { [`${titleWidth}`]: titleWidth }]}>{title}</span>
+				{hasTitleSlot ? (
+					<slot name="title" class="header__title-text" />
+				) : (
+					<span class:list={[`header__title-text`, { [`${titleWidth}`]: titleWidth }]}>{title}</span>
+				)}
 				<DecorationBorder type="top bottom" extraClasses={decorationClasses} />
 			</h2>
 		)
@@ -73,7 +83,11 @@ const {
 	{
 		headingLevel === 'h3' && (
 			<h3 class:list={[`header__title h3`, { [`${titleClasses}`]: titleClasses }]}>
-				<span class:list={[`header__title-text`, { [`${titleWidth}`]: titleWidth }]}>{title}</span>
+				{hasTitleSlot ? (
+					<slot name="title" class="header__title-text" />
+				) : (
+					<span class:list={[`header__title-text`, { [`${titleWidth}`]: titleWidth }]}>{title}</span>
+				)}
 				<DecorationBorder type="top bottom" extraClasses={decorationClasses} />
 			</h3>
 		)

@@ -26,12 +26,13 @@ const SEO = {
 }
 // - Hero data
 const heroData = {
-	title: 'Launch smarter Start faster',
-	subtitle: 'build for the future',
-	buttonLink: '/pricing',
-	buttonText: 'Try it for free!',
-	text: 'Let AI handle the heavy lifting — from data insights to launch strategies — so you can focus on creating products that customers love'
-}
+		title: 'Automate The',
+		rotatingWords: ['Busy Work', 'Manual Work', 'Admin Work', 'Routine Work', 'Repetitive Work'],
+		subtitle: 'Less Manual Work. More Results.',
+		buttonLink: '/pricing',
+		buttonText: 'See What We Automate',
+		text: 'Spend less time on manual work and more time growing your business.'
+	}
 // - Brand data
 const brandData = {
 	title: 'Built in collaboration with'
@@ -58,7 +59,9 @@ const ctaData = {
 <Layout title={SEO.title} description={SEO.description}>
 	<Hero
 		title={heroData.title}
+		rotatingWords={heroData.rotatingWords}
 		subtitle={heroData.subtitle}
+		text={heroData.text}
 		buttonLink={heroData.buttonLink}
 		buttonText={heroData.buttonText}
 	/>

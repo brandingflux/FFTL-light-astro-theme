@@ -19,6 +19,7 @@ import Col from '../../ui/Col.astro'
 import Button from '../../ui/Button.astro'
 // - UI
 import Header from '../../ui/Header.astro'
+import RotatingText from '../../ui/RotatingText'
 import { Image } from 'astro:assets'
 
 // Content
@@ -31,6 +32,7 @@ type Props = {
 	subtitle?: string
 	text?: string
 	titleSpan?: string
+	rotatingWords?: string[]
 	buttonText?: string
 	buttonLink?: string
 	buttonClasses?: string
@@ -41,6 +43,7 @@ const {
 	title = '',
 	text = '',
 	subtitle = '',
+	rotatingWords,
 	buttonText = '',
 	buttonClasses = 'w-full lg:w-auto',
 	buttonLink = '/',
@@ -53,12 +56,31 @@ const {
 	<Row classes="gap-y-0!">
 		<!-- Intro Text -->
 		<Col span="12" classes="pt-16 lg:pt-24">
-			<Header
-				title={title}
-				subtitle={subtitle}
-				classes="text-center"
-				titleWidth="mx-auto max-w-3xl"
-			/>
+			{rotatingWords ? (
+				<Header
+					subtitle={subtitle}
+					classes="text-center"
+					titleWidth="mx-auto max-w-3xl"
+				>
+					<span slot="title" class:list={['header__title-text', 'mx-auto max-w-3xl']}>
+						{title} <RotatingText client:load words={rotatingWords} />
+					</span>
+				</Header>
+			) : (
+				<Header
+					title={title}
+					subtitle={subtitle}
+					classes="text-center"
+					titleWidth="mx-auto max-w-3xl"
+				/>
+			)}
+			{
+				text && (
+					<p class="mx-auto mb-0! max-w-2xl pt-6 text-center text-xl leading-9 lg:pt-12">
+						{text}
+					</p>
+				)
+			}
 		</Col>
 
 		<Col

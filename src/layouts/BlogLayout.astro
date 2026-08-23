@@ -58,14 +58,15 @@ const CTA = {
 				<Row>
 					<Col span="12">
 						<div class="parallax h-96 w-full lg:h-[680px]">
-							<Image
-								class="h-[calc(100%+50px)] w-full object-cover will-change-transform"
-								src={frontmatter.image}
-								alt={frontmatter.title}
-								loading="lazy"
-								decoding="async"
-								layout="constrained"
-							/>
+					<img
+						class="h-[calc(100%+50px)] w-full object-cover will-change-transform"
+						src={frontmatter.image}
+						alt={frontmatter.title}
+						loading="lazy"
+						decoding="async"
+						width={1920}
+						height={1080}
+					/>
 						</div>
 					</Col>
 				</Row>
