@@ -25,5 +25,5 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  adapter: netlify({ imageCDN: false }),
+  adapter: netlify({ imageCDN: false, devFeatures: false }),
 });

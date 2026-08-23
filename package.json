@@ -38,5 +38,8 @@
   "devDependencies": {
     "@astrojs/partytown": "^2.1.7",
     "@tailwindcss/typography": "^0.5.19"
+  },
+  "resolutions": {
+    "cookie": "1.0.2"
   }
 }
