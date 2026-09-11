@@ -1,0 +1,94 @@
+---
+// Why Fluxfuse
+// ------------
+// Description: The 4 foundational pillars explaining why teams choose Fluxfuse.
+
+// Components
+// - Layout
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import Header from '../../ui/Header.astro'
+
+// - UI
+import Card from '../../ui/cards/partials/CardContainer.astro'
+import CardHeader from '../../ui/cards/partials/CardHeader.astro'
+import CardBody from '../../ui/cards/partials/CardBody.astro'
+import { Icon } from 'astro-icon/components'
+
+// Content
+const pillars = [
+	{
+		title: 'Built Around Real Work',
+		subtitle: 'We focus on practical business problems, not technology trends.',
+		description: 'Every solution begins with your actual operational friction points—not whatever buzzword is dominating tech headlines.',
+		icon: 'bolt'
+	},
+	{
+		title: 'Custom Solutions',
+		subtitle: 'Every workflow is different.',
+		description: 'We don’t force you into rigid platforms. We adapt automations to your exact tools, team habits, and data flows.',
+		icon: 'puzzle-piece'
+	},
+	{
+		title: 'Fast Results',
+		subtitle: 'Most improvements start saving time immediately.',
+		description: 'No 6-month consulting marathons. We prioritize lean, targeted automations that give your team tangible hours back right away.',
+		icon: 'rocket'
+	},
+	{
+		title: 'Human Support',
+		subtitle: 'We don’t disappear after deployment.',
+		description: 'We stay by your side to monitor, refine, and optimize your automations as your business grows and your needs change.',
+		icon: 'user-group'
+	}
+]
+---
+
+<Section id="why-fluxfuse">
+	<Row>
+		<Col span="12" classes="pt-8 lg:pt-12">
+			<Header
+				title="Why Fluxfuse"
+				subtitle="Our Approach"
+				headingLevel="h2"
+				classes="text-center"
+				titleWidth="mx-auto max-w-3xl"
+			/>
+			<p class="text-lead max-w-2xl mx-auto text-center mt-4 text-neutral-600 dark:text-neutral-300">
+				We eliminate manual work so your team can focus on the work that truly drives revenue, client happiness, and momentum.
+			</p>
+		</Col>
+	</Row>
+
+	<Row classes="mt-8">
+		{
+			pillars.map((pillar) => (
+				<Col span="6" spanTablet="12" spanMobile="12">
+					<Card classes="h-full" decorationType="all" style="transparent" decorationStyle="solid">
+						<CardHeader classes="bg-white/80 dark:bg-neutral-950/80! py-8! px-6! lg:px-8!">
+							<div class="flex items-center gap-4">
+								<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-xl bg-primary-50 dark:bg-primary-950 text-primary-600 dark:text-primary-400">
+									<Icon name={pillar.icon} class="size-6" />
+								</div>
+								<div>
+									<h3 class="text-xl font-semibold mb-1!">{pillar.title}</h3>
+									<p class="text-sm font-medium text-primary-600 dark:text-primary-400 mb-0!">
+										{pillar.subtitle}
+									</p>
+								</div>
+							</div>
+						</CardHeader>
+						<CardBody classes="bg-white/60 dark:bg-neutral-950/60! p-6! lg:p-8! text-base! leading-relaxed! flex-grow text-neutral-600 dark:text-neutral-300">
+							<p class="mb-0">{pillar.description}</p>
+						</CardBody>
+					</Card>
+				</Col>
+			))
+		}
+	</Row>
+</Section>
+
+<style>
+	@reference '../../../styles/global.css';
+</style>

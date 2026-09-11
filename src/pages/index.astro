@@ -9,7 +9,7 @@ import Layout from '../layouts/Layout.astro'
 
 // - Blocks
 import Hero from '../components/blocks/hero/CenteredHeroCTA.astro'
-import Brand from '../components/blocks/brand/Marquee.astro'
+import CinematicFooter from '../components/ui/motion-footer'
 import Features from '../components/blocks/features/MasonryGrid.astro'
 import ScrollSpySteps from '../components/blocks/onboarding/Steps.astro'
 import TestimonialMasonry from '../components/blocks/testimonials/TestimonialMasonry.astro'
@@ -33,10 +33,6 @@ const heroData = {
 		buttonText: 'See What We Automate',
 		text: 'Spend less time on manual work and more time growing your business.'
 	}
-// - Brand data
-const brandData = {
-	title: 'Built in collaboration with'
-}
 // - Testimonial data
 const testimonialData = {
 	title: 'Loved by early adopters everywhere',
@@ -60,12 +56,13 @@ const ctaData = {
 	<Hero
 		title={heroData.title}
 		rotatingWords={heroData.rotatingWords}
+		animationType="handwriting"
 		subtitle={heroData.subtitle}
 		text={heroData.text}
 		buttonLink={heroData.buttonLink}
 		buttonText={heroData.buttonText}
 	/>
-	<Brand title={brandData.title} />
+	<CinematicFooter client:visible />
 	<Features />
 	<ScrollSpySteps />
 	<TestimonialMasonry title={testimonialData.title} subtitle={testimonialData.subtitle} />

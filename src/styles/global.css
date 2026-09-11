@@ -20,6 +20,14 @@
 	@apply relative z-1 mx-auto max-w-[96rem]! px-4 md:px-6 lg:px-8;
 }
 
+@utility rotate-8 {
+	transform: rotate(8deg);
+}
+
+@utility -rotate-8 {
+	transform: rotate(-8deg);
+}
+
 @theme {
 	/* Container */
 

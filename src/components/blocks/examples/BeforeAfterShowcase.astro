@@ -1,0 +1,93 @@
+---
+// Before -> After Showcase
+// ------------
+// Description: The visual centerpiece of the homepage showcasing 3 tangible transformations.
+
+// Components
+// - Layout
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import { Icon } from 'astro-icon/components'
+
+// Content
+const transformations = [
+	{
+		title: 'Weekly Reporting',
+		before: '3 hours of spreadsheets and screenshots',
+		after: 'Report generated automatically'
+	},
+	{
+		title: 'Document Creation',
+		before: 'Rebuilding the same document every time',
+		after: 'Template populated automatically'
+	},
+	{
+		title: 'Data Handoffs',
+		before: 'Copying information across systems',
+		after: 'Information moves automatically'
+	}
+]
+---
+
+<Section id="transformations" classes="py-20! lg:py-32!" decorationBorder="none">
+	<Row style="transparent" decorationBorder="none">
+		<Col span="12" style="transparent">
+			<div class="max-w-4xl mx-auto text-center mb-16 lg:mb-20">
+				<p class="text-xs md:text-sm font-semibold uppercase tracking-widest text-primary-600 dark:text-primary-400 mb-4">
+					Show, Don't Explain
+				</p>
+				<h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-950 dark:text-white leading-tight">
+					Before &rarr; After
+				</h2>
+				<p class="text-lg md:text-xl text-neutral-600 dark:text-neutral-300 mt-4 max-w-2xl mx-auto">
+					One transformation is worth more than five paragraphs of explanation.
+				</p>
+			</div>
+		</Col>
+	</Row>
+
+	<!-- 3 Large Transformations -->
+	<div class="max-w-5xl mx-auto flex flex-col gap-6 lg:gap-8">
+		{
+			transformations.map((item) => (
+				<div class="rounded-2xl border border-neutral-200/80 bg-white/80 p-6 md:p-10 backdrop-blur-xs transition hover:border-neutral-400 dark:border-neutral-800 dark:bg-neutral-950/80 dark:hover:border-neutral-700">
+					<h3 class="text-xl md:text-2xl font-bold text-neutral-950 dark:text-white mb-6">
+						{item.title}
+					</h3>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-center">
+						<!-- Before -->
+						<div class="rounded-xl border border-neutral-200 bg-neutral-50/80 p-5 md:p-6 dark:border-neutral-800/80 dark:bg-neutral-900/50">
+							<div class="flex items-center gap-2 mb-2">
+								<span class="inline-flex size-2 rounded-full bg-neutral-400"></span>
+								<span class="text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+									Before
+								</span>
+							</div>
+							<p class="text-base md:text-lg text-neutral-700 dark:text-neutral-300 font-medium mb-0!">
+								{item.before}
+							</p>
+						</div>
+
+						<!-- After -->
+						<div class="rounded-xl border border-primary-500/30 bg-primary-50/40 p-5 md:p-6 dark:border-primary-500/30 dark:bg-primary-950/30">
+							<div class="flex items-center gap-2 mb-2">
+								<Icon name="check-circle" class="size-4 text-primary-500" />
+								<span class="text-xs font-bold uppercase tracking-wider text-primary-600 dark:text-primary-400">
+									After Fluxfuse
+								</span>
+							</div>
+							<p class="text-base md:text-lg text-neutral-950 dark:text-white font-semibold mb-0!">
+								{item.after}
+							</p>
+						</div>
+					</div>
+				</div>
+			))
+		}
+	</div>
+</Section>
+
+<style>
+	@reference '../../../styles/global.css';
+</style>

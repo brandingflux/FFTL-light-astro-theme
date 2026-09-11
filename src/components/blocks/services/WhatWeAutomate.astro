@@ -1,0 +1,95 @@
+---
+// What We Automate
+// ------------
+// Description: A grid of 6 cards showcasing the practical areas Fluxfuse automates.
+
+// Components
+// - Layout
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import Header from '../../ui/Header.astro'
+
+// - UI
+import Card from '../../ui/cards/partials/CardContainer.astro'
+import CardHeader from '../../ui/cards/partials/CardHeader.astro'
+import CardBody from '../../ui/cards/partials/CardBody.astro'
+import { Icon } from 'astro-icon/components'
+
+// Content
+const automationCards = [
+	{
+		title: 'Documents',
+		description: 'Generate, format, review, and organize documents automatically.',
+		icon: 'document-text'
+	},
+	{
+		title: 'Reports',
+		description: 'Turn raw data into client-ready reports.',
+		icon: 'document-chart-bar'
+	},
+	{
+		title: 'Workflows',
+		description: 'Replace repetitive steps with streamlined processes.',
+		icon: 'arrow-path'
+	},
+	{
+		title: 'Data Entry',
+		description: 'Move information between systems automatically.',
+		icon: 'circle-stack'
+	},
+	{
+		title: 'Approvals',
+		description: 'Route requests, forms, and tasks without manual chasing.',
+		icon: 'clipboard-document-check'
+	},
+	{
+		title: 'Communication',
+		description: 'Automate updates, reminders, and follow-ups.',
+		icon: 'chat-bubble-left-right'
+	}
+]
+---
+
+<Section id="what-we-automate">
+	<Row>
+		<Col span="12" classes="pt-8 lg:pt-12">
+			<Header
+				title="What We Automate"
+				subtitle="Practical Solutions"
+				headingLevel="h2"
+				classes="text-center"
+				titleWidth="mx-auto max-w-3xl"
+			/>
+			<p class="text-lead max-w-2xl mx-auto text-center mt-4 text-neutral-600 dark:text-neutral-300">
+				Eliminate the friction in your daily operations. We build tailored automations that handle repetitive clerical tasks from start to finish.
+			</p>
+		</Col>
+	</Row>
+
+	<Row classes="mt-8">
+		{
+			automationCards.map((card) => (
+				<Col span="4" spanTablet="6" spanMobile="12">
+					<Card classes="h-full" decorationType="all" style="transparent" decorationStyle="solid">
+						<CardHeader classes="bg-white/80 dark:bg-neutral-950/80! py-6! px-6!">
+							<div class="flex items-center gap-4">
+								<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-xl bg-primary-50 dark:bg-primary-950 text-primary-600 dark:text-primary-400">
+									<Icon name={card.icon} class="size-6" />
+								</div>
+								<h3 class="text-xl font-semibold mb-0!">{card.title}</h3>
+							</div>
+						</CardHeader>
+						<CardBody classes="bg-white/60 dark:bg-neutral-950/60! p-6! text-base! leading-relaxed! flex-grow text-neutral-600 dark:text-neutral-300">
+							<p class="mb-0">{card.description}</p>
+						</CardBody>
+					</Card>
+				</Col>
+			))
+		}
+	</Row>
+</Section>
+
+<style>
+	@reference '../../../styles/global.css';
+</style>

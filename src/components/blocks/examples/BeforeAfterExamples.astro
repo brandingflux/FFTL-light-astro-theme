@@ -1,0 +1,128 @@
+---
+// Before & After Examples
+// ------------
+// Description: Real-world before and after comparison cards demonstrating tangible time savings.
+
+// Components
+// - Layout
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import Header from '../../ui/Header.astro'
+
+// - UI
+import Card from '../../ui/cards/partials/CardContainer.astro'
+import DecorationBorder from '../../ui/DecorationBorder.astro'
+import { Icon } from 'astro-icon/components'
+
+// Content
+const examples = [
+	{
+		before: {
+			title: 'Staff manually create weekly reports.',
+			description: 'Pulling numbers from multiple tabs, re-entering metrics, and double-checking totals by hand.'
+		},
+		after: {
+			title: 'Reports are generated automatically.',
+			description: 'Data is fetched from source systems, formatted cleanly, and sent directly to stakeholders on schedule.'
+		},
+		category: 'Reporting'
+	},
+	{
+		before: {
+			title: 'Employees copy information between spreadsheets.',
+			description: 'Tedious copy-pasting between CRM, billing, and project sheets with constant risk of human error.'
+		},
+		after: {
+			title: 'Data syncs automatically.',
+			description: 'Records update across all tools in real time. Changes in one system reflect everywhere instantly.'
+		},
+		category: 'Data Sync'
+	},
+	{
+		before: {
+			title: 'Documents require hours of formatting.',
+			description: 'Manually adjusting fonts, client variables, terms, and layouts for every new proposal or agreement.'
+		},
+		after: {
+			title: 'Templates are filled instantly.',
+			description: 'Custom templates populate automatically with verified data and are ready for signature in seconds.'
+		},
+		category: 'Documentation'
+	}
+]
+---
+
+<Section id="examples">
+	<Row>
+		<Col span="12" classes="pt-8 lg:pt-12">
+			<Header
+				title="Concrete Examples of Work Removed"
+				subtitle="Before & After"
+				headingLevel="h2"
+				classes="text-center"
+				titleWidth="mx-auto max-w-3xl"
+			/>
+			<p class="text-lead max-w-2xl mx-auto text-center mt-4 text-neutral-600 dark:text-neutral-300">
+				Here is what eliminating manual friction looks like in day-to-day operations. Practical solutions that free up real hours every week.
+			</p>
+		</Col>
+	</Row>
+
+	<Row classes="mt-8">
+		{
+			examples.map((example) => (
+				<Col span="4" spanTablet="12" spanMobile="12">
+					<Card classes="h-full flex flex-col justify-between" decorationType="all" style="transparent" decorationStyle="solid">
+						<!-- Before Section -->
+						<div class="relative bg-neutral-50/90 dark:bg-neutral-900/60 p-6 lg:p-8 flex-1">
+							<div class="flex items-center justify-between mb-4">
+								<span class="inline-flex items-center gap-1.5 rounded-md bg-neutral-200/80 px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300">
+									<Icon name="x-mark" class="size-3.5 text-neutral-500" />
+									Before
+								</span>
+								<span class="text-xs font-medium text-neutral-600 dark:text-neutral-400">
+									{example.category}
+								</span>
+							</div>
+							<h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2 leading-snug">
+								{example.before.title}
+							</h3>
+							<p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mb-0">
+								{example.before.description}
+							</p>
+							<DecorationBorder type="bottom" style="dashed" />
+						</div>
+
+						<!-- Mid Transition Arrow -->
+						<div class="relative flex items-center justify-center py-2 bg-white dark:bg-neutral-950">
+							<div class="inline-flex size-7 items-center justify-center rounded-full bg-primary-100 text-primary-700 dark:bg-primary-950 dark:text-primary-300 border border-primary-200 dark:border-primary-800 shadow-xs">
+								<Icon name="chevron-down" class="size-4" />
+							</div>
+						</div>
+
+						<!-- After Section -->
+						<div class="relative bg-white/95 dark:bg-neutral-950/90 p-6 lg:p-8 flex-1 border-t border-dashed border-neutral-200 dark:border-neutral-800">
+							<div class="flex items-center justify-between mb-4">
+								<span class="inline-flex items-center gap-1.5 rounded-md bg-primary-500/15 px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-primary-700 dark:text-primary-400">
+									<Icon name="check-circle" class="size-3.5 text-primary-600 dark:text-primary-400" />
+									After Fluxfuse
+								</span>
+							</div>
+							<h3 class="text-lg font-semibold text-neutral-950 dark:text-white mb-2 leading-snug">
+								{example.after.title}
+							</h3>
+							<p class="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed mb-0">
+								{example.after.description}
+							</p>
+						</div>
+					</Card>
+				</Col>
+			))
+		}
+	</Row>
+</Section>
+
+<style>
+	@reference '../../../styles/global.css';
+</style>

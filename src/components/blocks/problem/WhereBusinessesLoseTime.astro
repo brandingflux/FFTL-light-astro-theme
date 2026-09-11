@@ -1,0 +1,95 @@
+---
+// Where Businesses Lose Time
+// ------------
+// Description: Problem framing section contrasting software bloat with the actual need for less manual friction.
+
+// Components
+// - Layout
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import Header from '../../ui/Header.astro'
+import Card from '../../ui/cards/partials/CardContainer.astro'
+import CardBody from '../../ui/cards/partials/CardBody.astro'
+import { Icon } from 'astro-icon/components'
+---
+
+<Section id="where-businesses-lose-time">
+	<Row>
+		<Col span="12" classes="pt-8 lg:pt-12">
+			<Header
+				title="Where Businesses Lose Time"
+				subtitle="The Real Bottleneck"
+				headingLevel="h2"
+				classes="text-center"
+				titleWidth="mx-auto max-w-3xl"
+			/>
+		</Col>
+	</Row>
+
+	<!-- Main Manifesto Card -->
+	<Row classes="mt-6">
+		<Col span="12">
+			<Card decorationType="all" style="transparent" decorationStyle="solid" classes="h-full">
+				<CardBody classes="bg-white/80 dark:bg-neutral-950/80! p-8 lg:p-14 text-center">
+					<p class="mx-auto max-w-3xl text-2xl font-medium leading-relaxed text-neutral-900 md:text-3xl lg:text-4xl dark:text-neutral-50">
+						Most businesses don't need more software.
+						<span class="block text-primary-500 font-bold mt-2">
+							They need less manual work.
+						</span>
+					</p>
+					<p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-neutral-600 dark:text-neutral-300 md:text-xl">
+						We help teams spend less time on repetitive tasks and more time on work that actually grows the business.
+					</p>
+				</CardBody>
+			</Card>
+		</Col>
+	</Row>
+
+	<!-- The 3 Core Pain Points -->
+	<Row classes="mt-6">
+		<Col span="4" spanTablet="12" spanMobile="12">
+			<Card decorationType="all" style="transparent" decorationStyle="solid" classes="h-full">
+				<CardBody classes="bg-white/60 dark:bg-neutral-950/60! p-6 lg:p-8 flex flex-col h-full">
+					<div class="mb-4 inline-flex size-12 items-center justify-center rounded-xl bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+						<Icon name="squares-plus" class="size-6" />
+					</div>
+					<h3 class="text-xl font-semibold mb-2">Too Many Disconnected Tools</h3>
+					<p class="text-neutral-600 dark:text-neutral-400 leading-relaxed">
+						Teams keep adding subscriptions, yet staff still spend hours copying data between tabs and spreadsheets.
+					</p>
+				</CardBody>
+			</Card>
+		</Col>
+		<Col span="4" spanTablet="12" spanMobile="12">
+			<Card decorationType="all" style="transparent" decorationStyle="solid" classes="h-full">
+				<CardBody classes="bg-white/60 dark:bg-neutral-950/60! p-6 lg:p-8 flex flex-col h-full">
+					<div class="mb-4 inline-flex size-12 items-center justify-center rounded-xl bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+						<Icon name="clock" class="size-6" />
+					</div>
+					<h3 class="text-xl font-semibold mb-2">Manual Administrative Debt</h3>
+					<p class="text-neutral-600 dark:text-neutral-400 leading-relaxed">
+						Skilled team members lose entire afternoons to routine formatting, chasing approvals, and compiling status updates.
+					</p>
+				</CardBody>
+			</Card>
+		</Col>
+		<Col span="4" spanTablet="12" spanMobile="12">
+			<Card decorationType="all" style="transparent" decorationStyle="solid" classes="h-full">
+				<CardBody classes="bg-white/60 dark:bg-neutral-950/60! p-6 lg:p-8 flex flex-col h-full">
+					<div class="mb-4 inline-flex size-12 items-center justify-center rounded-xl bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+						<Icon name="trending-up" class="size-6" />
+					</div>
+					<h3 class="text-xl font-semibold mb-2">Stalled Growth & Energy</h3>
+					<p class="text-neutral-600 dark:text-neutral-400 leading-relaxed">
+						When day-to-day operations demand constant firefighting and clerical upkeep, high-value client work takes a back seat.
+					</p>
+				</CardBody>
+			</Card>
+		</Col>
+	</Row>
+</Section>
+
+<style>
+	@reference '../../../styles/global.css';
+</style>

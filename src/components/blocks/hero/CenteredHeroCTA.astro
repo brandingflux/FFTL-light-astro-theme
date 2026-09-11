@@ -20,11 +20,8 @@ import Button from '../../ui/Button.astro'
 // - UI
 import Header from '../../ui/Header.astro'
 import RotatingText from '../../ui/RotatingText'
-import { Image } from 'astro:assets'
-
-// Content
-// - Assets
-import screenshot from '../../../assets/hero/screenshot.svg'
+import HandwritingText from '../../ui/handwriting-text'
+import HowItWorks, { type Step } from '../../ui/how-it-works'
 
 // - Props
 type Props = {
@@ -33,22 +30,30 @@ type Props = {
 	text?: string
 	titleSpan?: string
 	rotatingWords?: string[]
+	animationType?: 'rotating' | 'handwriting'
 	buttonText?: string
 	buttonLink?: string
 	buttonClasses?: string
+	secondaryButtonText?: string
+	secondaryButtonLink?: string
+	secondaryButtonClasses?: string
 	classes?: string
-	image?: string
+	steps?: Step[]
 }
 const {
 	title = '',
 	text = '',
 	subtitle = '',
 	rotatingWords,
+	animationType = 'rotating',
 	buttonText = '',
 	buttonClasses = 'w-full lg:w-auto',
 	buttonLink = '/',
+	secondaryButtonText = '',
+	secondaryButtonLink = '/',
+	secondaryButtonClasses = 'w-full lg:w-auto',
 	classes = '',
-	image
+	steps
 } = Astro.props
 ---
 
@@ -63,7 +68,18 @@ const {
 					titleWidth="mx-auto max-w-3xl"
 				>
 					<span slot="title" class:list={['header__title-text', 'mx-auto max-w-3xl']}>
-						{title} <RotatingText client:load words={rotatingWords} />
+						{title}{' '}
+						{animationType === 'handwriting' ? (
+							<HandwritingText
+								client:load
+								words={rotatingWords}
+								className="text-primary-500 dark:text-primary-400"
+								style={{ color: '#FB5700' }}
+								height="1.15em"
+							/>
+						) : (
+							<RotatingText client:load words={rotatingWords} />
+						)}
 					</span>
 				</Header>
 			) : (
@@ -87,20 +103,20 @@ const {
 			span="12"
 			classes=" bg-[url('/bgs/dot-gray-light.svg')] bg-size-[18px] bg-fixed dark:bg-[url('/bgs/dot-gray-dark.svg')] "
 		>
-			<div class="my-10 flex justify-center">
+			<div class="my-10 flex flex-col sm:flex-row items-center justify-center gap-4">
 				<Button classes={buttonClasses} link={buttonLink}>{buttonText}</Button>
+				{secondaryButtonText && (
+					<Button
+						style="neutral"
+						classes={secondaryButtonClasses || 'w-full lg:w-auto'}
+						link={secondaryButtonLink}
+					>
+						{secondaryButtonText}
+					</Button>
+				)}
 			</div>
-			<div data-parallax-offset="80" class="parallax">
-				<Image
-					src={screenshot}
-					alt="Mizu Light"
-					class="mx-auto block"
-					layout="constrained"
-					decoding="async"
-					loading="eager"
-					fetchpriority="high"
-					width={1280}
-				/>
+			<div class="w-full pb-8">
+				<HowItWorks client:load features={steps} className="bg-transparent!" />
 			</div>
 		</Col>
 	</Row>

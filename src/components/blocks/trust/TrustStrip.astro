@@ -1,0 +1,48 @@
+---
+// Trust Strip Block
+// ------------
+// Description: Quick-reference trust bar displayed below hero showing core areas of time savings.
+
+// Components
+// - Layout
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import { Icon } from 'astro-icon/components'
+
+// Content
+const items = [
+	{ label: 'Documents', icon: 'document-text' },
+	{ label: 'Reports', icon: 'document-chart-bar' },
+	{ label: 'Data Entry', icon: 'circle-stack' },
+	{ label: 'Client Updates', icon: 'chat-bubble-left-right' },
+	{ label: 'Internal Workflows', icon: 'arrow-path' },
+	{ label: 'Repetitive Tasks', icon: 'clipboard-document-check' }
+]
+---
+
+<Section classes="py-8! lg:py-12!" spacerTop={false} spacerBottom={false}>
+	<Row style="semitransparent" classes="py-8 lg:py-10">
+		<Col span="12">
+			<div class="flex flex-col items-center">
+				<p class="mb-6 text-center text-xs font-semibold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
+					Save time on:
+				</p>
+				<div class="flex w-full flex-wrap items-center justify-center gap-3 lg:gap-4">
+					{
+						items.map((item) => (
+							<div class="inline-flex items-center gap-2 rounded-full border border-neutral-300/80 bg-white/90 px-4 py-2 text-sm font-medium text-neutral-800 shadow-xs backdrop-blur-xs transition hover:border-primary-500 dark:border-neutral-700/80 dark:bg-neutral-900/90 dark:text-neutral-200 dark:hover:border-primary-500">
+								<Icon name="check-circle" class="size-4 text-primary-500 flex-shrink-0" />
+								<span>{item.label}</span>
+							</div>
+						))
+					}
+				</div>
+			</div>
+		</Col>
+	</Row>
+</Section>
+
+<style>
+	@reference '../../../styles/global.css';
+</style>

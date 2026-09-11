@@ -1,0 +1,67 @@
+---
+// Why Fluxfuse (Short & Spacious)
+// ------------
+// Description: Direct 3-pillar philosophy: Built around your work.
+
+// Components
+// - Layout
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+
+// Content
+const pillars = [
+	{
+		title: 'No rip-and-replace.',
+		description: 'Keep your existing tools.'
+	},
+	{
+		title: 'No bloated platform.',
+		description: 'We solve the specific bottleneck.'
+	},
+	{
+		title: 'No disappearing after launch.',
+		description: 'We maintain and improve what we build.'
+	}
+]
+---
+
+<Section id="why-fluxfuse" classes="py-20! lg:py-32!" decorationBorder="none">
+	<Row style="transparent" decorationBorder="none">
+		<Col span="12" style="transparent">
+			<div class="max-w-4xl mx-auto text-center mb-16 lg:mb-20">
+				<p class="text-xs md:text-sm font-semibold uppercase tracking-widest text-primary-600 dark:text-primary-400 mb-4">
+					Why Fluxfuse
+				</p>
+				<h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-950 dark:text-white leading-tight">
+					Built Around Your Work
+				</h2>
+				<p class="text-lg md:text-2xl text-neutral-700 dark:text-neutral-300 font-medium mt-6 max-w-2xl mx-auto leading-relaxed">
+					We work with the tools you already use and build around the way your team actually works.
+				</p>
+			</div>
+		</Col>
+	</Row>
+
+	<!-- 3 Core Statements -->
+	<Row style="transparent" decorationBorder="none" classes="gap-6 lg:gap-8">
+		{
+			pillars.map((pillar) => (
+				<Col span="4" spanTablet="12" spanMobile="12" style="transparent">
+					<div class="h-full rounded-2xl border border-neutral-200/80 bg-white/70 p-8 lg:p-10 backdrop-blur-xs transition hover:border-neutral-400 dark:border-neutral-800 dark:bg-neutral-950/70 dark:hover:border-neutral-700">
+						<h3 class="text-2xl lg:text-3xl font-bold tracking-tight text-neutral-950 dark:text-white mb-3">
+							{pillar.title}
+						</h3>
+						<p class="text-lg text-neutral-600 dark:text-neutral-300 font-medium mb-0!">
+							{pillar.description}
+						</p>
+					</div>
+				</Col>
+			))
+		}
+	</Row>
+</Section>
+
+<style>
+	@reference '../../../styles/global.css';
+</style>

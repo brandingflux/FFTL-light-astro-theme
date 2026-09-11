@@ -1,0 +1,80 @@
+---
+// What Fluxfuse Does
+// ------------
+// Description: The 3-step operational framework (Find, Fix, Automate).
+
+// Components
+// - Layout
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import { Icon } from 'astro-icon/components'
+
+// Content
+const steps = [
+	{
+		number: '01',
+		title: 'Find',
+		description: 'We examine how work actually gets done across your team.',
+		icon: 'eye'
+	},
+	{
+		number: '02',
+		title: 'Fix',
+		description: 'We simplify unnecessary steps and eliminate redundant bottlenecks.',
+		icon: 'bolt'
+	},
+	{
+		number: '03',
+		title: 'Automate',
+		description: 'We build the reliable background systems that handle the rest.',
+		icon: 'arrow-path'
+	}
+]
+---
+
+<Section id="what-fluxfuse-does" classes="py-20! lg:py-32!" decorationBorder="none">
+	<Row style="transparent" decorationBorder="none">
+		<Col span="12" style="transparent">
+			<div class="max-w-4xl mx-auto text-center mb-16 lg:mb-20">
+				<p class="text-xs md:text-sm font-semibold uppercase tracking-widest text-primary-600 dark:text-primary-400 mb-4">
+					Our Method
+				</p>
+				<h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-950 dark:text-white leading-tight">
+					We Find It. We Fix It. We Automate It.
+				</h2>
+			</div>
+		</Col>
+	</Row>
+
+	<Row style="transparent" decorationBorder="none" classes="gap-6 lg:gap-8">
+		{
+			steps.map((step) => (
+				<Col span="4" spanTablet="12" spanMobile="12" style="transparent">
+					<div class="h-full rounded-2xl border border-neutral-200/80 bg-white/70 p-8 lg:p-10 backdrop-blur-xs flex flex-col justify-between transition hover:border-neutral-400 dark:border-neutral-800 dark:bg-neutral-950/70 dark:hover:border-neutral-700">
+						<div>
+							<div class="flex items-center justify-between mb-8">
+								<span class="font-mono text-sm font-bold text-primary-600 dark:text-primary-400">
+									{step.number}
+								</span>
+								<div class="size-10 rounded-xl bg-primary-50 dark:bg-primary-950/60 flex items-center justify-center text-primary-600 dark:text-primary-400">
+									<Icon name={step.icon} class="size-5" />
+								</div>
+							</div>
+							<h3 class="text-3xl lg:text-4xl font-bold tracking-tight text-neutral-950 dark:text-white mb-4">
+								{step.title}
+							</h3>
+							<p class="text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed mb-0!">
+								{step.description}
+							</p>
+						</div>
+					</div>
+				</Col>
+			))
+		}
+	</Row>
+</Section>
+
+<style>
+	@reference '../../../styles/global.css';
+</style>
