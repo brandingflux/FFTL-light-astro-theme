@@ -390,8 +390,8 @@ export function CinematicFooter({
     <footer
       className={cn(
         asSection
-          ? "relative flex min-h-[90vh] md:min-h-screen w-full flex-col justify-between overflow-hidden bg-[var(--background)] text-[var(--foreground)] cinematic-footer-wrapper py-12"
-          : "fixed bottom-0 left-0 flex h-screen w-full flex-col justify-between overflow-hidden bg-[var(--background)] text-[var(--foreground)] cinematic-footer-wrapper",
+          ? "relative flex min-h-[90vh] md:min-h-screen w-full flex-col justify-between overflow-hidden bg-[var(--background)] text-[var(--foreground)] cinematic-footer-wrapper pt-28 lg:pt-36 pb-12"
+          : "fixed bottom-0 left-0 flex h-screen w-full flex-col justify-between overflow-hidden bg-[var(--background)] text-[var(--foreground)] cinematic-footer-wrapper pt-28 lg:pt-36",
         className
       )}
     >
@@ -407,19 +407,19 @@ export function CinematicFooter({
         {giantText}
       </div>
 
-      {/* 1. Diagonal Sleek Marquee (Top of footer) */}
-      <div className="absolute top-12 left-0 w-full overflow-hidden border-y border-[var(--border)]/50 bg-[var(--background)]/60 backdrop-blur-md py-4 z-10 -rotate-2 scale-110 shadow-2xl">
+      {/* 1. Diagonal Sleek Marquee (Top of footer, offset below sticky navbar) */}
+      <div className="absolute top-28 lg:top-36 left-0 w-full overflow-hidden border-y border-[var(--border)]/50 bg-[var(--background)]/60 backdrop-blur-md py-4 z-10 -rotate-2 scale-110 shadow-2xl">
         <div className="flex w-max animate-footer-scroll-marquee text-xs md:text-sm font-bold tracking-[0.3em] text-[var(--muted-foreground)] uppercase">
           <MarqueeItem items={marqueeItems} />
           <MarqueeItem items={marqueeItems} />
         </div>
       </div>
 
-      {/* 2. Main Center Content */}
-      <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 mt-20 w-full max-w-5xl mx-auto">
+      {/* 2. Main Center Content (comfortably clear of navbar and marquee) */}
+      <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 mt-28 lg:mt-36 pt-8 lg:pt-12 w-full max-w-5xl mx-auto">
         <h2
           ref={headingRef}
-          className="text-5xl md:text-8xl font-black footer-text-glow tracking-tighter mb-12 text-center"
+          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black footer-text-glow tracking-tighter mb-8 lg:mb-12 text-center"
         >
           {title}
         </h2>
