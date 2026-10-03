@@ -5,7 +5,7 @@ import lottie from "astro-integration-lottie";
 import sitemap from "@astrojs/sitemap";
 import react from "@astrojs/react";
 import markdoc from "@astrojs/markdoc";
-import netlify from "@astrojs/netlify";
+import vercel from "@astrojs/vercel";
 
 /**
  * Vite plugin to handle Windows system file locks (EBUSY / DumpStack.log.tmp)
@@ -69,5 +69,5 @@ export default defineConfig({
       },
     },
   },
-  adapter: netlify({ imageCDN: false, devFeatures: false }),
+  adapter: vercel(),
 });

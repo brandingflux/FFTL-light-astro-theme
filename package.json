@@ -12,8 +12,6 @@
   "dependencies": {
     "@astrojs/check": "^0.9.9",
     "@astrojs/markdoc": "^2.0.0",
-    "@astrojs/netlify": "^8.0.0",
-    "@astrojs/preact": "^6.0.0",
     "@astrojs/react": "^6.0.0",
     "@astrojs/sitemap": "^3.7.3",
     "@astrojs/vercel": "^11.0.0",
@@ -43,10 +41,6 @@
     "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "@astrojs/partytown": "^2.1.7",
     "@tailwindcss/typography": "^0.5.19"
-  },
-  "resolutions": {
-    "cookie": "1.0.2"
   }
 }
