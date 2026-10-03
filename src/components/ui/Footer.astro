@@ -31,20 +31,20 @@ const { logo, footerAbout, footerColumns, copyright } = await getFooterNavigatio
 				<div class="footer__logo">
 					{
 						logo?.src && (
-							<a href={`/`}>
+							<a href={`/`} class="p-6 block">
 								<img
 									src={logo.src}
 									alt={logo.alt}
-									width="426"
-									height="426"
-									class="block dark:hidden"
+									width="120"
+									height="120"
+									class="block dark:hidden max-w-28 sm:max-w-36 h-auto object-contain mx-auto"
 								/>
 								<img
 									src={logo.srcDark}
 									alt={logo.alt}
-									width="426"
-									height="426"
-									class="hidden dark:block"
+									width="120"
+									height="120"
+									class="hidden dark:block max-w-28 sm:max-w-36 h-auto object-contain mx-auto"
 								/>
 							</a>
 						)

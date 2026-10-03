@@ -1,0 +1,134 @@
+---
+// Services B2B Component
+// ------------
+// Description: Client solutions business: AI Automation, Software Development,
+// Branding & Digital, AI Solutions.
+
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import Button from '../../ui/Button.astro'
+import { Icon } from 'astro-icon/components'
+
+const services = [
+	{
+		title: 'AI Automation',
+		category: 'Operational Efficiency',
+		description: 'Eliminate repetitive manual bottlenecks across your operations with resilient, self-healing automated workflows.',
+		deliverables: ['Custom CRM & DB Sync', 'Webhook & Event Pipelines', 'Data Scraping & Extraction'],
+		icon: 'bolt'
+	},
+	{
+		title: 'Software Development',
+		category: 'Custom Engineering',
+		description: 'Bespoke web applications, internal tools, and client portals built with modern frameworks and rock-solid architecture.',
+		deliverables: ['Custom Web Applications', 'Internal Admin Dashboards', 'API & Integration Layers'],
+		icon: 'server-stack'
+	},
+	{
+		title: 'Branding & Digital',
+		category: 'Identity & Strategy',
+		description: 'Complete digital identities, design systems, and converting web experiences that set your brand apart.',
+		deliverables: ['Visual Identity Systems', 'Component Libraries', 'High-Converting Web Design'],
+		icon: 'paint-brush'
+	},
+	{
+		title: 'AI Solutions',
+		category: 'Applied Intelligence',
+		description: 'Embed domain-specific AI models, autonomous agents, and RAG knowledge bases into your existing business products.',
+		deliverables: ['RAG Knowledge Bases', 'Custom Domain LLMs', 'Autonomous Support Agents'],
+		icon: 'light-bulb'
+	}
+]
+---
+
+<Section id="services" classes="py-20! lg:py-28!" decorationBorder="none" spacerBottom={false} spacerTop={false}>
+	<Row style="transparent" decorationBorder="none">
+		<Col span="12" style="transparent">
+			<div class="max-w-3xl mx-auto text-center mb-14 lg:mb-18">
+				<p class="text-xs md:text-sm font-mono font-bold uppercase tracking-widest text-primary-600 dark:text-primary-400 mb-3">
+					Client Solutions
+				</p>
+				<h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-neutral-950 dark:text-white leading-tight">
+					Need something built for your business?
+				</h2>
+				<p class="mt-4 text-base md:text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-2xl mx-auto">
+					Beyond our own products, FluxFuse works directly with ambitious businesses to design, engineer, and deploy high-leverage technology solutions.
+				</p>
+			</div>
+		</Col>
+	</Row>
+
+	<Row style="transparent" decorationBorder="none" classes="gap-6 lg:gap-8">
+		{
+			services.map((service, index) => (
+				<Col span="6" spanTablet="12" spanMobile="12" style="transparent">
+					<div class="group h-full rounded-none border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0C0A09] p-8 lg:p-9 flex flex-col justify-between transition-all duration-300 hover:border-neutral-400 dark:hover:border-neutral-700 hover:shadow-lg dark:hover:shadow-black/60">
+						<div>
+							<div class="flex items-center justify-between mb-6">
+								<div class="size-11 rounded-none bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 flex items-center justify-center text-primary-600 dark:text-primary-400 group-hover:border-primary-500/40 transition-colors">
+									<Icon name={service.icon} class="size-5.5" />
+								</div>
+								<span class="text-xs font-mono font-bold text-neutral-400 dark:text-neutral-500">
+									0{index + 1}
+								</span>
+							</div>
+
+							<div class="mb-4">
+								<p class="text-xs font-mono font-semibold uppercase tracking-wider text-primary-600 dark:text-primary-400 mb-1">
+									{service.category}
+								</p>
+								<h3 class="text-2xl font-bold tracking-tight text-neutral-950 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+									{service.title}
+								</h3>
+							</div>
+
+							<p class="text-sm md:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">
+								{service.description}
+							</p>
+
+							<div class="space-y-2 mb-6 pt-4 border-t border-neutral-200/80 dark:border-neutral-800/80">
+								<p class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-2">
+									Typical Engagements:
+								</p>
+								{service.deliverables.map((item) => (
+									<div class="flex items-center text-xs md:text-sm text-neutral-700 dark:text-neutral-300">
+										<span class="size-1.5 rounded-none bg-primary-500 mr-2.5 flex-shrink-0"></span>
+										<span>{item}</span>
+									</div>
+								))}
+							</div>
+						</div>
+
+						<div class="pt-4">
+							<a
+								href="/contact"
+								class="inline-flex items-center text-sm font-semibold text-neutral-950 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors"
+							>
+								<span>Request a project consultation</span>
+								<Icon name="long-arrow-right" class="size-4 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
+							</a>
+						</div>
+					</div>
+				</Col>
+			))
+		}
+	</Row>
+
+	<Row style="transparent" decorationBorder="none" classes="mt-14">
+		<Col span="12" style="transparent" classes="text-center">
+			<div class="inline-flex flex-col sm:flex-row items-center gap-4">
+				<Button link="/contact" style="primary" classes="w-full sm:w-auto">
+					Work with FluxFuse →
+				</Button>
+				<Button link="/services" style="neutral" classes="w-full sm:w-auto">
+					Explore Services in Detail
+				</Button>
+			</div>
+		</Col>
+	</Row>
+</Section>
+
+<style>
+	@reference '../../../styles/global.css';
+</style>

@@ -1,0 +1,167 @@
+---
+// Company Story & Building Differentiator Component
+// ------------
+// Description: The "We Build" philosophy and narrative overview.
+// Crafted with a seamless, organic ambient brand glow without hard borders or cuts.
+
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import Button from '../../ui/Button.astro'
+
+const buildItems = [
+	{ label: 'Apps', desc: 'Native & cross-platform software' },
+	{ label: 'Tools', desc: 'Productivity extensions & utilities' },
+	{ label: 'Automations', desc: 'Zero-maintenance background systems' },
+	{ label: 'Software', desc: 'Cloud platforms & custom engineering' },
+	{ label: 'Experiences', desc: 'Digital identities & visual systems' }
+]
+---
+
+<Section
+	id="company-story"
+	classes="py-20! lg:py-32! relative overflow-hidden"
+	decorationBorder="none"
+	spacerBottom={false}
+>
+	{/* Seamless Atmospheric Ambient Glow - completely feathered at top & bottom so viewer cannot see where it starts */}
+	<div class="pointer-events-none absolute inset-0 select-none overflow-hidden ambient-glow-wrapper" aria-hidden="true">
+		{/* Breathing ambient aurora glow centered behind the philosophy statement */}
+		<div class="ambient-aurora-glow" />
+		{/* Soft radial depth veil for contrast behind typography */}
+		<div class="ambient-radial-veil" />
+	</div>
+
+	<Row style="transparent" decorationBorder="none" classes="relative z-10">
+		<Col span="12" style="transparent">
+			<div class="max-w-4xl mx-auto text-center">
+				<p class="text-xs md:text-sm font-mono font-bold uppercase tracking-[0.25em] text-primary-600 dark:text-primary-400 mb-6">
+					The FluxFuse Philosophy
+				</p>
+				
+				<h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-neutral-950 dark:text-white mb-8 leading-tight">
+					One company.<br class="hidden sm:inline" /> Many ways to build.
+				</h2>
+
+				<p class="text-lg md:text-xl text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto leading-relaxed mb-12">
+					We don't chase buzzwords or repackage commodity services. FluxFuse is a technology studio focused on the craft of building useful, durable software that solves actual friction for people and businesses.
+				</p>
+			</div>
+		</Col>
+	</Row>
+
+	{/* "We Build" Grid */}
+	<Row style="transparent" decorationBorder="none" classes="relative z-10 max-w-5xl mx-auto mt-6">
+		<Col span="12" style="transparent">
+			<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+				{
+					buildItems.map((item) => (
+						<div class="group relative rounded-none border border-neutral-200 dark:border-neutral-800 bg-white/80 dark:bg-[#0C0A09]/80 backdrop-blur-xs p-5 text-center transition-all duration-300 hover:border-primary-500/50 hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-black/60">
+							<p class="text-xs font-mono uppercase tracking-wider text-primary-600 dark:text-primary-400 mb-1">
+								We build
+							</p>
+							<h3 class="text-xl md:text-2xl font-bold text-neutral-950 dark:text-white mb-2">
+								{item.label}
+							</h3>
+							<p class="text-xs text-neutral-600 dark:text-neutral-400 leading-normal mb-0!">
+								{item.desc}
+							</p>
+						</div>
+					))
+				}
+			</div>
+
+			<div class="text-center mt-12">
+				<Button link="/about" style="neutral" classes="w-full sm:w-auto">
+					Explore FluxFuse story →
+				</Button>
+			</div>
+		</Col>
+	</Row>
+</Section>
+
+<style>
+	@reference '../../../styles/global.css';
+
+	/*
+	 * Seamless Atmospheric Masking:
+	 * Vertically feathers from 0% opacity at the top edge to 100% in the center,
+	 * then back to 0% opacity at the bottom edge.
+	 * Guarantees zero visible seam, cut, or hard start line.
+	 */
+	.ambient-glow-wrapper {
+		-webkit-mask-image: linear-gradient(
+			to bottom,
+			transparent 0%,
+			black 22%,
+			black 78%,
+			transparent 100%
+		);
+		mask-image: linear-gradient(
+			to bottom,
+			transparent 0%,
+			black 22%,
+			black 78%,
+			transparent 100%
+		);
+	}
+
+	@keyframes philosophy-breathe {
+		0% {
+			transform: translate(-50%, -50%) scale(0.96);
+			opacity: 0.75;
+		}
+		100% {
+			transform: translate(-50%, -50%) scale(1.06);
+			opacity: 1;
+		}
+	}
+
+	.ambient-aurora-glow {
+		position: absolute;
+		left: 50%;
+		top: 36%;
+		transform: translate(-50%, -50%);
+		width: 90vw;
+		max-width: 960px;
+		height: 480px;
+		border-radius: 50%;
+		background: radial-gradient(
+			ellipse at center,
+			rgba(251, 87, 0, 0.22) 0%,
+			rgba(249, 115, 22, 0.12) 32%,
+			rgba(249, 115, 22, 0.03) 60%,
+			transparent 75%
+		);
+		filter: blur(75px);
+		animation: philosophy-breathe 8s ease-in-out infinite alternate;
+		will-change: transform, opacity;
+	}
+
+	:global(.dark) .ambient-aurora-glow {
+		background: radial-gradient(
+			ellipse at center,
+			rgba(251, 87, 0, 0.28) 0%,
+			rgba(249, 115, 22, 0.14) 35%,
+			rgba(249, 115, 22, 0.03) 65%,
+			transparent 80%
+		);
+		filter: blur(85px);
+	}
+
+	/* Subtle darkening behind typography in dark mode for crisp contrast */
+	.ambient-radial-veil {
+		position: absolute;
+		inset: 0;
+		background: radial-gradient(
+			ellipse 85% 65% at 50% 38%,
+			rgba(12, 10, 9, 0.5) 0%,
+			rgba(12, 10, 9, 0.18) 50%,
+			transparent 80%
+		);
+	}
+
+	:global(:not(.dark)) .ambient-radial-veil {
+		display: none;
+	}
+</style>

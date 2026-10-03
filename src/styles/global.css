@@ -60,6 +60,7 @@
 	/* Fonts */
 	--font-headings: 'Clash-Display', sans-serif;
 	--font-body: 'Clash-Grotesk', sans-serif;
+	--font-logo: 'Mr-Amazin', sans-serif;
 
 	/* Spacing */
 	--spacing-15: 60px;
@@ -161,6 +162,26 @@
 	font-display: swap;
 	font-style: normal;
 }
+
+@font-face {
+	font-family: 'Mr-Amazin';
+	src:
+		url('/fonts/mr-amazin/mr-amazin-regular-type.woff2') format('woff2'),
+		url('/fonts/mr-amazin/mr-amazin-regular-type.woff') format('woff'),
+		url('/fonts/mr-amazin/mr-amazin-regular-type.otf') format('opentype');
+	font-weight: normal;
+	font-display: swap;
+	font-style: normal;
+}
+
+@utility font-logo {
+	font-family: 'Mr-Amazin', sans-serif;
+}
+
+.font-logo {
+	font-family: 'Mr-Amazin', sans-serif;
+}
+
 /* Layout rules */
 html {
 	@apply scroll-smooth antialiased;

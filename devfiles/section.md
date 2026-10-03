@@ -374,7 +374,7 @@ export function CinematicFooter() {
             
             {/* Copyright */}
             <div className="text-muted-foreground text-[10px] md:text-xs font-semibold tracking-widest uppercase order-2 md:order-1">
-              © 2026 Volvox. All rights reserved.
+              © 2026 FluxFuse. All rights reserved.
             </div>
 
             {/* "Made with Love" Badge */}

@@ -22,15 +22,14 @@ export interface Config {
 }
 
 export const configData: Config = {
-	siteTitle:
-		'Mizu Light Astro Theme | Modern SaaS & Startup Landing Page Template for Fast Product Launches by Oxygenna',
+	siteTitle: 'FluxFuse — Software for the work that matters',
 	siteDescription:
-		'Launch your next big idea with Mizu Light — a sleek, responsive Astro theme built for SaaS startups and tech companies. Streamline onboarding, showcase features beautifully, and convert visitors into users faster.',
+		'We build apps, AI tools, automations, and digital solutions for businesses and individuals.',
 	ogImage: '/og.jpg',
 	logo: {
 		src: '/logo-light.svg',
 		srcDark: '/logo-dark.svg',
-		alt: 'Mizu Light logo'
+		alt: 'FluxFuse logo'
 	},
 	canonical: true,
 	noindex: false,

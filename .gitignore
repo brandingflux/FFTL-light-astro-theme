@@ -25,3 +25,8 @@ pnpm-debug.log*
 
 # Local Netlify folder
 .netlify
+
+# Agent and local files
+.agents/
+.claude/
+Screenshot*.png

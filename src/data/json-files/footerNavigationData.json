@@ -2,46 +2,43 @@
 	"logo": {
 		"src": "/logo-light.svg",
 		"srcDark": "/logo-dark.svg",
-		"alt": "Mizu Light logo"
+		"alt": "FluxFuse logo"
 	},
 	"footerAbout": {
-		"aboutText": "Mizu Light, from idea to impact, without the noise."
+		"aboutText": "Software for the work that matters. Apps, AI tools, automations, and digital solutions."
 	},
 	"footerColumns": [
 		{
-			"title": "Your Launchpad",
+			"title": "Products",
 			"links": [
-				{ "label": "Home", "href": "/" },
-				{ "label": "Features", "href": "/features" },
-				{ "label": "Get Started", "href": "/get-started" },
-				{ "label": "Pricing", "href": "/pricing" }
+				{ "label": "Apps", "href": "/products#apps" },
+				{ "label": "Extensions", "href": "/products#extensions" },
+				{ "label": "SaaS", "href": "/products#saas" }
 			]
 		},
 		{
-			"title": "Meet the Crew",
+			"title": "Services",
+			"links": [
+				{ "label": "AI Automation", "href": "/services#ai-automation" },
+				{ "label": "Software Development", "href": "/services#software" },
+				{ "label": "Branding & Design", "href": "/services#branding" },
+				{ "label": "Digital Solutions", "href": "/services#solutions" }
+			]
+		},
+		{
+			"title": "Company",
 			"links": [
 				{ "label": "About", "href": "/about" },
-				{ "label": "Blog", "href": "/blog" },
-				{ "label": "Contact", "href": "/contact" }
-			]
-		},
-		{
-			"title": "Let's Connect",
-			"links": [
-				{ "label": "Twitter / X", "href": "https://x.com/yourhandle" },
-				{ "label": "LinkedIn", "href": "https://www.linkedin.com/company/yourcompany" },
-				{ "label": "GitHub", "href": "https://github.com/yourorg" },
-				{ "label": "LinkedIn", "href": "https://www.linkedin.com/in/yourprofile" },
-				{ "label": "Threads", "href": "https://www.threads.net/@yourhandle" }
+				{ "label": "Contact", "href": "/contact" },
+				{ "label": "Blog", "href": "/blog" }
 			]
 		}
 	],
 	"copyright": {
-		"text": "Mizu Light, all rights reserved 2026",
+		"text": "© 2026 FluxFuse Technologies Limited. All rights reserved.",
 		"legal": [
-			{ "label": "Terms", "href": "/terms" },
-			{ "label": "Conditions", "href": "/conditions" },
-			{ "label": "Privacy Policy", "href": "/privacy" }
+			{ "label": "Terms & Privacy", "href": "/terms" },
+			{ "label": "Contact", "href": "/contact" }
 		]
 	}
 }

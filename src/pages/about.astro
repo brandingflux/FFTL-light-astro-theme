@@ -1,0 +1,155 @@
+---
+// About Page
+// ------------
+// Description: The FluxFuse story, philosophy, and technology vision.
+
+import Layout from '../layouts/Layout.astro'
+import Section from '../components/ui/Section.astro'
+import Row from '../components/ui/Row.astro'
+import Col from '../components/ui/Col.astro'
+import Button from '../components/ui/Button.astro'
+import { Icon } from 'astro-icon/components'
+
+const SEO = {
+	title: 'About — FluxFuse Technologies',
+	description:
+		'FluxFuse develops practical software and digital solutions across products, AI, automation, and creative technology.'
+}
+
+const principles = [
+	{
+		title: 'We Build Things That Work',
+		desc: 'We are builders first. We judge technology by its tangible utility, performance, and reliability in real everyday workflows—not hype cycles.',
+		icon: 'bolt'
+	},
+	{
+		title: 'Zero Bloat Architecture',
+		desc: 'Every app, script, and platform we create is designed to be lean, fast, and maintainable. We eliminate unnecessary layers and complexity.',
+		icon: 'server-stack'
+	},
+	{
+		title: 'Ecosystem of Products & Services',
+		desc: 'By building both our own product portfolio and bespoke solutions for clients, we continuously cross-pollinate architectural insights and battle-tested code.',
+		icon: 'puzzle-piece'
+	},
+	{
+		title: 'Long-Term Reliability',
+		desc: 'Software must stand the test of time. We design systems that require minimal maintenance, fail gracefully, and respect user privacy.',
+		icon: 'shield-check'
+	}
+]
+---
+
+<Layout title={SEO.title} description={SEO.description} footer="motion">
+	{/* Hero */}
+	<Section classes="pt-24! lg:pt-32! pb-16! text-center" decorationBorder="none">
+		<Row style="transparent" decorationBorder="none">
+			<Col span="12" style="transparent">
+				<p class="text-xs md:text-sm font-mono font-bold uppercase tracking-widest text-primary-600 dark:text-primary-400 mb-4">
+					About FluxFuse
+				</p>
+				<h1 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-neutral-950 dark:text-white max-w-4xl mx-auto leading-tight mb-6">
+					One company.<br />Many ways to build.
+				</h1>
+				<p class="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed">
+					FluxFuse Technologies develops practical software and digital solutions across products, AI, automation, and creative technology.
+				</p>
+			</Col>
+		</Row>
+	</Section>
+
+	{/* Story & Manifest */}
+	<Section classes="py-16! lg:py-24!" decorationBorder="none">
+		<Row style="transparent" decorationBorder="none" classes="max-w-4xl mx-auto">
+			<Col span="12" style="transparent">
+				<div class="prose dark:prose-invert max-w-none text-base sm:text-lg leading-relaxed text-neutral-700 dark:text-neutral-300">
+					<p class="text-xl sm:text-2xl font-bold text-neutral-950 dark:text-white leading-snug mb-8">
+						We founded FluxFuse around a simple observation: modern work is full of friction, fragmented tools, and unnecessary busywork.
+					</p>
+					<p>
+						Instead of positioning ourselves as another narrow agency or a single-product startup, we built FluxFuse as a <strong>multi-product technology company and product studio</strong>. We have the agility to conceive, engineer, and launch our own apps, productivity extensions, and SaaS platforms—while simultaneously collaborating with businesses to build high-leverage digital systems.
+					</p>
+					<p>
+						Our work spans four core pillars:
+					</p>
+					<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8 not-prose">
+						<div class="rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/60 p-5">
+							<span class="font-mono text-xs font-bold uppercase text-primary-600 dark:text-primary-400">Pillar 01</span>
+							<h3 class="text-lg font-bold text-neutral-950 dark:text-white mt-1">Apps</h3>
+							<p class="text-xs text-neutral-600 dark:text-neutral-400 mt-1 mb-0!">Standalone desktop and mobile software designed to solve specific operational problems.</p>
+						</div>
+						<div class="rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/60 p-5">
+							<span class="font-mono text-xs font-bold uppercase text-primary-600 dark:text-primary-400">Pillar 02</span>
+							<h3 class="text-lg font-bold text-neutral-950 dark:text-white mt-1">Extensions</h3>
+							<p class="text-xs text-neutral-600 dark:text-neutral-400 mt-1 mb-0!">Lightweight browser and workflow accelerators that make existing tools faster and smarter.</p>
+						</div>
+						<div class="rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/60 p-5">
+							<span class="font-mono text-xs font-bold uppercase text-primary-600 dark:text-primary-400">Pillar 03</span>
+							<h3 class="text-lg font-bold text-neutral-950 dark:text-white mt-1">SaaS</h3>
+							<p class="text-xs text-neutral-600 dark:text-neutral-400 mt-1 mb-0!">Web-based software platforms built for continuous automation and collaborative operations.</p>
+						</div>
+						<div class="rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/60 p-5">
+							<span class="font-mono text-xs font-bold uppercase text-primary-600 dark:text-primary-400">Pillar 04</span>
+							<h3 class="text-lg font-bold text-neutral-950 dark:text-white mt-1">Services</h3>
+							<p class="text-xs text-neutral-600 dark:text-neutral-400 mt-1 mb-0!">Bespoke software engineering, AI automation, and digital branding for ambitious companies.</p>
+						</div>
+					</div>
+					<p>
+						We believe the strongest differentiator in technology is simple: <strong>actually building things.</strong> Not just consulting or reselling, but taking full ownership of code quality, interface precision, and user experience.
+					</p>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	{/* Principles */}
+	<Section classes="py-20! lg:py-28!" decorationBorder="none">
+		<Row style="transparent" decorationBorder="none">
+			<Col span="12" style="transparent">
+				<div class="max-w-3xl mx-auto text-center mb-16">
+					<p class="text-xs md:text-sm font-mono font-bold uppercase tracking-widest text-primary-600 dark:text-primary-400 mb-3">
+						Our Standards
+					</p>
+					<h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-neutral-950 dark:text-white">
+						How we think about technology.
+					</h2>
+				</div>
+			</Col>
+		</Row>
+
+		<Row style="transparent" decorationBorder="none" classes="gap-6 lg:gap-8 max-w-5xl mx-auto">
+			{principles.map((item) => (
+				<Col span="6" spanTablet="12" spanMobile="12" style="transparent">
+					<div class="h-full rounded-2xl border border-neutral-200/90 dark:border-neutral-800/90 bg-white dark:bg-neutral-900/70 p-8">
+						<div class="size-11 rounded-xl bg-primary-50 dark:bg-primary-950/60 flex items-center justify-center text-primary-600 dark:text-primary-400 mb-5">
+							<Icon name={item.icon} class="size-5.5" />
+						</div>
+						<h3 class="text-xl font-bold text-neutral-950 dark:text-white mb-2">
+							{item.title}
+						</h3>
+						<p class="text-sm md:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed mb-0!">
+							{item.desc}
+						</p>
+					</div>
+				</Col>
+			))}
+		</Row>
+
+		<Row style="transparent" decorationBorder="none" classes="mt-16">
+			<Col span="12" style="transparent" classes="text-center">
+				<div class="inline-flex flex-col sm:flex-row items-center gap-4">
+					<Button link="/products" style="primary" classes="w-full sm:w-auto">
+						Explore what we build →
+					</Button>
+					<Button link="/contact" style="neutral" classes="w-full sm:w-auto">
+						Get in touch with us
+					</Button>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+</Layout>
+
+<style>
+	@reference '../styles/global.css';
+</style>

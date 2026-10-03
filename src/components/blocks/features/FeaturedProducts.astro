@@ -1,0 +1,150 @@
+---
+// Featured Products Component (Portfolio Showcase)
+// ------------
+// Description: Showcase of products built by FluxFuse with category tags and status.
+
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import Button from '../../ui/Button.astro'
+import { Icon } from 'astro-icon/components'
+
+const products = [
+	{
+		title: 'FuseFlow',
+		subtitle: 'Autonomous Workflow Engine',
+		description: 'An AI-orchestrated event processing platform that connects enterprise data pipelines and automates complex cross-app workflows without code.',
+		tags: ['SaaS', 'AI', 'Automation'],
+		status: 'Live',
+		statusColor: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20',
+		link: '/products#fuseflow',
+		icon: 'rocket'
+	},
+	{
+		title: 'PromptCraft',
+		subtitle: 'Developer Prompt Assistant',
+		description: 'A browser extension for engineers and creators that injects contextual AI accelerators and prompt version control directly into web IDEs and tools.',
+		tags: ['Extension', 'Productivity'],
+		status: 'Beta',
+		statusColor: 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20',
+		link: '/products#promptcraft',
+		icon: 'puzzle-piece'
+	},
+	{
+		title: 'DeskSync',
+		subtitle: 'Local-First Asset Vault',
+		description: 'Fast, secure desktop software designed for teams managing high-volume digital assets, automated cloud sync, and local vector indexing.',
+		tags: ['Desktop App', 'Utility'],
+		status: 'In Development',
+		statusColor: 'bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20',
+		link: '/products#desksync',
+		icon: 'server-stack'
+	},
+	{
+		title: 'PulseBot',
+		subtitle: 'Intelligent Operations Assistant',
+		description: 'Proactive AI agent that monitors team communication channels, synthesizes weekly standups, and flags critical project blockers in real time.',
+		tags: ['AI Agent', 'SaaS'],
+		status: 'Beta',
+		statusColor: 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20',
+		link: '/products#pulsebot',
+		icon: 'light-bulb'
+	}
+]
+---
+
+<Section id="featured-products" classes="py-20! lg:py-28!" decorationBorder="none" spacerBottom={false} spacerTop={false}>
+	<Row style="transparent" decorationBorder="none">
+		<Col span="12" style="transparent">
+			<div class="flex flex-col md:flex-row md:items-end justify-between mb-14 lg:mb-18 gap-6">
+				<div class="max-w-2xl">
+					<p class="text-xs md:text-sm font-mono font-bold uppercase tracking-widest text-primary-600 dark:text-primary-400 mb-3">
+						Portfolio & Ecosystem
+					</p>
+					<h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-neutral-950 dark:text-white leading-tight">
+						Built by FluxFuse.
+					</h2>
+					<p class="mt-4 text-base md:text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
+						We ship practical tools, browser extensions, and cloud platforms. Here is a selection of products designed and launched from our studio.
+					</p>
+				</div>
+				<div class="flex-shrink-0">
+					<a
+						href="/products"
+						class="inline-flex items-center gap-2 text-sm md:text-base font-semibold text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+					>
+						<span>View all products</span>
+						<Icon name="long-arrow-right" class="size-4" />
+					</a>
+				</div>
+			</div>
+		</Col>
+	</Row>
+
+	<Row style="transparent" decorationBorder="none" classes="gap-6 lg:gap-8">
+		{
+			products.map((product) => (
+				<Col span="6" spanTablet="12" spanMobile="12" style="transparent">
+					<div class="group relative flex flex-col justify-between h-full rounded-none border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0C0A09] p-8 lg:p-9 transition-all duration-300 hover:border-neutral-400 dark:hover:border-neutral-700 hover:shadow-lg dark:hover:shadow-black/60">
+						<div>
+							<div class="flex items-center justify-between mb-6">
+								<div class="flex items-center gap-3">
+									<div class="size-10 rounded-none bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 flex items-center justify-center text-primary-600 dark:text-primary-400 group-hover:border-primary-500/40 transition-colors">
+										<Icon name={product.icon} class="size-5" />
+									</div>
+									<div>
+										<h3 class="text-xl font-bold tracking-tight text-neutral-950 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+											{product.title}
+										</h3>
+										<p class="text-xs font-medium text-neutral-500 dark:text-neutral-400 mb-0!">
+											{product.subtitle}
+										</p>
+									</div>
+								</div>
+
+								<span class={`text-[11px] font-mono font-bold px-2.5 py-1 rounded-none border ${product.statusColor}`}>
+									{product.status}
+								</span>
+							</div>
+
+							<p class="text-sm md:text-base text-neutral-600 dark:text-neutral-300 leading-relaxed mb-6">
+								{product.description}
+							</p>
+						</div>
+
+						<div>
+							<div class="flex flex-wrap gap-2 pt-4 border-t border-neutral-200/80 dark:border-neutral-800/80 items-center justify-between">
+								<div class="flex flex-wrap gap-1.5">
+									{product.tags.map((tag) => (
+										<span class="text-[11px] font-mono font-medium text-neutral-600 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 px-2 py-0.5 rounded-none">
+											{tag}
+										</span>
+									))}
+								</div>
+								<a
+									href={product.link}
+									class="inline-flex items-center text-xs font-semibold text-neutral-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors"
+								>
+									<span>Learn more</span>
+									<Icon name="long-arrow-right" class="size-3.5 ml-1.5 transition-transform group-hover:translate-x-1" />
+								</a>
+							</div>
+						</div>
+					</div>
+				</Col>
+			))
+		}
+	</Row>
+
+	<Row style="transparent" decorationBorder="none" classes="mt-12">
+		<Col span="12" style="transparent" classes="text-center">
+			<Button link="/products" style="neutral" classes="w-full sm:w-auto">
+				Explore full product catalog →
+			</Button>
+		</Col>
+	</Row>
+</Section>
+
+<style>
+	@reference '../../../styles/global.css';
+</style>

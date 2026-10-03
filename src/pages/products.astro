@@ -1,0 +1,285 @@
+---
+// Products Catalog Page
+// ------------
+// Description: Detailed catalog of FluxFuse Products: Apps, Extensions, and SaaS.
+
+import Layout from '../layouts/Layout.astro'
+import Section from '../components/ui/Section.astro'
+import Row from '../components/ui/Row.astro'
+import Col from '../components/ui/Col.astro'
+import Button from '../components/ui/Button.astro'
+import { Icon } from 'astro-icon/components'
+
+const SEO = {
+	title: 'Products — FluxFuse Technology Portfolio',
+	description:
+		'Explore applications, productivity browser extensions, and SaaS platforms built by FluxFuse.'
+}
+
+const apps = [
+	{
+		title: 'DeskSync',
+		badge: 'Desktop App (macOS & Windows)',
+		status: 'In Development',
+		statusColor: 'bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20',
+		description: 'A local-first digital asset vault with automated cloud sync, real-time file watch, and zero-latency local vector indexing.',
+		features: ['Local-first SQLite & Vector DB', 'Selective background sync', 'End-to-end encrypted storage'],
+		actionText: 'Join Waitlist',
+		actionLink: '/contact',
+		icon: 'server-stack'
+	},
+	{
+		title: 'QuickMark',
+		badge: 'Mobile & Utility',
+		status: 'Beta',
+		statusColor: 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20',
+		description: 'Minimalist capture and task sequencing application designed to eliminate mobile context switching on the go.',
+		features: ['Gesture-driven navigation', 'Instant offline sync', 'Markdown export everywhere'],
+		actionText: 'Request Beta Access',
+		actionLink: '/contact',
+		icon: 'mobile'
+	}
+]
+
+const extensions = [
+	{
+		title: 'PromptCraft',
+		badge: 'Chrome & Edge Extension',
+		status: 'Beta',
+		statusColor: 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20',
+		description: 'A contextual browser copilot that organizes prompt libraries, tracks version history, and injects shortcuts into any web interface.',
+		features: ['One-click shortcut insertion', 'Cross-browser synced vaults', 'Contextual variable replacement'],
+		actionText: 'Add to Chrome',
+		actionLink: '/contact',
+		icon: 'puzzle-piece'
+	},
+	{
+		title: 'TabShield',
+		badge: 'Productivity Tool',
+		status: 'Live',
+		statusColor: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20',
+		description: 'Smart memory saver and distraction dampener for browser-heavy researchers and operators.',
+		features: ['Zero CPU background suspension', 'Workspace tab grouping', 'One-click session recovery'],
+		actionText: 'Install Extension',
+		actionLink: '/contact',
+		icon: 'shield-check'
+	}
+]
+
+const saas = [
+	{
+		title: 'FuseFlow',
+		badge: 'Cloud Automation Platform',
+		status: 'Live',
+		statusColor: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20',
+		description: 'Event-driven workflow platform that automates multi-step business logic across databases, webhooks, and third-party APIs without glue code.',
+		features: ['Visual event stream canvas', 'Built-in retry queues & dead-letters', 'Granular team permission scopes'],
+		actionText: 'Launch FuseFlow',
+		actionLink: '/contact',
+		icon: 'rocket'
+	},
+	{
+		title: 'PulseBot',
+		badge: 'AI Operations SaaS',
+		status: 'Beta',
+		statusColor: 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20',
+		description: 'Proactive internal operations bot that turns noisy group chats and linear trackers into actionable executive summaries.',
+		features: ['Automated asynchronous standups', 'Blocker sentiment alerting', 'Instant weekly recap reports'],
+		actionText: 'Request Demo',
+		actionLink: '/contact',
+		icon: 'light-bulb'
+	}
+]
+---
+
+<Layout title={SEO.title} description={SEO.description} footer="motion">
+	{/* Hero */}
+	<Section classes="pt-24! lg:pt-32! pb-16! text-center" decorationBorder="none">
+		<Row style="transparent" decorationBorder="none">
+			<Col span="12" style="transparent">
+				<p class="text-xs md:text-sm font-mono font-bold uppercase tracking-widest text-primary-600 dark:text-primary-400 mb-4">
+					Portfolio & Ecosystem
+				</p>
+				<h1 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-neutral-950 dark:text-white max-w-4xl mx-auto leading-tight mb-6">
+					Software built for the work that matters.
+				</h1>
+				<p class="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed">
+					From standalone native apps and browser productivity tools to enterprise SaaS platforms, explore the technology built by FluxFuse.
+				</p>
+
+				{/* Quick jump navigation */}
+				<div class="flex flex-wrap items-center justify-center gap-3 mt-10">
+					<a href="#apps" class="px-5 py-2 rounded-full border border-neutral-200 dark:border-neutral-800 bg-white/80 dark:bg-neutral-900/80 text-sm font-semibold hover:border-primary-500 transition-colors">
+						Apps ↓
+					</a>
+					<a href="#extensions" class="px-5 py-2 rounded-full border border-neutral-200 dark:border-neutral-800 bg-white/80 dark:bg-neutral-900/80 text-sm font-semibold hover:border-primary-500 transition-colors">
+						Extensions ↓
+					</a>
+					<a href="#saas" class="px-5 py-2 rounded-full border border-neutral-200 dark:border-neutral-800 bg-white/80 dark:bg-neutral-900/80 text-sm font-semibold hover:border-primary-500 transition-colors">
+						SaaS Platforms ↓
+					</a>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	{/* Category 1: Apps */}
+	<Section id="apps" classes="py-16! lg:py-24!" decorationBorder="none">
+		<Row style="transparent" decorationBorder="none">
+			<Col span="12" style="transparent">
+				<div class="mb-12">
+					<span class="text-xs font-mono font-bold uppercase tracking-wider text-primary-600 dark:text-primary-400">01. Category</span>
+					<h2 class="text-3xl font-bold tracking-tight text-neutral-950 dark:text-white mt-1">Standalone Apps</h2>
+					<p class="text-neutral-600 dark:text-neutral-400 text-base max-w-2xl mt-2">
+						Focused software built to solve specific workflow friction with local-first performance and rock-solid reliability.
+					</p>
+				</div>
+			</Col>
+		</Row>
+
+		<Row style="transparent" decorationBorder="none" classes="gap-6 lg:gap-8">
+			{apps.map((item) => (
+				<Col span="6" spanTablet="12" spanMobile="12" style="transparent">
+					<div class="rounded-none border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0C0A09] p-8 h-full flex flex-col justify-between transition-all duration-300 hover:border-neutral-400 dark:hover:border-neutral-700 hover:shadow-lg dark:hover:shadow-black/60">
+						<div>
+							<div class="flex items-center justify-between mb-6">
+								<div class="flex items-center gap-3">
+									<div class="size-10 rounded-none bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 flex items-center justify-center text-primary-600 dark:text-primary-400">
+										<Icon name={item.icon} class="size-5" />
+									</div>
+									<h3 class="text-2xl font-bold text-neutral-950 dark:text-white">{item.title}</h3>
+								</div>
+								<span class={`text-[11px] font-mono font-bold px-2.5 py-1 rounded-none border ${item.statusColor}`}>
+									{item.status}
+								</span>
+							</div>
+							<p class="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-3">{item.badge}</p>
+							<p class="text-base text-neutral-600 dark:text-neutral-300 leading-relaxed mb-6">{item.description}</p>
+							<ul class="space-y-2 mb-8 pt-4 border-t border-neutral-200/80 dark:border-neutral-800">
+								{item.features.map((feat) => (
+									<li class="flex items-center text-xs md:text-sm text-neutral-700 dark:text-neutral-300">
+										<span class="size-1.5 rounded-none bg-primary-500 mr-2.5 flex-shrink-0"></span>
+										<span>{feat}</span>
+									</li>
+								))}
+							</ul>
+						</div>
+						<div>
+							<Button link={item.actionLink} style="neutral" classes="w-full text-xs md:text-sm">
+								{item.actionText} →
+							</Button>
+						</div>
+					</div>
+				</Col>
+			))}
+		</Row>
+	</Section>
+
+	{/* Category 2: Extensions */}
+	<Section id="extensions" classes="py-16! lg:py-24!" decorationBorder="none">
+		<Row style="transparent" decorationBorder="none">
+			<Col span="12" style="transparent">
+				<div class="mb-12">
+					<span class="text-xs font-mono font-bold uppercase tracking-wider text-primary-600 dark:text-primary-400">02. Category</span>
+					<h2 class="text-3xl font-bold tracking-tight text-neutral-950 dark:text-white mt-1">Productivity Extensions</h2>
+					<p class="text-neutral-600 dark:text-neutral-400 text-base max-w-2xl mt-2">
+						Lightweight tools that integrate directly into existing browsers and environments to speed up daily output.
+					</p>
+				</div>
+			</Col>
+		</Row>
+
+		<Row style="transparent" decorationBorder="none" classes="gap-6 lg:gap-8">
+			{extensions.map((item) => (
+				<Col span="6" spanTablet="12" spanMobile="12" style="transparent">
+					<div class="rounded-none border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0C0A09] p-8 h-full flex flex-col justify-between transition-all duration-300 hover:border-neutral-400 dark:hover:border-neutral-700 hover:shadow-lg dark:hover:shadow-black/60">
+						<div>
+							<div class="flex items-center justify-between mb-6">
+								<div class="flex items-center gap-3">
+									<div class="size-10 rounded-none bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 flex items-center justify-center text-primary-600 dark:text-primary-400">
+										<Icon name={item.icon} class="size-5" />
+									</div>
+									<h3 class="text-2xl font-bold text-neutral-950 dark:text-white">{item.title}</h3>
+								</div>
+								<span class={`text-[11px] font-mono font-bold px-2.5 py-1 rounded-none border ${item.statusColor}`}>
+									{item.status}
+								</span>
+							</div>
+							<p class="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-3">{item.badge}</p>
+							<p class="text-base text-neutral-600 dark:text-neutral-300 leading-relaxed mb-6">{item.description}</p>
+							<ul class="space-y-2 mb-8 pt-4 border-t border-neutral-200/80 dark:border-neutral-800">
+								{item.features.map((feat) => (
+									<li class="flex items-center text-xs md:text-sm text-neutral-700 dark:text-neutral-300">
+										<span class="size-1.5 rounded-none bg-primary-500 mr-2.5 flex-shrink-0"></span>
+										<span>{feat}</span>
+									</li>
+								))}
+							</ul>
+						</div>
+						<div>
+							<Button link={item.actionLink} style="neutral" classes="w-full text-xs md:text-sm">
+								{item.actionText} →
+							</Button>
+						</div>
+					</div>
+				</Col>
+			))}
+		</Row>
+	</Section>
+
+	{/* Category 3: SaaS */}
+	<Section id="saas" classes="py-16! lg:py-24!" decorationBorder="none">
+		<Row style="transparent" decorationBorder="none">
+			<Col span="12" style="transparent">
+				<div class="mb-12">
+					<span class="text-xs font-mono font-bold uppercase tracking-wider text-primary-600 dark:text-primary-400">03. Category</span>
+					<h2 class="text-3xl font-bold tracking-tight text-neutral-950 dark:text-white mt-1">SaaS Platforms</h2>
+					<p class="text-neutral-600 dark:text-neutral-400 text-base max-w-2xl mt-2">
+						Cloud platforms built for recurring team operations, intelligent automation, and multi-tenant reliability.
+					</p>
+				</div>
+			</Col>
+		</Row>
+
+		<Row style="transparent" decorationBorder="none" classes="gap-6 lg:gap-8">
+			{saas.map((item) => (
+				<Col span="6" spanTablet="12" spanMobile="12" style="transparent">
+					<div class="rounded-none border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0C0A09] p-8 h-full flex flex-col justify-between transition-all duration-300 hover:border-neutral-400 dark:hover:border-neutral-700 hover:shadow-lg dark:hover:shadow-black/60">
+						<div>
+							<div class="flex items-center justify-between mb-6">
+								<div class="flex items-center gap-3">
+									<div class="size-10 rounded-none bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 flex items-center justify-center text-primary-600 dark:text-primary-400">
+										<Icon name={item.icon} class="size-5" />
+									</div>
+									<h3 class="text-2xl font-bold text-neutral-950 dark:text-white">{item.title}</h3>
+								</div>
+								<span class={`text-[11px] font-mono font-bold px-2.5 py-1 rounded-none border ${item.statusColor}`}>
+									{item.status}
+								</span>
+							</div>
+							<p class="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-3">{item.badge}</p>
+							<p class="text-base text-neutral-600 dark:text-neutral-300 leading-relaxed mb-6">{item.description}</p>
+							<ul class="space-y-2 mb-8 pt-4 border-t border-neutral-200/80 dark:border-neutral-800">
+								{item.features.map((feat) => (
+									<li class="flex items-center text-xs md:text-sm text-neutral-700 dark:text-neutral-300">
+										<span class="size-1.5 rounded-none bg-primary-500 mr-2.5 flex-shrink-0"></span>
+										<span>{feat}</span>
+									</li>
+								))}
+							</ul>
+						</div>
+						<div>
+							<Button link={item.actionLink} style="primary" classes="w-full text-xs md:text-sm">
+								{item.actionText} →
+							</Button>
+						</div>
+					</div>
+				</Col>
+			))}
+		</Row>
+	</Section>
+</Layout>
+
+<style>
+	@reference '../styles/global.css';
+</style>

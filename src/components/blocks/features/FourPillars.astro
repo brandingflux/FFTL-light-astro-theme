@@ -1,0 +1,184 @@
+---
+// Four Pillars Component (What We Do)
+// ------------
+// Description: The 4 core monetization & building areas of FluxFuse:
+// Apps, Extensions, SaaS, Services.
+
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import { Icon } from 'astro-icon/components'
+
+const pillars = [
+	{
+		title: 'Apps',
+		badge: 'Native & Standalone',
+		description: 'Standalone desktop and mobile software designed to solve focused, high-friction problems.',
+		link: '/products#apps',
+		actionText: 'Explore Apps',
+		icon: 'mobile',
+		color: 'from-amber-500/10 to-orange-500/5 dark:from-amber-500/15 dark:to-orange-500/5',
+		borderColor: 'hover:border-amber-500/40 dark:hover:border-amber-400/40'
+	},
+	{
+		title: 'Extensions',
+		badge: 'Productivity',
+		description: 'Lightweight browser and workflow extensions that make existing tools faster, sharper, and easier to use.',
+		link: '/products#extensions',
+		actionText: 'Explore Extensions',
+		icon: 'puzzle-piece',
+		color: 'from-blue-500/10 to-cyan-500/5 dark:from-blue-500/15 dark:to-cyan-500/5',
+		borderColor: 'hover:border-blue-500/40 dark:hover:border-blue-400/40'
+	},
+	{
+		title: 'SaaS',
+		badge: 'Web Software',
+		description: 'Cloud-native software and AI platforms engineered for continuous workflows and team collaboration.',
+		link: '/products#saas',
+		actionText: 'Explore SaaS',
+		icon: 'globe-alt',
+		color: 'from-emerald-500/10 to-teal-500/5 dark:from-emerald-500/15 dark:to-teal-500/5',
+		borderColor: 'hover:border-emerald-500/40 dark:hover:border-emerald-400/40'
+	},
+	{
+		title: 'Services',
+		badge: 'Custom Solutions',
+		description: 'Custom AI automation, software engineering, branding, and digital infrastructure built for modern businesses.',
+		link: '/services',
+		actionText: 'Explore Services',
+		icon: 'bolt',
+		color: 'from-purple-500/10 to-violet-500/5 dark:from-purple-500/15 dark:to-violet-500/5',
+		borderColor: 'hover:border-purple-500/40 dark:hover:border-purple-400/40'
+	}
+]
+---
+
+<Section id="products" classes="py-20! lg:py-28!" decorationBorder="none" spacerBottom={false} spacerTop={false}>
+	<Row style="transparent" decorationBorder="none">
+		<Col span="12" style="transparent">
+			<div class="max-w-3xl mx-auto text-center mb-3 lg:mb-4">
+				<p class="text-xs md:text-sm font-mono font-bold uppercase tracking-widest text-primary-600 dark:text-primary-400 mb-3">
+					What We Build
+				</p>
+				<h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-neutral-950 dark:text-white leading-tight">
+					We build across four core areas.
+				</h2>
+				<p class="mt-4 text-base md:text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-2xl mx-auto">
+					From standalone applications to client solutions, our technology portfolio spans products people love and systems that power businesses.
+				</p>
+			</div>
+		</Col>
+	</Row>
+
+	<!-- Branching SVG Tree Connector (Desktop lg+) -->
+	<div class="hidden lg:block w-full mb-3 -mt-2 relative z-10 pointer-events-none select-none">
+		<svg
+			viewBox="0 0 1200 80"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			class="w-full h-16 xl:h-20 overflow-visible"
+			preserveAspectRatio="none"
+		>
+			<defs>
+				<filter id="pillar-glow" x="-10%" y="-10%" width="120%" height="120%">
+					<feDropShadow dx="0" dy="1" stdDeviation="2.5" flood-color="#FB5700" flood-opacity="0.45" />
+				</filter>
+			</defs>
+
+			<!-- Center Origin Pulsing Node -->
+			<circle cx="600" cy="2" r="3.5" fill="#FB5700" />
+			<circle cx="600" cy="2" r="7" fill="#FB5700" fill-opacity="0.3" class="animate-ping" style="transform-origin: 600px 2px;" />
+
+			<g filter="url(#pillar-glow)">
+				<!-- Branch 1 -> Apps (Col 1 center: 141) -->
+				<path
+					d="M 600 2 V 14 C 600 48, 141 32, 141 71"
+					stroke="#FB5700"
+					stroke-width="2"
+					stroke-linecap="round"
+					vector-effect="non-scaling-stroke"
+				/>
+				<polygon points="136,70 141,80 146,70" fill="#FB5700" />
+
+				<!-- Branch 2 -> Extensions (Col 2 center: 447) -->
+				<path
+					d="M 600 2 V 14 C 600 48, 447 38, 447 71"
+					stroke="#FB5700"
+					stroke-width="2"
+					stroke-linecap="round"
+					vector-effect="non-scaling-stroke"
+				/>
+				<polygon points="442,70 447,80 452,70" fill="#FB5700" />
+
+				<!-- Branch 3 -> SaaS (Col 3 center: 753) -->
+				<path
+					d="M 600 2 V 14 C 600 48, 753 38, 753 71"
+					stroke="#FB5700"
+					stroke-width="2"
+					stroke-linecap="round"
+					vector-effect="non-scaling-stroke"
+				/>
+				<polygon points="748,70 753,80 758,70" fill="#FB5700" />
+
+				<!-- Branch 4 -> Services (Col 4 center: 1059) -->
+				<path
+					d="M 600 2 V 14 C 600 48, 1059 32, 1059 71"
+					stroke="#FB5700"
+					stroke-width="2"
+					stroke-linecap="round"
+					vector-effect="non-scaling-stroke"
+				/>
+				<polygon points="1054,70 1059,80 1064,70" fill="#FB5700" />
+			</g>
+		</svg>
+	</div>
+
+	<!-- Mobile / Tablet Downward Indicator (< lg) -->
+	<div class="lg:hidden flex flex-col items-center justify-center -mt-2 mb-6 pointer-events-none select-none">
+		<div class="w-px h-8 bg-gradient-to-b from-[#FB5700]/20 to-[#FB5700]"></div>
+		<svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+			<polygon points="1,1 6,7 11,1" fill="#FB5700" />
+		</svg>
+	</div>
+
+	<Row style="transparent" decorationBorder="none" classes="gap-6">
+		{
+			pillars.map((pillar) => (
+				<Col span="3" spanTablet="6" spanMobile="12" style="transparent">
+					<a
+						href={pillar.link}
+						class={`group relative flex flex-col justify-between h-full rounded-none border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0C0A09] p-7 lg:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-black/60 ${pillar.borderColor}`}
+					>
+						<div>
+							<div class="flex items-center justify-between mb-6">
+								<div class="size-11 rounded-none bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 flex items-center justify-center text-neutral-900 dark:text-white group-hover:bg-primary-50 dark:group-hover:bg-primary-500/10 group-hover:border-primary-500/40 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+									<Icon name={pillar.icon} class="size-5.5" />
+								</div>
+								<span class="text-[11px] font-mono font-semibold uppercase tracking-wider text-neutral-600 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 px-2.5 py-1 rounded-none">
+									{pillar.badge}
+								</span>
+							</div>
+
+							<h3 class="text-2xl font-bold tracking-tight text-neutral-950 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+								{pillar.title}
+							</h3>
+
+							<p class="text-sm md:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">
+								{pillar.description}
+							</p>
+						</div>
+
+						<div class="pt-4 border-t border-neutral-200/80 dark:border-neutral-800/80 flex items-center text-sm font-semibold text-neutral-950 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+							<span>{pillar.actionText}</span>
+							<Icon name="long-arrow-right" class="size-4 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
+						</div>
+					</a>
+				</Col>
+			))
+		}
+	</Row>
+</Section>
+
+<style>
+	@reference '../../../styles/global.css';
+</style>

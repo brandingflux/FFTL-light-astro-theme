@@ -71,23 +71,20 @@ const Card = ({
     <div
       className={`relative w-full md:w-[280px] transition-transform duration-300 hover:z-30 hover:scale-105 ${rotateClass} ${className}`}
     >
-      <div className="bg-white dark:bg-neutral-900 p-2 rounded-[25px] shadow-[0px_10px_20px_0px_#D3D3D3] dark:shadow-none border border-neutral-100 dark:border-neutral-800">
-        <Pin className={`w-8 h-8 ${textColor} z-20 mb-6 mx-auto`} />
+      <div className="bg-white dark:bg-neutral-900 p-2 rounded-none shadow-[0px_10px_20px_0px_#D3D3D3] dark:shadow-none border border-neutral-200 dark:border-neutral-800">
+        <Pin className={`w-8 h-8 ${textColor} z-20 mb-5 mx-auto`} />
         <div
-          className={`${bgColor} border ${borderColor} rounded-[15px] p-[15px] h-full flex flex-col relative overflow-hidden`}
+          className={`${bgColor} border ${borderColor} rounded-none p-5 h-full flex flex-col relative overflow-hidden text-left`}
         >
           <span
-            className={`${textColor} text-4xl font-handwriting mb-5`}
-            style={{
-              fontFamily: '"Comic Sans MS", "Chalkboard SE", sans-serif',
-            }}
+            className={`${textColor} text-3xl font-mono font-black tracking-wider mb-4 block`}
           >
             {number}
           </span>
-          <h3 className="text-2xl font-semibold text-neutral-800 dark:text-neutral-100 leading-none mb-[10px]">
+          <h3 className="text-xl md:text-2xl font-bold tracking-tight text-neutral-900 dark:text-white leading-tight mb-2.5">
             {title}
           </h3>
-          <p className="text-neutral-500 dark:text-neutral-400 text-sm/5 tracking-tight">
+          <p className="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed mb-0">
             {description}
           </p>
         </div>
@@ -139,33 +136,33 @@ export function HowItWorks({
 }: HowItWorksProps) {
   const defaultFeatures: Step[] = [
     {
-      title: "Create Account",
+      title: "Identify Friction",
       description:
-        "Sign up in minutes. Enter your details and verify your email to get started.",
+        "We target manual bottlenecks, fragmented workflows, and time-wasting tasks across operations.",
       colorTheme: "orange",
     },
     {
-      title: "Verify Identity",
+      title: "Architect Systems",
       description:
-        "Complete your profile verification to ensure secure transactions and compliance.",
+        "We blueprint pragmatic digital solutions—from lightweight tools to full-scale cloud platforms.",
       colorTheme: "blue",
     },
     {
-      title: "Select Plan",
+      title: "Build & Engineer",
       description:
-        "Choose from a variety of investment plans tailored to your financial goals.",
+        "We craft native apps, browser extensions, automations, and scalable SaaS platforms with modern code.",
       colorTheme: "purple",
     },
     {
-      title: "Analyze & Invest",
+      title: "Automate Workflows",
       description:
-        "Review returns and make your first investment with confidence.",
+        "We integrate tools, APIs, and background processes to eliminate busywork and human error.",
       colorTheme: "orange",
     },
     {
-      title: "Track Growth",
+      title: "Deploy & Power Growth",
       description:
-        "Monitor your portfolio in real-time and watch your wealth grow over time.",
+        "We ship durable, battle-tested software designed to solve real problems and scale with your work.",
       colorTheme: "blue",
     },
   ];

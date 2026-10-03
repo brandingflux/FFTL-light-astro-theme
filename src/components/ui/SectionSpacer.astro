@@ -15,14 +15,15 @@ import DecorationBorder from '../../components/ui/DecorationBorder.astro'
 type Props = {
 	style?: 'primary' | 'neutral'
 	extraClasses?: string
+	borderType?: string
 }
-const { style = 'primary', extraClasses = '' }: Props = Astro.props
+const { style = 'primary', extraClasses = '', borderType = 'left right bottom' }: Props = Astro.props
 ---
 
-<div class:list={[`section-spacer section-spacer--${style}`]}>
+<div class:list={[`section-spacer section-spacer--${style}`, extraClasses]}>
 	<div class="container">
 		<div class="spacer">
-			<DecorationBorder type="left right" />
+			<DecorationBorder type={borderType} />
 		</div>
 	</div>
 </div>

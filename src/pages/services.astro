@@ -1,0 +1,229 @@
+---
+// Services Page
+// ------------
+// Description: Detailed overview of FluxFuse client services: AI Automation,
+// Software Development, Branding & Digital, and AI Solutions.
+
+import Layout from '../layouts/Layout.astro'
+import Section from '../components/ui/Section.astro'
+import Row from '../components/ui/Row.astro'
+import Col from '../components/ui/Col.astro'
+import Button from '../components/ui/Button.astro'
+import { Icon } from 'astro-icon/components'
+
+const SEO = {
+	title: 'Services — FluxFuse Client Solutions',
+	description:
+		'Partner with FluxFuse for custom AI automation, software engineering, branding & digital systems that scale your operations.'
+}
+
+const servicesDetailed = [
+	{
+		id: 'ai-automation',
+		title: 'AI Automation',
+		subtitle: 'Eliminate repetitive manual bottlenecks',
+		description: 'We connect your CRM, databases, spreadsheets, and internal communication tools into seamless, automated pipelines that eliminate hundreds of hours of manual copy-paste work.',
+		capabilities: [
+			'Custom database and CRM bi-directional sync',
+			'Automated invoice, document, and contract parsing',
+			'Webhook listeners & multi-stage event processing',
+			'Automated email dispatch and client onboarding triggers',
+			'Self-healing error retry queues with admin alert logs'
+		],
+		icon: 'bolt'
+	},
+	{
+		id: 'software',
+		title: 'Software Development',
+		subtitle: 'Custom applications engineered to scale',
+		description: 'When off-the-shelf software fails to fit your exact business workflows, we architect and deploy fast, resilient custom web applications, internal tools, and APIs.',
+		capabilities: [
+			'Custom internal admin dashboards & portals',
+			'Client-facing web apps with role-based access control',
+			'REST & GraphQL API design and integration',
+			'Performance tuning and database schema optimization',
+			'Cloud infrastructure provisioning and automated CI/CD'
+		],
+		icon: 'server-stack'
+	},
+	{
+		id: 'branding',
+		title: 'Branding & Design Systems',
+		subtitle: 'Cohesive, high-converting digital identities',
+		description: 'We craft comprehensive visual identities, design tokens, and accessible component systems that position your brand as a market leader from day one.',
+		capabilities: [
+			'Brand visual identity & typography systems',
+			'Custom Tailwind / CSS token architectures',
+			'Accessible component libraries (WCAG compliant)',
+			'High-conversion landing pages and interactive layouts',
+			'Interactive prototype testing & design audits'
+		],
+		icon: 'paint-brush'
+	},
+	{
+		id: 'solutions',
+		title: 'Applied AI & Solutions',
+		subtitle: 'Practical intelligence embedded into real work',
+		description: 'Move beyond experimental prompts. We build custom RAG pipelines, fine-tune models on your proprietary company data, and deploy reliable AI assistants that know your business.',
+		capabilities: [
+			'Retrieval-Augmented Generation (RAG) knowledge vaults',
+			'Autonomous operations agents with tool-calling capabilities',
+			'Automated customer support & triage systems',
+			'Domain-specific prompt engineering and guardrails',
+			'Real-time token cost and output latency monitoring'
+		],
+		icon: 'light-bulb'
+	}
+]
+
+const processSteps = [
+	{
+		step: '01',
+		title: 'Discovery & Friction Audit',
+		desc: 'We map out your current operational friction, team tools, and data flows to identify highest-impact leverage points.'
+	},
+	{
+		step: '02',
+		title: 'Architecture & Prototype',
+		desc: 'We define the technical blueprint and build rapid, functional prototypes to validate logic before full deployment.'
+	},
+	{
+		step: '03',
+		title: 'Production Build & Rigorous Testing',
+		desc: 'We engineer durable code with complete error handling, audit logging, and security boundaries.'
+	},
+	{
+		step: '04',
+		title: 'Handoff & Ongoing Reliability',
+		desc: 'We train your team, document all systems, and provide continuous monitoring to ensure zero disruptions.'
+	}
+]
+---
+
+<Layout title={SEO.title} description={SEO.description} footer="motion">
+	{/* Hero */}
+	<Section classes="pt-24! lg:pt-32! pb-16! text-center" decorationBorder="none">
+		<Row style="transparent" decorationBorder="none">
+			<Col span="12" style="transparent">
+				<p class="text-xs md:text-sm font-mono font-bold uppercase tracking-widest text-primary-600 dark:text-primary-400 mb-4">
+					Client Solutions & Engineering
+				</p>
+				<h1 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-neutral-950 dark:text-white max-w-4xl mx-auto leading-tight mb-6">
+					We engineer technology that moves your business forward.
+				</h1>
+				<p class="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed mb-10">
+					From automating tedious manual workflows to engineering bespoke web applications and AI systems, FluxFuse is your dedicated technology partner.
+				</p>
+				<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+					<Button link="/contact" style="primary" classes="w-full sm:w-auto">
+						Start a project with us →
+					</Button>
+					<Button link="#process" style="neutral" classes="w-full sm:w-auto">
+						How we work ↓
+					</Button>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	{/* Detailed Services */}
+	<Section classes="py-16! lg:py-24!" decorationBorder="none">
+		<Row style="transparent" decorationBorder="none" classes="gap-12">
+			{servicesDetailed.map((service, index) => (
+				<Col span="12" style="transparent">
+					<div id={service.id} class="rounded-none border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0C0A09] p-8 sm:p-10 lg:p-14 transition-all duration-300 hover:border-neutral-400 dark:hover:border-neutral-700 hover:shadow-lg dark:hover:shadow-black/60">
+						<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+							<div class="lg:col-span-5">
+								<div class="flex items-center gap-3 mb-6">
+									<div class="size-12 rounded-none bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 flex items-center justify-center text-primary-600 dark:text-primary-400">
+										<Icon name={service.icon} class="size-6" />
+									</div>
+									<span class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+										Service 0{index + 1}
+									</span>
+								</div>
+								<h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-neutral-950 dark:text-white mb-3">
+									{service.title}
+								</h2>
+								<p class="text-base font-semibold text-primary-600 dark:text-primary-400 mb-4">
+									{service.subtitle}
+								</p>
+								<p class="text-base text-neutral-600 dark:text-neutral-300 leading-relaxed mb-8">
+									{service.description}
+								</p>
+								<Button link="/contact" style="primary" classes="w-full sm:w-auto">
+									Inquire about {service.title} →
+								</Button>
+							</div>
+
+							<div class="lg:col-span-7 rounded-none bg-neutral-50 dark:bg-neutral-900/50 p-6 sm:p-8 border border-neutral-200 dark:border-neutral-800">
+								<h3 class="text-sm font-mono font-bold uppercase tracking-wider text-neutral-900 dark:text-white mb-6">
+									Key Capabilities & Deliverables
+								</h3>
+								<ul class="space-y-4">
+									{service.capabilities.map((cap) => (
+										<li class="flex items-start gap-3 text-sm sm:text-base text-neutral-700 dark:text-neutral-300">
+											<span class="size-1.5 rounded-none bg-primary-500 mt-2 flex-shrink-0"></span>
+											<span>{cap}</span>
+										</li>
+									))}
+								</ul>
+							</div>
+						</div>
+					</div>
+				</Col>
+			))}
+		</Row>
+	</Section>
+
+	{/* Process Section */}
+	<Section id="process" classes="py-20! lg:py-28!" decorationBorder="none">
+		<Row style="transparent" decorationBorder="none">
+			<Col span="12" style="transparent">
+				<div class="max-w-3xl mx-auto text-center mb-16">
+					<p class="text-xs md:text-sm font-mono font-bold uppercase tracking-widest text-primary-600 dark:text-primary-400 mb-3">
+						Our Methodology
+					</p>
+					<h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-neutral-950 dark:text-white">
+						How we work with you.
+					</h2>
+					<p class="mt-4 text-base md:text-lg text-neutral-600 dark:text-neutral-400">
+						Predictable, transparent sprints designed for speed, security, and measurable operational value.
+					</p>
+				</div>
+			</Col>
+		</Row>
+
+		<Row style="transparent" decorationBorder="none" classes="gap-6">
+			{processSteps.map((item) => (
+				<Col span="3" spanTablet="6" spanMobile="12" style="transparent">
+					<div class="h-full rounded-2xl border border-neutral-200/90 dark:border-neutral-800/90 bg-white dark:bg-neutral-900/70 p-7 flex flex-col justify-between">
+						<div>
+							<span class="text-2xl font-mono font-black text-primary-600 dark:text-primary-400 mb-4 block">
+								{item.step}
+							</span>
+							<h3 class="text-xl font-bold text-neutral-950 dark:text-white mb-2">
+								{item.title}
+							</h3>
+							<p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mb-0!">
+								{item.desc}
+							</p>
+						</div>
+					</div>
+				</Col>
+			))}
+		</Row>
+
+		<Row style="transparent" decorationBorder="none" classes="mt-14">
+			<Col span="12" style="transparent" classes="text-center">
+				<Button link="/contact" style="primary" classes="w-full sm:w-auto">
+					Ready to get started? Schedule a call →
+				</Button>
+			</Col>
+		</Row>
+	</Section>
+</Layout>
+
+<style>
+	@reference '../styles/global.css';
+</style>

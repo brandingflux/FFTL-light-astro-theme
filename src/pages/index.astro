@@ -1,58 +1,68 @@
 ---
-// Home Page
+// FluxFuse Home Page
 // ------------
-// Description: The home page is a page that displays the most important information.
+// Description: Multi-product technology company and product studio homepage.
+// Structured around the 5 major moments specified in revamp.md.
 
-// Components
-// - Layout
+// Layout
 import Layout from '../layouts/Layout.astro'
 
-// - Blocks
+// Blocks
 import Hero from '../components/blocks/hero/CenteredHeroCTA.astro'
-import CinematicFooter from '../components/ui/motion-footer'
-import Features from '../components/blocks/features/MasonryGrid.astro'
-import ScrollSpySteps from '../components/blocks/onboarding/Steps.astro'
-import TestimonialMasonry from '../components/blocks/testimonials/TestimonialMasonry.astro'
-import Faq from '../components/blocks/faq/StickyFaq.astro'
-import CTA from '../components/blocks/cta/CTAPrimary.astro'
+import FourPillars from '../components/blocks/features/FourPillars.astro'
+import FeaturedProducts from '../components/blocks/features/FeaturedProducts.astro'
+import ServicesB2B from '../components/blocks/services/ServicesB2B.astro'
+import CompanyStory from '../components/blocks/brand/CompanyStory.astro'
 
-// Content
-// - SEO
+// SEO
 const SEO = {
-	title:
-		'Mizu Light Astro Theme | Modern SaaS & Startup Landing Page Template for Fast Product Launches by Oxygenna',
+	title: 'FluxFuse — Software for the work that matters',
 	description:
-		'Launch your next big idea with Mizu Light — a sleek, responsive Astro theme built for SaaS startups and tech companies. Streamline onboarding, showcase features beautifully, and convert visitors into users faster.'
+		'We build apps, AI tools, automations, and digital solutions for businesses and individuals.'
 }
-// - Hero data
+
+// Hero Data
 const heroData = {
-		title: 'Automate The',
-		rotatingWords: ['Busy Work', 'Manual Work', 'Admin Work', 'Routine Work', 'Repetitive Work'],
-		subtitle: 'Less Manual Work. More Results.',
-		buttonLink: '/pricing',
-		buttonText: 'See What We Automate',
-		text: 'Spend less time on manual work and more time growing your business.'
-	}
-// - Testimonial data
-const testimonialData = {
-	title: 'Loved by early adopters everywhere',
-	subtitle: 'What other are saying'
-}
-// - FAQ data
-const faqData = {
-	title: 'Frequently Asked Questions',
-	subtitle: 'Everything you need to know'
-}
-// - CTA data
-const ctaData = {
-	title: 'Launch your next big idea today',
-	text: 'Join creators, teams, and startups already turning their ideas into reality. Get started in minutes and see how simple launching can be when everything works together seamlessly.',
-	buttonLink: '/pricing',
-	buttonText: 'Try it for free!'
+	title: 'We build technology that',
+	rotatingWords: ['gets work done.', 'makes work easier.', 'solves real problems.', 'powers workflows.'],
+	subtitle: 'Software for the work that matters',
+	text: 'Apps, AI tools, automations, and digital solutions built by FluxFuse.',
+	buttonText: 'Explore what we build',
+	buttonLink: '#products',
+	secondaryButtonText: 'Work with us',
+	secondaryButtonLink: '/contact',
+	steps: [
+		{
+			title: 'Identify Friction',
+			description: 'We target manual bottlenecks, fragmented workflows, and time-wasting tasks across operations.',
+			colorTheme: 'orange' as const
+		},
+		{
+			title: 'Architect Systems',
+			description: 'We blueprint pragmatic digital solutions—from lightweight tools to full-scale cloud platforms.',
+			colorTheme: 'blue' as const
+		},
+		{
+			title: 'Build & Engineer',
+			description: 'We craft native apps, browser extensions, automations, and scalable SaaS platforms with modern code.',
+			colorTheme: 'purple' as const
+		},
+		{
+			title: 'Automate Workflows',
+			description: 'We integrate tools, APIs, and background processes to eliminate busywork and human error.',
+			colorTheme: 'orange' as const
+		},
+		{
+			title: 'Deploy & Power Growth',
+			description: 'We ship durable, battle-tested software designed to solve real problems and scale with your work.',
+			colorTheme: 'blue' as const
+		}
+	]
 }
 ---
 
-<Layout title={SEO.title} description={SEO.description}>
+<Layout title={SEO.title} description={SEO.description} footer="motion">
+	{/* 1. Hero */}
 	<Hero
 		title={heroData.title}
 		rotatingWords={heroData.rotatingWords}
@@ -61,16 +71,20 @@ const ctaData = {
 		text={heroData.text}
 		buttonLink={heroData.buttonLink}
 		buttonText={heroData.buttonText}
+		secondaryButtonLink={heroData.secondaryButtonLink}
+		secondaryButtonText={heroData.secondaryButtonText}
+		steps={heroData.steps}
 	/>
-	<CinematicFooter client:visible />
-	<Features />
-	<ScrollSpySteps />
-	<TestimonialMasonry title={testimonialData.title} subtitle={testimonialData.subtitle} />
-	<Faq subtitle={faqData.subtitle} title={faqData.title} />
-	<CTA
-		title={ctaData.title}
-		text={ctaData.text}
-		buttonLink={ctaData.buttonLink}
-		buttonText={ctaData.buttonText}
-	/>
+
+	{/* 2. What We Do - Four Pillars */}
+	<FourPillars />
+
+	{/* 3. Featured Products - Portfolio */}
+	<FeaturedProducts />
+
+	{/* 4. Services - Client Solutions */}
+	<ServicesB2B />
+
+	{/* 5. Company Story - The Builder Differentiator */}
+	<CompanyStory />
 </Layout>

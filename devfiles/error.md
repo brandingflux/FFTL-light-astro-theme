@@ -1,6 +1,4 @@
-10:08:41 [200] / 591ms
-10:12:46 [200] /_image 356ms
-10:13:03 [200] /contact 287ms
+15:25:36 [200] /terms 270ms
 node:events:496
       throw er; // Unhandled 'error' event
       ^

@@ -1,6 +1,12 @@
-<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M62.7726 66.667L33.3333 133.334H62.7726L91.6667 66.667H62.7726Z" fill="#EA580C"/>
-<path d="M107.217 66.667L77.7778 133.334H107.217L136.111 66.667H107.217Z" fill="#EA580C"/>
-<path d="M108.333 66.667L137.405 133.334H166.667L137.047 66.667H108.333Z" fill="#A8A29E" fill-opacity="0.1"/>
-<path d="M62.7778 66.667L91.8493 133.334H121.111L91.4914 66.667H62.7778Z" fill="#A8A29E" fill-opacity="0.1"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #FB5700;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="m247.62,159.3h589.09v86.89H247.62v-86.89Zm0,253.71v-85.15h589.97v85.15H247.62Zm152.92,85.15v86.88h-152.92v-86.88h152.92Z"/>
+  <path class="cls-1" d="m832.38,666.99v85.15H242.41v-85.15h589.97Zm0,253.71H243.29v-86.89h589.09v86.89Zm-152.92-338.86v-86.88h152.92v86.88h-152.92Z"/>
 </svg>

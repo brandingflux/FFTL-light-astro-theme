@@ -48,9 +48,9 @@ const savedNavActions = navActions.map((action: any) => ({
 		<nav aria-label="main navigation" role="navigation" class="header__nav">
 			{/* Logo */}
 			<a href={`/`} class="header__logo">
-				<img src={logo.src} alt={logo.alt} width="72" height="72" class="block dark:hidden" />
-				<img src={logo.srcDark} alt={logo.alt} width="72" height="72" class="hidden dark:block" />
-				{logo.text && <span>{logo.text}</span>}
+				<img src={logo.src} alt={logo.alt} width="44" height="44" class="size-10 sm:size-11 object-contain block dark:hidden" />
+				<img src={logo.srcDark} alt={logo.alt} width="44" height="44" class="size-10 sm:size-11 object-contain hidden dark:block" />
+				{logo.text && <span class="header__logo-text">{logo.text}</span>}
 			</a>
 
 			{/* Menu toggle */}
@@ -142,7 +142,11 @@ const savedNavActions = navActions.map((action: any) => ({
 		@apply sticky;
 	}
 	.header__logo {
-		@apply font-body relative flex items-center gap-2 text-2xl;
+		@apply relative flex items-center gap-3 text-xl;
+	}
+	.header__logo-text {
+		font-family: 'Mr-Amazin', sans-serif;
+		@apply text-base sm:text-lg md:text-xl font-normal tracking-wide text-neutral-950 dark:text-white leading-none pt-0.5 select-none;
 	}
 	.header__nav {
 		@apply relative flex h-22 items-stretch justify-between bg-white px-6 font-medium lg:h-[6.25rem] lg:px-8 dark:bg-neutral-950;
