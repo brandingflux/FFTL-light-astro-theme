@@ -85,7 +85,10 @@ const organizationSchema = {
 	'@type': 'Organization',
 	'@id': `${siteUrl}/#organization`,
 	name: configData.companyName,
-	alternateName: [configData.brandName, 'FFTL'],
+	legalName: configData.companyName,
+	alternateName: [configData.brandName, 'FFTL', 'FluxFuse Technologies'],
+	disambiguatingDescription:
+		'FluxFuse Technologies is an independent software studio and AI workflow engineering company developing productivity applications, browser extensions, and cloud platforms.',
 	url: siteUrl,
 	logo: {
 		'@type': 'ImageObject',
@@ -95,6 +98,18 @@ const organizationSchema = {
 	},
 	image: absoluteOgImage,
 	description: configData.siteDescription,
+	knowsAbout: [
+		'Artificial Intelligence',
+		'Software Engineering',
+		'Workflow Automation',
+		'Cloud Computing',
+		'Productivity Applications',
+		'SaaS Development'
+	],
+	brand: {
+		'@type': 'Brand',
+		name: configData.brandName
+	},
 	email: configData.contactEmail,
 	sameAs: sameAs.length > 0 ? sameAs : undefined,
 	contactPoint: [
