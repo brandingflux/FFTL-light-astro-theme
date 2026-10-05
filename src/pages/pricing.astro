@@ -1,51 +1,52 @@
 ---
-// Home Page
+// Pricing Redirect / Alternate Page
 // ------------
-// Description: The home page is a page that displays the most important information.
+// Redirects to /services in astro.config.mjs
 
-// Components
-// - Layout
 import Layout from '../layouts/Layout.astro'
-
-// - Blocks
 import Hero from '../components/blocks/hero/SimpleHeroBasic.astro'
 import BasicTable from '../components/blocks/pricing/BasicTable.astro'
 import Brand from '../components/blocks/brand/Marquee.astro'
 import Faq from '../components/blocks/faq/StickyFaq.astro'
 import CTA from '../components/blocks/cta/CTAPrimary.astro'
 
-// Content
-// - SEO
 const SEO = {
-	title: 'Mizu Light Astro Theme | Pricing',
+	title: 'Pricing & Engagement Models — FluxFuse Technologies',
 	description:
-		'Find the right Mizu Light plan for your next project. Simple, transparent pricing for individuals, startups, and growing teams.'
+		'Predictable sprint pricing and project engagement tiers for FluxFuse software engineering and AI automation.',
+	canonical: 'https://fluxfuse.net/services',
+	noindex: true
 }
-// - Hero data
+
 const heroData = {
-	title: 'Choose the plan that fits your workflow',
-	subtitle: 'Simple, Fair Pricing',
-	text: 'Whether you’re just starting out or scaling fast, we’ve got a plan that keeps things simple and transparent — no hidden fees, cancel anytime.'
+	title: 'Choose the Plan That Fits Your Workflow',
+	subtitle: 'Transparent Sprints',
+	text: 'Whether you need a targeted automation MVP or an ongoing dedicated engineering pod, we deliver high-velocity sprints with predictable deliverables.'
 }
-// - Brand data
+
 const brandData = {
-	title: 'Built in collaboration with'
+	title: 'Trusted tools and collaborative ecosystems'
 }
-// - FAQ data
+
 const faqData = {
-	title: 'Everything you need to know',
+	title: 'Everything You Need to Know',
 	subtitle: 'Frequently Asked Questions'
 }
-// - CTA data
+
 const ctaData = {
-	title: 'Launch your next big idea today',
-	text: 'Join creators, teams, and startups already turning their ideas into reality. Get started in minutes and see how simple launching can be when everything works together seamlessly.',
-	buttonLink: '/pricing',
-	buttonText: 'Try it for free!'
+	title: 'Ready to build together?',
+	text: 'Schedule a free architectural consultation with our engineering team to review your workflow and scope out your project.',
+	buttonLink: '/contact',
+	buttonText: 'Book Architecture Call'
 }
 ---
 
-<Layout title={SEO.title} description={SEO.description}>
+<Layout
+	title={SEO.title}
+	description={SEO.description}
+	canonical={SEO.canonical}
+	noindex={SEO.noindex}
+>
 	<Hero title={heroData.title} subtitle={heroData.subtitle} text={heroData.text} />
 	<BasicTable />
 	<Brand title={brandData.title} />

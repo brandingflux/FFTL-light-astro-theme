@@ -16,9 +16,64 @@ import CompanyStory from '../components/blocks/brand/CompanyStory.astro'
 
 // SEO
 const SEO = {
-	title: 'FluxFuse — Software for the work that matters',
+	title: 'FluxFuse — Software for the Work That Matters | Apps, AI & Automation',
 	description:
-		'We build apps, AI tools, automations, and digital solutions for businesses and individuals.'
+		'FluxFuse builds high-performance apps, enterprise AI automations, and custom software solutions designed to eliminate operational friction and scale workflows.',
+	keywords: [
+		'FluxFuse',
+		'FluxFuse Technologies',
+		'Software Product Studio',
+		'AI Automation Services',
+		'Custom Software Development',
+		'Workflow Automation',
+		'Enterprise AI Integration',
+		'DeskSync',
+		'PulseFlow',
+		'Productivity Tools'
+	],
+	softwareApps: [
+		{
+			name: 'DeskSync',
+			description: 'Local-first digital asset vault with automated cloud sync, real-time file watch, and zero-latency local vector indexing.',
+			operatingSystem: 'macOS, Windows',
+			applicationCategory: 'BusinessApplication'
+		},
+		{
+			name: 'QuickMark',
+			description: 'Minimalist capture and task sequencing application designed to eliminate mobile context switching on the go.',
+			operatingSystem: 'iOS, Android, Web',
+			applicationCategory: 'ProductivityApplication'
+		},
+		{
+			name: 'PromptCraft',
+			description: 'Contextual browser copilot that organizes prompt libraries, tracks version history, and injects shortcuts into any web interface.',
+			operatingSystem: 'Chrome, Edge, Brave',
+			applicationCategory: 'BrowserExtension'
+		},
+		{
+			name: 'PulseFlow',
+			description: 'Automation bridge connecting fragmented APIs, spreadsheets, and internal databases into self-healing background pipelines.',
+			operatingSystem: 'Web, Cloud',
+			applicationCategory: 'BusinessApplication'
+		}
+	],
+	services: [
+		{
+			name: 'AI Automation Engineering',
+			description: 'Custom database and CRM bi-directional sync, automated document parsing, webhook processing, and self-healing retry queues.',
+			serviceType: 'Automation & AI Integration'
+		},
+		{
+			name: 'Custom Software Development',
+			description: 'Architecting and deploying resilient custom web applications, internal tools, microservices, and APIs built to scale.',
+			serviceType: 'Custom Software Engineering'
+		},
+		{
+			name: 'Branding & Digital Design',
+			description: 'Enterprise design systems, interactive prototypes, and conversion-engineered interfaces built for real utility.',
+			serviceType: 'UI/UX & Brand Identity'
+		}
+	]
 }
 
 // Hero Data
@@ -61,7 +116,14 @@ const heroData = {
 }
 ---
 
-<Layout title={SEO.title} description={SEO.description} footer="motion">
+<Layout
+	title={SEO.title}
+	description={SEO.description}
+	keywords={SEO.keywords}
+	softwareApps={SEO.softwareApps}
+	services={SEO.services}
+	footer="motion"
+>
 	{/* 1. Hero */}
 	<Hero
 		title={heroData.title}

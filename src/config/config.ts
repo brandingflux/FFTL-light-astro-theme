@@ -1,6 +1,6 @@
 // Config
 // ------------
-// Description: The configuration file for the website.
+// Description: The enterprise configuration file for FluxFuse Technologies.
 
 export interface Logo {
 	src: string
@@ -13,6 +13,14 @@ export type Mode = 'auto' | 'light' | 'dark'
 export interface Config {
 	siteTitle: string
 	siteDescription: string
+	siteUrl: string
+	companyName: string
+	brandName: string
+	twitterHandle: string
+	defaultKeywords: string[]
+	contactEmail: string
+	salesEmail: string
+	supportEmail: string
 	ogImage: string
 	logo: Logo
 	canonical: boolean
@@ -24,7 +32,26 @@ export interface Config {
 export const configData: Config = {
 	siteTitle: 'FluxFuse — Software for the work that matters',
 	siteDescription:
-		'We build apps, AI tools, automations, and digital solutions for businesses and individuals.',
+		'FluxFuse builds high-impact apps, AI workflow automations, and scalable digital solutions for businesses and individuals.',
+	siteUrl: 'https://fluxfuse.net',
+	companyName: 'FluxFuse Technologies Limited',
+	brandName: 'FluxFuse',
+	twitterHandle: '@FluxFuse',
+	defaultKeywords: [
+		'FluxFuse',
+		'FluxFuse Technologies',
+		'AI Automation',
+		'Custom Software Development',
+		'Enterprise AI Integration',
+		'Software Product Studio',
+		'Workflow Automation',
+		'SaaS Engineering',
+		'Desktop and Mobile Apps',
+		'Digital Solutions'
+	],
+	contactEmail: 'contact@fluxfuse.net',
+	salesEmail: 'sales@fluxfuse.net',
+	supportEmail: 'support@fluxfuse.net',
 	ogImage: '/og.jpg',
 	logo: {
 		src: '/logo-light.svg',

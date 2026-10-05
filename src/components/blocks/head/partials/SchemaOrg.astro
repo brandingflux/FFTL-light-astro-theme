@@ -1,0 +1,283 @@
+---
+// SchemaOrg Component
+// -------------------
+// Description: Injects enterprise-grade Schema.org JSON-LD structured data for Google Knowledge Graph,
+// rich snippets (Breadcrumbs, FAQs, Software, Services, Articles), and AI search engines.
+
+import { configData } from '../../../../config/config'
+import { socialLinks } from '../../../../config/socialLinks'
+
+export interface BreadcrumbItem {
+	name: string
+	url: string
+}
+
+export interface FaqItem {
+	question: string
+	answer: string
+}
+
+export interface SoftwareAppItem {
+	name: string
+	description: string
+	operatingSystem?: string
+	applicationCategory?: string
+	price?: string
+	priceCurrency?: string
+}
+
+export interface ServiceItem {
+	name: string
+	description: string
+	serviceType?: string
+}
+
+type Props = {
+	title?: string
+	description?: string
+	url?: URL | string
+	ogImage?: string
+	schemaType?: 'WebSite' | 'Organization' | 'AboutPage' | 'ContactPage' | 'Article' | 'CollectionPage' | 'SoftwareApplication' | 'Service' | 'FAQPage'
+	breadcrumbs?: BreadcrumbItem[]
+	faq?: FaqItem[]
+	article?: {
+		headline: string
+		description: string
+		datePublished: string
+		dateModified?: string
+		author: string
+		image?: string
+	}
+	softwareApps?: SoftwareAppItem[]
+	services?: ServiceItem[]
+	customSchema?: Record<string, any> | Record<string, any>[]
+}
+
+const {
+	title = configData.siteTitle,
+	description = configData.siteDescription,
+	url = Astro.url,
+	ogImage = configData.ogImage,
+	schemaType = 'WebSite',
+	breadcrumbs,
+	faq,
+	article,
+	softwareApps,
+	services,
+	customSchema
+} = Astro.props
+
+const siteUrl = Astro.site ? Astro.site.toString().replace(/\/$/, '') : 'https://fluxfuse.net'
+const currentUrl = typeof url === 'string' ? url : url.href
+const absoluteOgImage = ogImage.startsWith('http')
+	? ogImage
+	: `${siteUrl}${ogImage.startsWith('/') ? ogImage : `/${ogImage}`}`
+const logoUrl = `${siteUrl}/FFTL-01.svg`
+
+// Filter valid social URLs
+const sameAs = socialLinks
+	.map((s) => s.link)
+	.filter((link) => link && link.startsWith('http'))
+
+// 1. Organization Schema (Single Source of Truth for Entity Recognition)
+const organizationSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Organization',
+	'@id': `${siteUrl}/#organization`,
+	name: configData.companyName,
+	alternateName: [configData.brandName, 'FFTL'],
+	url: siteUrl,
+	logo: {
+		'@type': 'ImageObject',
+		'@id': `${siteUrl}/#logo`,
+		url: logoUrl,
+		caption: `${configData.brandName} Logo`
+	},
+	image: absoluteOgImage,
+	description: configData.siteDescription,
+	email: configData.contactEmail,
+	sameAs: sameAs.length > 0 ? sameAs : undefined,
+	contactPoint: [
+		{
+			'@type': 'ContactPoint',
+			contactType: 'customer support',
+			email: configData.supportEmail,
+			availableLanguage: ['English']
+		},
+		{
+			'@type': 'ContactPoint',
+			contactType: 'sales',
+			email: configData.salesEmail,
+			availableLanguage: ['English']
+		}
+	]
+}
+
+// 2. WebSite Schema with Sitelinks Searchbox
+const webSiteSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'WebSite',
+	'@id': `${siteUrl}/#website`,
+	url: siteUrl,
+	name: configData.brandName,
+	description: configData.siteDescription,
+	publisher: {
+		'@id': `${siteUrl}/#organization`
+	},
+	inLanguage: 'en-US'
+}
+
+// 3. BreadcrumbList Schema
+let computedBreadcrumbs = breadcrumbs
+if (!computedBreadcrumbs) {
+	// Auto-compute breadcrumbs based on pathname
+	const pathname = typeof url === 'string' ? new URL(url, siteUrl).pathname : url.pathname
+	const segments = pathname.split('/').filter(Boolean)
+	if (segments.length > 0) {
+		computedBreadcrumbs = [{ name: 'Home', url: siteUrl }]
+		let accumulatedPath = siteUrl
+		segments.forEach((seg, i) => {
+			accumulatedPath += `/${seg}`
+			// Clean label
+			const name = seg
+				.split('-')
+				.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+				.join(' ')
+			computedBreadcrumbs!.push({ name, url: accumulatedPath })
+		})
+	}
+}
+
+const breadcrumbSchema =
+	computedBreadcrumbs && computedBreadcrumbs.length > 1
+		? {
+				'@context': 'https://schema.org',
+				'@type': 'BreadcrumbList',
+				itemListElement: computedBreadcrumbs.map((item, index) => ({
+					'@type': 'ListItem',
+					position: index + 1,
+					name: item.name,
+					item: item.url.startsWith('http') ? item.url : `${siteUrl}${item.url.startsWith('/') ? item.url : `/${item.url}`}`
+				}))
+		  }
+		: null
+
+// 4. FAQ Schema (Triggers Expandable FAQ SERP Results)
+const faqSchema =
+	faq && faq.length > 0
+		? {
+				'@context': 'https://schema.org',
+				'@type': 'FAQPage',
+				mainEntity: faq.map((item) => ({
+					'@type': 'Question',
+					name: item.question,
+					acceptedAnswer: {
+						'@type': 'Answer',
+						text: item.answer
+					}
+				}))
+		  }
+		: null
+
+// 5. Article / BlogPosting Schema
+const articleSchema = article
+	? {
+			'@context': 'https://schema.org',
+			'@type': 'BlogPosting',
+			mainEntityOfPage: {
+				'@type': 'WebPage',
+				'@id': currentUrl
+			},
+			headline: article.headline,
+			description: article.description,
+			image: article.image
+				? article.image.startsWith('http')
+					? article.image
+					: `${siteUrl}${article.image.startsWith('/') ? article.image : `/${article.image}`}`
+				: absoluteOgImage,
+			datePublished: article.datePublished,
+			dateModified: article.dateModified || article.datePublished,
+			author: {
+				'@type': 'Person',
+				name: article.author
+			},
+			publisher: {
+				'@id': `${siteUrl}/#organization`
+			},
+			inLanguage: 'en-US'
+	  }
+	: null
+
+// 6. Software Application ItemList
+const softwareAppSchema =
+	softwareApps && softwareApps.length > 0
+		? {
+				'@context': 'https://schema.org',
+				'@type': 'ItemList',
+				name: 'FluxFuse Software Applications & AI Tools',
+				itemListElement: softwareApps.map((app, index) => ({
+					'@type': 'SoftwareApplication',
+					position: index + 1,
+					name: app.name,
+					description: app.description,
+					operatingSystem: app.operatingSystem || 'macOS, Windows, Web, iOS, Android',
+					applicationCategory: app.applicationCategory || 'BusinessApplication',
+					offers: {
+						'@type': 'Offer',
+						price: app.price || '0',
+						priceCurrency: app.priceCurrency || 'USD'
+					},
+					publisher: {
+						'@id': `${siteUrl}/#organization`
+					}
+				}))
+		  }
+		: null
+
+// 7. Services List Schema
+const servicesSchema =
+	services && services.length > 0
+		? {
+				'@context': 'https://schema.org',
+				'@type': 'ItemList',
+				name: 'FluxFuse Engineering & Client Services',
+				itemListElement: services.map((svc, index) => ({
+					'@type': 'Service',
+					position: index + 1,
+					name: svc.name,
+					description: svc.description,
+					serviceType: svc.serviceType || 'Technology Consulting & Development',
+					provider: {
+						'@id': `${siteUrl}/#organization`
+					}
+				}))
+		  }
+		: null
+
+// Collect schemas into an array
+const schemas: any[] = [organizationSchema, webSiteSchema]
+
+if (breadcrumbSchema) schemas.push(breadcrumbSchema)
+if (faqSchema) schemas.push(faqSchema)
+if (articleSchema) schemas.push(articleSchema)
+if (softwareAppSchema) schemas.push(softwareAppSchema)
+if (servicesSchema) schemas.push(servicesSchema)
+
+if (customSchema) {
+	if (Array.isArray(customSchema)) {
+		schemas.push(...customSchema)
+	} else {
+		schemas.push(customSchema)
+	}
+}
+---
+
+{
+	schemas.map((schema) => (
+		<script
+			type="application/ld+json"
+			is:inline
+			set:html={JSON.stringify(schema, null, 2)}
+		/>
+	))
+}

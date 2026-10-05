@@ -1,7 +1,7 @@
 ---
 // Blog Page
 // ------------
-// Description: The blog page is a page that displays all the blog posts.
+// Description: The main blog page displaying all articles and insights with CollectionPage structured data.
 
 // Components
 // - Layout
@@ -22,9 +22,22 @@ const { page } = Astro.props as any
 // Content
 // - SEO
 const SEO = {
-	title: 'Mizu Light Astro Theme | Blog',
+	title: 'Insights, Engineering & AI Automation Blog — FluxFuse',
 	description:
-		'Read the latest articles, tips, and insights on building fast, modern Astro websites with Mizu Light. Stay inspired and learn from our design and development guides.'
+		'Read practical engineering articles, AI workflow automation case studies, and software development insights from the team at FluxFuse Technologies.',
+	keywords: [
+		'FluxFuse Blog',
+		'AI Automation Articles',
+		'Software Engineering Insights',
+		'Product Studio Blog',
+		'Workflow Automation Tutorials',
+		'Tech Insights'
+	],
+	schemaType: 'CollectionPage' as const,
+	breadcrumbs: [
+		{ name: 'Home', url: '/' },
+		{ name: 'Blog', url: '/blog' }
+	]
 }
 
 // Sort blog posts by publication date (newest first)
@@ -33,11 +46,18 @@ const sortedBlogPosts = page.data.sort((a: any, b: any) => {
 })
 ---
 
-<Layout title={SEO.title} description={SEO.description}>
+<Layout
+	title={SEO.title}
+	description={SEO.description}
+	keywords={SEO.keywords}
+	schemaType={SEO.schemaType}
+	breadcrumbs={SEO.breadcrumbs}
+	footer="motion"
+>
 	<Hero
-		subtitle="Insights & Ideas"
-		title="Fresh perspectives from the team"
-		text="Stay up to date with the latest articles, resources, and practical tips. Our blog covers design, technology, and everything in between."
+		subtitle="Insights & Engineering"
+		title="Perspectives on AI, software, and real work"
+		text="Articles, architectural breakthroughs, and actionable breakdowns on building software that gets work done."
 	/>
 	<PostCards data={sortedBlogPosts} />
 </Layout>

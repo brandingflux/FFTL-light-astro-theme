@@ -13,39 +13,64 @@ import CTA from '../components/blocks/cta/CTAPrimary.astro'
 // Content
 // - SEO
 const SEO = {
-	title: 'Mizu Light Astro Theme | Contact',
+	title: 'Contact FluxFuse Technologies — Partner With Our Team',
 	description:
-		'Get in touch with the Mizu Light team for support, customization, or partnership inquiries. We’re here to help you make the most of your Astro theme.'
+		'Get in touch with FluxFuse Technologies. Inquire about custom software engineering, enterprise AI automation, product partnerships, or technical consulting.',
+	keywords: [
+		'Contact FluxFuse',
+		'Hire AI Engineers',
+		'Custom Software Consultation',
+		'Workflow Automation Agency',
+		'FluxFuse Technologies Contact',
+		'Software Engineering Inquiries'
+	],
+	schemaType: 'ContactPage' as const,
+	breadcrumbs: [
+		{ name: 'Home', url: '/' },
+		{ name: 'Contact', url: '/contact' }
+	]
 }
+
 // - Hero data
 const heroData = {
-	title: 'Got a question before take-off?',
+	title: 'Have a project or problem to solve?',
 	subtitle: 'Let’s Connect',
-	text: 'Reach out directly to the team that can best help you. We’re here to answer questions and guide you ahead of launch.',
+	text: 'Reach out directly to the FluxFuse team. Whether you need a custom automation pipeline, full-stack application development, or want to explore our tools, we are ready to assist.'
 }
+
 // - Contact data
 const contactData = {
-	title: 'Choose support, sales, or requests and let’s get started.'
+	title: 'Choose support, sales, or partnership requests and let’s talk.'
 }
+
 // - Brand data
 const brandData = {
-	title: 'Built in collaboration with'
+	title: 'Trusted tools and collaborative ecosystems'
 }
+
 // - FAQ data
 const faqData = {
-	title: 'Everything you need to know',
-	subtitle: 'Frequently Asked Questions'
+	title: 'Frequently Asked Questions',
+	subtitle: 'Everything you need to know'
 }
+
 // - CTA data
 const ctaData = {
 	title: 'Let’s Build the Future Together',
-	text: 'We’re always looking for passionate, driven people to join our team. Even if you don’t see the perfect role listed, we’d still love to hear from you. Send us your CV and let’s explore how we can grow together.',
-	buttonLink: '/contact',
-	buttonText: 'Send Your CV'
+	text: 'Ready to modernize your operations, build intelligent tools, or launch your next product? Partner with the engineering team at FluxFuse.',
+	buttonLink: 'mailto:contact@fluxfuse.net',
+	buttonText: 'Contact Our Team'
 }
 ---
 
-<Layout title={SEO.title} description={SEO.description}>
+<Layout
+	title={SEO.title}
+	description={SEO.description}
+	keywords={SEO.keywords}
+	schemaType={SEO.schemaType}
+	breadcrumbs={SEO.breadcrumbs}
+	footer="motion"
+>
 	<Hero
 		title={heroData.title}
 		subtitle={heroData.subtitle}

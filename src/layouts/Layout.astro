@@ -1,13 +1,7 @@
 ---
 // Layout
 // ------------
-// Description: The layout for the page with header and footer
-// Properties:
-// - title: The title of the page
-// - description: The description of the page
-// - ogImage: The image for the Open Graph
-// - noindex: Whether to add the noindex meta tag
-// - navigation: The navigation bar type. Default is sticky , other options are none, transparent (fixed), and none
+// Description: The master layout for the page with enterprise SEO head, header, and footer
 
 // Components
 import NavigationBar from '../components/ui/NavigationBar.astro'
@@ -15,9 +9,17 @@ import Main from '../components/ui/Main.astro'
 import Footer from '../components/ui/Footer.astro'
 import CinematicFooter from '../components/ui/motion-footer'
 import Header from '../components/blocks/head/Header.astro'
+import type {
+	BreadcrumbItem,
+	FaqItem,
+	SoftwareAppItem,
+	ServiceItem
+} from '../components/blocks/head/partials/SchemaOrg.astro'
+
 // Scripts
 import Scripts from '../components/scripts/ThemeScripts.astro'
 import GoogleTagManager from '../components/scripts/googleTagManagerBody.astro'
+
 // Styles
 import '../styles/global.css'
 
@@ -33,24 +35,69 @@ type Props = {
 	title?: string
 	description?: string
 	ogImage?: string
+	ogType?: 'website' | 'article'
+	canonical?: boolean | string
 	noindex?: boolean
+	nofollow?: boolean
+	keywords?: string[]
+	publishDate?: string
+	modifiedDate?: string
+	author?: string
+	schemaType?: 'WebSite' | 'Organization' | 'AboutPage' | 'ContactPage' | 'Article' | 'CollectionPage' | 'SoftwareApplication' | 'Service' | 'FAQPage'
+	breadcrumbs?: BreadcrumbItem[]
+	faq?: FaqItem[]
+	softwareApps?: SoftwareAppItem[]
+	services?: ServiceItem[]
+	customSchema?: Record<string, any> | Record<string, any>[]
 	navigation?: 'none' | 'transparent' | 'sticky'
 	footer?: 'none' | 'basic' | 'motion'
 }
-// Page Metadata
+
+// Page Metadata & Layout Options
 const {
 	title,
 	description,
 	ogImage,
+	ogType,
+	canonical,
 	noindex,
+	nofollow,
+	keywords,
+	publishDate,
+	modifiedDate,
+	author,
+	schemaType,
+	breadcrumbs,
+	faq,
+	softwareApps,
+	services,
+	customSchema,
 	navigation = 'sticky',
 	footer = 'motion'
 } = Astro.props
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-animation mode-auto">
-	<Header title={title} description={description} ogImage={ogImage} noindex={noindex} />
+<html lang="en" dir="ltr" class="scroll-animation mode-auto">
+	<Header
+		title={title}
+		description={description}
+		ogImage={ogImage}
+		ogType={ogType}
+		canonical={canonical}
+		noindex={noindex}
+		nofollow={nofollow}
+		keywords={keywords}
+		publishDate={publishDate}
+		modifiedDate={modifiedDate}
+		author={author}
+		schemaType={schemaType}
+		breadcrumbs={breadcrumbs}
+		faq={faq}
+		softwareApps={softwareApps}
+		services={services}
+		customSchema={customSchema}
+	/>
 	<body
 		class:list={[
 			{ ['mode-' + `${configData.mode}`]: configData.mode },

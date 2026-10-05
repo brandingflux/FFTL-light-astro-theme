@@ -11,9 +11,63 @@ import Button from '../components/ui/Button.astro'
 import { Icon } from 'astro-icon/components'
 
 const SEO = {
-	title: 'Products — FluxFuse Technology Portfolio',
+	title: 'Products & AI Tools Portfolio — FluxFuse Technologies',
 	description:
-		'Explore applications, productivity browser extensions, and SaaS platforms built by FluxFuse.'
+		'Explore the FluxFuse software ecosystem: DeskSync local vault, QuickMark mobile capture, PromptCraft AI copilot, and FuseFlow cloud automation platform.',
+	keywords: [
+		'FluxFuse Products',
+		'DeskSync',
+		'QuickMark',
+		'PromptCraft',
+		'TabShield',
+		'FuseFlow',
+		'PulseBot',
+		'Productivity Software',
+		'AI Browser Extensions',
+		'Cloud Automation Platform'
+	],
+	softwareApps: [
+		{
+			name: 'DeskSync',
+			description: 'Local-first digital asset vault with automated cloud sync, real-time file watch, and zero-latency local vector indexing.',
+			operatingSystem: 'macOS, Windows',
+			applicationCategory: 'BusinessApplication'
+		},
+		{
+			name: 'QuickMark',
+			description: 'Minimalist capture and task sequencing application designed to eliminate mobile context switching on the go.',
+			operatingSystem: 'iOS, Android, Web',
+			applicationCategory: 'ProductivityApplication'
+		},
+		{
+			name: 'PromptCraft',
+			description: 'Contextual browser copilot that organizes prompt libraries, tracks version history, and injects shortcuts into any web interface.',
+			operatingSystem: 'Chrome, Edge, Brave',
+			applicationCategory: 'BrowserExtension'
+		},
+		{
+			name: 'TabShield',
+			description: 'Smart memory saver and distraction dampener for browser-heavy researchers and operators.',
+			operatingSystem: 'Chrome, Edge, Brave',
+			applicationCategory: 'BrowserExtension'
+		},
+		{
+			name: 'FuseFlow',
+			description: 'Event-driven workflow platform that automates multi-step business logic across databases, webhooks, and third-party APIs without glue code.',
+			operatingSystem: 'Web, Cloud',
+			applicationCategory: 'BusinessApplication'
+		},
+		{
+			name: 'PulseBot',
+			description: 'Proactive internal operations bot that turns noisy group chats and linear trackers into actionable executive summaries.',
+			operatingSystem: 'Web, Cloud',
+			applicationCategory: 'BusinessApplication'
+		}
+	],
+	breadcrumbs: [
+		{ name: 'Home', url: '/' },
+		{ name: 'Products', url: '/products' }
+	]
 }
 
 const apps = [
@@ -92,7 +146,14 @@ const saas = [
 ]
 ---
 
-<Layout title={SEO.title} description={SEO.description} footer="motion">
+<Layout
+	title={SEO.title}
+	description={SEO.description}
+	keywords={SEO.keywords}
+	softwareApps={SEO.softwareApps}
+	breadcrumbs={SEO.breadcrumbs}
+	footer="motion"
+>
 	{/* Hero */}
 	<Section classes="pt-24! lg:pt-32! pb-16! text-center" decorationBorder="none">
 		<Row style="transparent" decorationBorder="none">

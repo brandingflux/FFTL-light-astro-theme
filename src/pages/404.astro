@@ -12,24 +12,33 @@ import BasicHeroSplitImageCTA from '../components/blocks/hero/BasicHeroSplitImag
 // Content
 // - Images
 import image from '../assets/404.webp'
+
 // - SEO
 const SEO = {
-	title: 'Oops! Empty office, empty page - Page Not Found',
+	title: 'Page Not Found (404) — FluxFuse Technologies',
 	description:
-		'The page you’re looking for isn’t here. Try going back to the homepage or browsing our sections.'
+		'The page you requested could not be found. Return to the FluxFuse Technologies homepage or explore our software products and services.',
+	noindex: true,
+	nofollow: true
 }
+
 // - Hero data
 const heroData = {
-	title: 'Oops! Empty office, empty page',
-	subtitle: '404 page not found',
-	text: 'The page you’re looking for isn’t here. Try going back to the homepage or browsing our sections.',
+	title: 'Oops! Page Not Found',
+	subtitle: 'Error 404',
+	text: 'The page you’re looking for doesn’t exist, has been removed, or the link has changed. Return to our homepage to explore our software and services.',
 	image: image,
 	buttonText: 'Back to Homepage',
 	buttonLink: '/'
 }
 ---
 
-<Layout title={SEO.title} description={SEO.description}>
+<Layout
+	title={SEO.title}
+	description={SEO.description}
+	noindex={SEO.noindex}
+	nofollow={SEO.nofollow}
+>
 	<BasicHeroSplitImageCTA
 		subtitle={heroData.subtitle}
 		title={heroData.title}

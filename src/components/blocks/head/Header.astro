@@ -1,13 +1,7 @@
 ---
 // Header
 // ------------
-// Description: The HTML document head with SEO and analytics.
-// Properties:
-// - Title: the page title
-// - Description: the page description
-// - OgImage: the Open Graph image URL
-// - Canonical: whether to include canonical URLs
-// - Noindex: whether to add noindex and nofollow meta tags
+// Description: The HTML document head with enterprise SEO, structured data, and analytics.
 
 // Imports
 import { ClientRouter } from 'astro:transitions'
@@ -16,6 +10,12 @@ import GoogleTagManagerHead from '../../scripts/googleTagManagerHead.astro'
 import GoogleSearchConsole from '../../scripts/googleSearchConsole.astro'
 // Partials
 import Seo from './partials/Seo.astro'
+import type {
+	BreadcrumbItem,
+	FaqItem,
+	SoftwareAppItem,
+	ServiceItem
+} from './partials/SchemaOrg.astro'
 
 // Content
 // - Data
@@ -28,16 +28,44 @@ type Props = {
 	title?: string
 	description?: string
 	ogImage?: string
-	canonical?: boolean
+	ogType?: 'website' | 'article'
+	canonical?: boolean | string
 	noindex?: boolean
+	nofollow?: boolean
+	keywords?: string[]
+	publishDate?: string
+	modifiedDate?: string
+	author?: string
+	schemaType?: 'WebSite' | 'Organization' | 'AboutPage' | 'ContactPage' | 'Article' | 'CollectionPage' | 'SoftwareApplication' | 'Service' | 'FAQPage'
+	breadcrumbs?: BreadcrumbItem[]
+	faq?: FaqItem[]
+	softwareApps?: SoftwareAppItem[]
+	services?: ServiceItem[]
+	customSchema?: Record<string, any> | Record<string, any>[]
 }
+
 const {
 	title = configData.siteTitle,
 	description = configData.siteDescription,
 	ogImage = configData.ogImage,
+	ogType = 'website',
 	canonical = configData.canonical,
-	noindex = configData.noindex
+	noindex = configData.noindex,
+	nofollow = false,
+	keywords = configData.defaultKeywords,
+	publishDate,
+	modifiedDate,
+	author,
+	schemaType,
+	breadcrumbs,
+	faq,
+	softwareApps,
+	services,
+	customSchema
 } = Astro.props
+
+const siteUrl = Astro.site ? Astro.site.toString().replace(/\/$/, '') : 'https://fluxfuse.net'
+const rssUrl = new URL('/rss.xml', siteUrl).href
 ---
 
 <head>
@@ -45,18 +73,45 @@ const {
 	{googleTagManagerID && <GoogleTagManagerHead />}
 	<GoogleSearchConsole />
 	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+	{/* Enterprise SEO & Schema.org Structured Data */}
 	<Seo
 		title={title}
 		description={description}
 		ogImage={ogImage}
+		ogType={ogType}
 		canonical={canonical}
 		noindex={noindex}
+		nofollow={nofollow}
+		keywords={keywords}
+		publishDate={publishDate}
+		modifiedDate={modifiedDate}
+		author={author}
+		schemaType={schemaType}
+		breadcrumbs={breadcrumbs}
+		faq={faq}
+		softwareApps={softwareApps}
+		services={services}
+		customSchema={customSchema}
 	/>
+
+	{/* Favicon, PWA & Web App Manifest */}
 	<link rel="icon" href={configData.logo.src} type="image/svg+xml" />
-	<link rel="preload" href="/fonts/mr-amazin/mr-amazin-regular-type.woff2" as="font" type="font/woff2" crossorigin />
+	<link rel="apple-touch-icon" href="/favicon.svg" />
+	<link rel="manifest" href="/site.webmanifest" />
+
+	{/* RSS Feed & Sitemap Discovery */}
+	<link rel="alternate" type="application/rss+xml" title="FluxFuse Technologies RSS Feed" href={rssUrl} />
 	<link rel="sitemap" href="/sitemap-index.xml" />
+
+	{/* Typography & Preloads */}
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link rel="preload" href="/fonts/mr-amazin/mr-amazin-regular-type.woff2" as="font" type="font/woff2" crossorigin />
+
 	<meta name="generator" content={Astro.generator} />
 	<meta name="theme-color" content="#FB5700" />
+	<meta name="color-scheme" content="light dark" />
 	<ClientRouter fallback="swap" />
 </head>

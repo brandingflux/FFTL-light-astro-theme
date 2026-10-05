@@ -1,7 +1,7 @@
 ---
 // Blog Layout
 // ------------
-// Description: A layout for blog posts
+// Description: An enterprise-grade SEO layout for blog posts with article structured data.
 // Properties:
 // - frontmatter: The frontmatter of the blog post
 
@@ -18,7 +18,6 @@ import Section from '../components/ui/Section.astro'
 import Hero from '../components/blocks/hero/SimpleHeroBasic.astro'
 import CTAPrimary from '../components/blocks/cta/CTAPrimary.astro'
 // - UI
-import Card from '../components/ui/cards/Card.astro'
 import DecorationBorder from '../components/ui/DecorationBorder.astro'
 import { Image } from 'astro:assets'
 
@@ -26,30 +25,48 @@ import { Image } from 'astro:assets'
 // - Formatting author slug like "john-doe" into "John Doe"
 export const formattedAuthorName = (author: string) =>
 	author
-		.split('-')
-		.map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-		.join(' ')
+		? author
+				.split('-')
+				.map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+				.join(' ')
+		: 'FluxFuse Team'
+
+const authorName = formattedAuthorName(frontmatter.author)
+const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', {
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric'
+})
 
 // - CTA data
 const CTA = {
 	title: 'Launch your next big idea today',
-	text: 'Join creators, teams, and startups already turning their ideas into reality. Get started in minutes and see how simple launching can be when everything works together seamlessly.',
-	buttonText: 'Try it for free!',
+	text: 'Join creators, teams, and startups already turning their ideas into reality with FluxFuse. Explore our tools or partner with our engineering team.',
+	buttonText: 'Get in Touch',
 	buttonLink: '/contact'
 }
+
+const breadcrumbs = [
+	{ name: 'Home', url: '/' },
+	{ name: 'Blog', url: '/blog' },
+	{ name: frontmatter.title, url: Astro.url.pathname }
+]
 ---
 
-<Layout title={frontmatter.title} description={frontmatter.description}>
+<Layout
+	title={`${frontmatter.title} | FluxFuse Blog`}
+	description={frontmatter.description}
+	ogImage={frontmatter.image}
+	ogType="article"
+	publishDate={frontmatter.pubDate ? new Date(frontmatter.pubDate).toISOString() : undefined}
+	author={authorName}
+	schemaType="Article"
+	breadcrumbs={breadcrumbs}
+>
 	<Hero
-		subtitle={`By ${formattedAuthorName(frontmatter.author)}, ${new Date(
-			frontmatter.pubDate
-		).toLocaleDateString('en-US', {
-			year: 'numeric',
-			month: 'long',
-			day: 'numeric'
-		})}`}
+		subtitle={`By ${authorName}, ${formattedDate}`}
 		title={frontmatter.title}
-		text={frontmatter.text}
+		text={frontmatter.description}
 		titleWidth="max-w-full"
 	/>
 	{
@@ -65,8 +82,8 @@ const CTA = {
 								loading="lazy"
 								decoding="async"
 								layout="constrained"
-								width={800}
-								height={600}
+								width={1200}
+								height={680}
 							/>
 						</div>
 					</Col>
@@ -76,13 +93,13 @@ const CTA = {
 	}
 	<Section>
 		<Row style="semitransparent">
-			<Col style="transparent" span="12" classes="basic-text flex justify-center items-center">
-				<div
+			<Col span="12" style="transparent" classes="basic-text flex justify-center items-center">
+				<article
 					class="relative max-w-5xl bg-white text-xl leading-9 dark:bg-neutral-950 [&_p]:px-8 [&_p]:first:pt-6"
 				>
 					<slot />
 					<DecorationBorder type="top right bottom left" style="solid" />
-				</div>
+				</article>
 			</Col>
 		</Row>
 	</Section>

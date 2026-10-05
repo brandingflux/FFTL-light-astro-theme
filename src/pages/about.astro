@@ -11,9 +11,22 @@ import Button from '../components/ui/Button.astro'
 import { Icon } from 'astro-icon/components'
 
 const SEO = {
-	title: 'About — FluxFuse Technologies',
+	title: 'About FluxFuse Technologies — Our Story & Engineering Philosophy',
 	description:
-		'FluxFuse develops practical software and digital solutions across products, AI, automation, and creative technology.'
+		'Learn about FluxFuse Technologies: a technology studio and software engineering consultancy building apps, AI automations, and digital tools that matter.',
+	keywords: [
+		'About FluxFuse',
+		'FluxFuse Technologies Story',
+		'Software Engineering Philosophy',
+		'Product Studio',
+		'AI Automation Agency',
+		'Digital Innovation'
+	],
+	schemaType: 'AboutPage' as const,
+	breadcrumbs: [
+		{ name: 'Home', url: '/' },
+		{ name: 'About', url: '/about' }
+	]
 }
 
 const principles = [
@@ -40,7 +53,14 @@ const principles = [
 ]
 ---
 
-<Layout title={SEO.title} description={SEO.description} footer="motion">
+<Layout
+	title={SEO.title}
+	description={SEO.description}
+	keywords={SEO.keywords}
+	schemaType={SEO.schemaType}
+	breadcrumbs={SEO.breadcrumbs}
+	footer="motion"
+>
 	{/* Hero */}
 	<Section classes="pt-24! lg:pt-32! pb-16! text-center" decorationBorder="none">
 		<Row style="transparent" decorationBorder="none">

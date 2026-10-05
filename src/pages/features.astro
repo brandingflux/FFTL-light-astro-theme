@@ -1,35 +1,41 @@
 ---
-// Components
-// - Layout
+// Features Redirect / Alternate Page
+// ------------
+// Redirects to /products in astro.config.mjs
+
 import Layout from '../layouts/Layout.astro'
-// - Blocks
 import Hero from '../components/blocks/hero/SimpleHeroPrimary.astro'
 import BasicFeatures from '../components/blocks/features/StickyBasicFeatures.astro'
 import CTA from '../components/blocks/cta/CTAPrimary.astro'
 
-// Content
-// - SEO
 const SEO = {
-	title: 'Mizu Light Astro Theme | Features',
+	title: 'Features & Capabilities — FluxFuse Technologies',
 	description:
-		'Explore the powerful features of Mizu Light — a responsive Astro theme crafted for SaaS and startup websites that need speed, flexibility, and style.'
+		'Explore the technology features, workflow automations, and engineering architecture built by FluxFuse.',
+	canonical: 'https://fluxfuse.net/products',
+	noindex: true
 }
-// - Hero
+
 const heroData = {
-	title: 'Everything You Need to Launch and Grow',
-	subtitle: 'Powerful Features',
-	text: 'Our platform is packed with smart tools designed to help you move faster, work smarter, and achieve more—without unnecessary complexity.'
+	title: 'Software Built for Practical Scale',
+	subtitle: 'Core Capabilities',
+	text: 'Our platforms and tools are designed to help you move faster, eliminate busywork, and achieve more without unnecessary bloat.'
 }
-// - CTA
+
 const ctaData = {
-	title: 'Launch your next big idea today',
-	text: 'Join creators, teams, and startups already turning their ideas into reality. Get started in minutes and see how simple launching can be when everything works together seamlessly.',
-	buttonLink: '/pricing',
-	buttonText: 'Try it for free!'
+	title: 'Explore Our Product Portfolio',
+	text: 'Discover DeskSync, QuickMark, PromptCraft, and our custom software development capabilities.',
+	buttonLink: '/products',
+	buttonText: 'View Products'
 }
 ---
 
-<Layout title={SEO.title} description={SEO.description}>
+<Layout
+	title={SEO.title}
+	description={SEO.description}
+	canonical={SEO.canonical}
+	noindex={SEO.noindex}
+>
 	<Hero title={heroData.title} subtitle={heroData.subtitle} text={heroData.text} />
 	<BasicFeatures />
 	<CTA

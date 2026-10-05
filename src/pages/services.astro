@@ -12,9 +12,63 @@ import Button from '../components/ui/Button.astro'
 import { Icon } from 'astro-icon/components'
 
 const SEO = {
-	title: 'Services — FluxFuse Client Solutions',
+	title: 'Enterprise AI Automation & Software Engineering Services — FluxFuse',
 	description:
-		'Partner with FluxFuse for custom AI automation, software engineering, branding & digital systems that scale your operations.'
+		'Partner with FluxFuse for custom AI workflow automation, full-stack software development, and scalable cloud solutions that eliminate operational bottlenecks.',
+	keywords: [
+		'AI Automation Services',
+		'Custom Software Development',
+		'Workflow Automation Agency',
+		'Enterprise AI Integration',
+		'Bespoke Software Engineering',
+		'RAG AI Systems',
+		'API Integration Services',
+		'FluxFuse Services'
+	],
+	services: [
+		{
+			name: 'AI Automation Engineering',
+			description: 'Custom database and CRM bi-directional sync, automated document parsing, webhook processing, and self-healing retry queues.',
+			serviceType: 'Automation & AI Integration'
+		},
+		{
+			name: 'Custom Software Development',
+			description: 'Architecting and deploying resilient custom web applications, internal tools, microservices, and APIs built to scale.',
+			serviceType: 'Custom Software Engineering'
+		},
+		{
+			name: 'Branding & Design Systems',
+			description: 'Enterprise design systems, interactive prototypes, and conversion-engineered interfaces built for real utility.',
+			serviceType: 'UI/UX & Brand Identity'
+		},
+		{
+			name: 'Applied AI & Solutions',
+			description: 'Custom RAG knowledge vaults, autonomous operational agents, and domain-specific prompt engineering and guardrails.',
+			serviceType: 'Applied Artificial Intelligence'
+		}
+	],
+	breadcrumbs: [
+		{ name: 'Home', url: '/' },
+		{ name: 'Services', url: '/services' }
+	],
+	faq: [
+		{
+			question: 'What engineering and AI services does FluxFuse offer?',
+			answer: 'FluxFuse provides custom AI workflow automation, full-stack web and desktop software engineering, custom API architecture, design systems, and applied AI integration including RAG knowledge vaults and operations bots.'
+		},
+		{
+			question: 'How do FluxFuse AI automations integrate with existing tools?',
+			answer: 'We connect your existing CRM, databases, spreadsheets, and messaging platforms (such as Slack, Discord, HubSpot, and Notion) using robust webhook listeners and event-driven pipelines with self-healing retry logic.'
+		},
+		{
+			question: 'Does FluxFuse build proprietary software for clients?',
+			answer: 'Yes. All client software is built as custom, production-ready code with complete ownership, documentation, and zero vendor lock-in transferred to your team upon delivery.'
+		},
+		{
+			question: 'How does the FluxFuse client engagement process work?',
+			answer: 'We operate in four agile phases: 1) Discovery & Friction Audit, 2) System Architecture Blueprint, 3) Iterative Engineering & Integration, and 4) Deployment, Hardening, and Team Handoff.'
+		}
+	]
 }
 
 const servicesDetailed = [
@@ -100,7 +154,15 @@ const processSteps = [
 ]
 ---
 
-<Layout title={SEO.title} description={SEO.description} footer="motion">
+<Layout
+	title={SEO.title}
+	description={SEO.description}
+	keywords={SEO.keywords}
+	services={SEO.services}
+	breadcrumbs={SEO.breadcrumbs}
+	faq={SEO.faq}
+	footer="motion"
+>
 	{/* Hero */}
 	<Section classes="pt-24! lg:pt-32! pb-16! text-center" decorationBorder="none">
 		<Row style="transparent" decorationBorder="none">

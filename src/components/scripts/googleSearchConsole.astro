@@ -1,10 +1,25 @@
 ---
-// Google Search Console meta tag
-import { googleSiteVerification } from '../../../src/config/analytics'
+// Search Engine Verification Meta Tags
+// Google Search Console, Bing Webmaster Tools, Yandex Webmaster
+import {
+	googleSiteVerification,
+	bingSiteVerification,
+	yandexVerification
+} from '../../../src/config/analytics'
 ---
 
 {
 	googleSiteVerification && (
 		<meta name="google-site-verification" content={googleSiteVerification} />
+	)
+}
+{
+	bingSiteVerification && (
+		<meta name="msvalidate.01" content={bingSiteVerification} />
+	)
+}
+{
+	yandexVerification && (
+		<meta name="yandex-verification" content={yandexVerification} />
 	)
 }

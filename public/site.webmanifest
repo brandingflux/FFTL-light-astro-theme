@@ -1,0 +1,21 @@
+{
+  "name": "FluxFuse Technologies",
+  "short_name": "FluxFuse",
+  "description": "Software for the work that matters. Apps, AI tools, automations, and digital solutions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#FB5700",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/FFTL-01.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

@@ -45,7 +45,48 @@ export default defineConfig({
       entrypoint: "astro/assets/services/sharp",
     },
   },
-  integrations: [icon(), sitemap(), lottie(), react(), markdoc()],
+  integrations: [
+    icon(),
+    sitemap({
+      filter: (page) =>
+        !page.includes("/404") &&
+        !page.includes("/features") &&
+        !page.includes("/pricing"),
+      serialize(item) {
+        const url = item.url.replace(/\/$/, "");
+        if (url === "https://fluxfuse.net") {
+          item.priority = 1.0;
+          item.changefreq = "weekly";
+        } else if (
+          url.endsWith("/products") ||
+          url.endsWith("/services")
+        ) {
+          item.priority = 0.9;
+          item.changefreq = "weekly";
+        } else if (
+          url.endsWith("/about") ||
+          url.endsWith("/contact")
+        ) {
+          item.priority = 0.8;
+          item.changefreq = "monthly";
+        } else if (url.includes("/blog")) {
+          item.priority = 0.7;
+          item.changefreq = "weekly";
+        } else if (url.endsWith("/terms")) {
+          item.priority = 0.3;
+          item.changefreq = "yearly";
+        } else {
+          item.priority = 0.6;
+          item.changefreq = "monthly";
+        }
+        item.lastmod = new Date().toISOString();
+        return item;
+      },
+    }),
+    lottie(),
+    react(),
+    markdoc(),
+  ],
   vite: {
     plugins: [tailwindcss(), windowsWatcherFixPlugin()],
     server: {
