@@ -370,7 +370,8 @@ export function CinematicFooter({
     { label: "Services", href: "/services" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
-    { label: "Privacy & Terms", href: "/terms" },
+    { label: "Terms of Service", href: "/terms" },
+    { label: "Privacy Policy", href: "/privacy" },
   ];
 
   const links = secondaryLinks || defaultLinks;

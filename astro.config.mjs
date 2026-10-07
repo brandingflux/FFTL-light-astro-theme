@@ -72,9 +72,9 @@ export default defineConfig({
         } else if (url.includes("/blog")) {
           item.priority = 0.7;
           item.changefreq = "weekly";
-        } else if (url.endsWith("/terms")) {
-          item.priority = 0.3;
-          item.changefreq = "yearly";
+        } else if (url.endsWith("/terms") || url.endsWith("/privacy")) {
+          item.priority = 0.5;
+          item.changefreq = "monthly";
         } else {
           item.priority = 0.6;
           item.changefreq = "monthly";

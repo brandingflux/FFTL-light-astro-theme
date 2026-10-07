@@ -30,14 +30,17 @@
 			"links": [
 				{ "label": "About", "href": "/about" },
 				{ "label": "Contact", "href": "/contact" },
-				{ "label": "Blog", "href": "/blog" }
+				{ "label": "Blog", "href": "/blog" },
+				{ "label": "Terms of Service", "href": "/terms" },
+				{ "label": "Privacy Policy", "href": "/privacy" }
 			]
 		}
 	],
 	"copyright": {
 		"text": "© 2026 FluxFuse Technologies Limited. All rights reserved.",
 		"legal": [
-			{ "label": "Terms & Privacy", "href": "/terms" },
+			{ "label": "Terms of Service", "href": "/terms" },
+			{ "label": "Privacy Policy", "href": "/privacy" },
 			{ "label": "Contact", "href": "/contact" }
 		]
 	}

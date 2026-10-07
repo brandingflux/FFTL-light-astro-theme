@@ -1,27 +1,28 @@
 ---
-// Components
-// - Layout
+// Terms of Service Page
+// ---------------------
+// Description: Comprehensive Terms of Service governing FluxFuse software products, SaaS, and client engineering services.
+
 import Layout from '../layouts/Layout.astro'
 import Row from '../components/ui/Row.astro'
 import Col from '../components/ui/Col.astro'
-// - Blocks
 import Hero from '../components/blocks/hero/SimpleHeroNeutral.astro'
 import SectionSticky from '../components/blocks/basic/StickySidebarTransparent.astro'
-// - UI
 import Header from '../components/ui/Header.astro'
 
-// Content
-// - SEO
+const lastUpdated = 'October 7, 2026'
+
 const SEO = {
-	title: 'Terms of Service & Privacy Policy — FluxFuse Technologies',
+	title: 'Terms of Service — FluxFuse Technologies',
 	description:
-		'Review the terms of service, acceptable use, and privacy principles governing FluxFuse Technologies applications, services, and digital platforms.',
+		'Comprehensive legal terms governing the use of FluxFuse software applications, browser extensions, cloud platforms, and bespoke client engineering services.',
 	keywords: [
 		'FluxFuse Terms of Service',
 		'Terms and Conditions',
-		'FluxFuse Privacy Policy',
+		'Software Licensing Agreement',
 		'Acceptable Use Policy',
-		'FluxFuse Technologies Legal'
+		'FluxFuse Technologies Legal Terms',
+		'Client Services Agreement'
 	],
 	breadcrumbs: [
 		{ name: 'Home', url: '/' },
@@ -29,11 +30,10 @@ const SEO = {
 	]
 }
 
-// - Hero
 const heroData = {
-	title: 'Clear, Transparent & Fair Terms of Service',
-	subtitle: 'Terms & Conditions',
-	text: 'Welcome to FluxFuse Technologies. These Terms and Conditions outline the standards, responsibilities, and guidelines that apply when utilizing our applications, platforms, and client services. Please review them carefully.'
+	title: 'Terms of Service',
+	subtitle: `Effective Date: ${lastUpdated}`,
+	text: 'These Terms of Service constitute a legally binding agreement between you and FluxFuse Technologies Limited. Please read them thoroughly before accessing or using our applications, websites, APIs, or engineering services.'
 }
 ---
 
@@ -47,95 +47,309 @@ const heroData = {
 		title={heroData.title}
 		subtitle={heroData.subtitle}
 		text={heroData.text}
-		textClasses="max-w-xl!"
+		textClasses="max-w-2xl!"
 	/>
+
+	{/* 1. Agreement & Acceptance */}
 	<SectionSticky>
 		<Header
-			title="About This Agreement"
-			subtitle="Introduction"
+			title="Agreement to Terms"
+			subtitle="Section 01"
 			headingLevel="h2"
 			titleClasses="bg-white dark:bg-neutral-950"
 			slot="sidebar"
 		/>
 		<Row decorationBorder="top bottom" decorationBorderStyle="dashed" style="transparent">
 			<Col span="12" style="transparent">
-				<div class="text-basic bg-white p-8 dark:bg-neutral-950 [&_h3]:text-xl!">
-					<h3>Welcome to FluxFuse</h3>
+				<div class="text-basic bg-white p-8 dark:bg-neutral-950 [&_h3]:text-xl! [&_h3]:font-bold [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:mb-4 [&_p]:leading-relaxed">
+					<h3>1.1 Parties and Acceptance</h3>
 					<p>
-						Welcome to FluxFuse Technologies Limited ("FluxFuse", "we", "us", or "our"). Our mission is to build practical software, AI automation pipelines, and digital solutions that empower productive, high-impact work. By accessing our website, applications, or services, you agree to these Terms and Conditions.
+						These Terms of Service ("Terms") govern your access to and use of all software applications, browser extensions, cloud automation tools, APIs, websites (including <a href="https://fluxfuse.net" class="text-primary-600 dark:text-primary-400 font-semibold underline">fluxfuse.net</a>), and digital consulting services provided by <strong>FluxFuse Technologies Limited</strong> ("FluxFuse", "we", "us", or "our").
 					</p>
 					<p>
-						Your privacy and satisfaction matter to us. If you have questions or concerns regarding these terms, please contact our team at <a href="mailto:contact@fluxfuse.net" class="text-primary-600 dark:text-primary-400 underline">contact@fluxfuse.net</a>.
+						By accessing our website, creating an account, downloading or installing our software (such as DeskSync, QuickMark, or PromptCraft), or engaging our engineering team for bespoke development, you acknowledge that you have read, understood, and agree to be bound by these Terms and our <a href="/privacy" class="text-primary-600 dark:text-primary-400 font-semibold underline">Privacy Policy</a>. If you are entering into this agreement on behalf of a corporation, partnership, or other legal entity, you represent and warrant that you have the legal authority to bind such entity.
 					</p>
-					<h3>Acceptance of Terms</h3>
+
+					<h3>1.2 Minimum Age & Eligibility</h3>
 					<p>
-						By accessing or using our websites, software, browser extensions, or custom development services, you agree to comply with and be bound by these Terms of Service. If you disagree with any portion of these terms, you should not access or use our services.
-					</p>
-					<p>
-						We may update these terms periodically to reflect product updates, regulatory requirements, or operational changes. Any modifications will be posted here with an updated revision date.
-					</p>
-					<h3>Our Commitment to Reliability & Privacy</h3>
-					<p>
-						At FluxFuse, we prioritize local-first architecture, rigorous data hygiene, and high system availability. We design tools that respect user autonomy, collect only essential operational data, and employ modern encryption standards across all digital touchpoints.
+						Our services and applications are intended strictly for users who are at least eighteen (18) years of age, or the age of legal majority in their jurisdiction. By using our platforms, you represent that you meet these eligibility criteria and possess the capacity to execute binding legal obligations.
 					</p>
 				</div>
 			</Col>
 		</Row>
 	</SectionSticky>
+
+	{/* 2. User Accounts & Security */}
 	<SectionSticky>
 		<Header
-			title="Registration and Use"
-			subtitle="User Accounts"
+			title="Accounts & Security"
+			subtitle="Section 02"
 			headingLevel="h2"
 			titleClasses="bg-white dark:bg-neutral-950"
 			slot="sidebar"
 		/>
 		<Row decorationBorder="top bottom" decorationBorderStyle="dashed" style="transparent">
 			<Col span="12" style="transparent">
-				<div class="text-basic bg-white p-8 dark:bg-neutral-950 [&_h3]:text-xl!">
-					<h3>Account Registration</h3>
+				<div class="text-basic bg-white p-8 dark:bg-neutral-950 [&_h3]:text-xl! [&_h3]:font-bold [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:mb-4 [&_p]:leading-relaxed">
+					<h3>2.1 Registration & Authentication</h3>
 					<p>
-						To access certain products, developer APIs, or client portals provided by FluxFuse, you may be required to create an account. You agree to provide accurate, complete, and current information during registration.
+						To access certain cloud services, developer dashboards, or customer portals, you may be required to register for an account. You agree to provide accurate, truthful, and complete information and maintain the accuracy of this data at all times.
 					</p>
-					<h3>Account Security</h3>
+
+					<h3>2.2 Credential Safeguarding</h3>
 					<p>
-						You are responsible for safeguarding your credentials and any API tokens issued to you. You agree to notify FluxFuse immediately at <a href="mailto:support@fluxfuse.net" class="text-primary-600 dark:text-primary-400 underline">support@fluxfuse.net</a> if you detect any unauthorized access or security breach.
+						You are solely responsible for maintaining the confidentiality of your login credentials, API keys, webhook secrets, and private access tokens. You agree to immediately notify FluxFuse at <a href="mailto:security@fluxfuse.net" class="text-primary-600 dark:text-primary-400 font-semibold underline">security@fluxfuse.net</a> if you discover or suspect any unauthorized use of your account or credentials.
 					</p>
-					<h3>Acceptable Use</h3>
+
+					<h3>2.3 Account Responsibility</h3>
 					<p>
-						You agree not to use FluxFuse software, automation services, or infrastructure for any unlawful purpose, including unauthorized scraping, reverse engineering proprietary binaries, transmitting malicious code, or violating third-party intellectual property rights.
+						You are fully responsible for all activities, data transmissions, API calls, and resource consumption executed under your credentials, whether authorized by you or not, except where such unauthorized access directly results from a security failure solely attributable to FluxFuse.
 					</p>
 				</div>
 			</Col>
 		</Row>
 	</SectionSticky>
+
+	{/* 3. Acceptable Use Policy */}
 	<SectionSticky>
 		<Header
-			title="General Restrictions and Liability"
-			subtitle="Limitations and Liability"
+			title="Acceptable Use Policy"
+			subtitle="Section 03"
 			headingLevel="h2"
 			titleClasses="bg-white dark:bg-neutral-950"
 			slot="sidebar"
 		/>
 		<Row decorationBorder="top bottom" decorationBorderStyle="dashed" style="transparent">
 			<Col span="12" style="transparent">
-				<div class="text-basic bg-white p-8 dark:bg-neutral-950 [&_h3]:text-xl!">
-					<h3>Warranty Disclaimer</h3>
+				<div class="text-basic bg-white p-8 dark:bg-neutral-950 [&_h3]:text-xl! [&_h3]:font-bold [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:mb-4 [&_p]:leading-relaxed">
+					<h3>3.1 Prohibited Activities</h3>
+					<p>You agree not to use FluxFuse software, infrastructure, APIs, or services to:</p>
+					<ul class="list-disc pl-6 space-y-2 mb-4 text-neutral-700 dark:text-neutral-300">
+						<li>Violate any local, national, or international statute, ordinance, or regulatory standard.</li>
+						<li>Transmit, host, or execute malware, viruses, worms, Trojan horses, or harmful payload scripts.</li>
+						<li>Decompile, disassemble, decipher, or reverse engineer any binary, bytecode, compiled software, or underlying algorithmic logic provided by FluxFuse, except where explicitly permitted by mandatory applicable law.</li>
+						<li>Interfere with, bypass, or compromise rate limits, security barriers, authentication mechanisms, or server infrastructure.</li>
+						<li>Conduct automated scraping, harvesting, or systematic extraction of data from our platforms without prior written authorization.</li>
+						<li>Deploy FluxFuse AI automation pipelines or tooling to generate fraudulent, deceptive, harassing, defamatory, or unlawful outputs.</li>
+						<li>Resell, sublicense, lease, or redistribute FluxFuse software products or APIs without a signed enterprise distribution agreement.</li>
+					</ul>
+
+					<h3>3.2 Enforcement & Suspension</h3>
 					<p>
-						Except as explicitly stated in a signed master services agreement, FluxFuse software and websites are provided on an "as is" and "as available" basis without warranties of any kind, whether express or implied.
+						We reserve the right, without prior notice or liability, to investigate violations of this Acceptable Use Policy and suspend, throttle, or permanently terminate accounts or API keys found in breach of these conditions.
 					</p>
-					<h3>Limitation of Liability</h3>
+				</div>
+			</Col>
+		</Row>
+	</SectionSticky>
+
+	{/* 4. Software Licensing & Products */}
+	<SectionSticky>
+		<Header
+			title="Software & Products"
+			subtitle="Section 04"
+			headingLevel="h2"
+			titleClasses="bg-white dark:bg-neutral-950"
+			slot="sidebar"
+		/>
+		<Row decorationBorder="top bottom" decorationBorderStyle="dashed" style="transparent">
+			<Col span="12" style="transparent">
+				<div class="text-basic bg-white p-8 dark:bg-neutral-950 [&_h3]:text-xl! [&_h3]:font-bold [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:mb-4 [&_p]:leading-relaxed">
+					<h3>4.1 Standalone Applications & Browser Extensions</h3>
 					<p>
-						To the maximum extent permitted by applicable law, FluxFuse Technologies Limited shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or loss of profits or data arising from your use of our platforms.
+						Subject to your compliance with these Terms, FluxFuse grants you a personal, non-exclusive, non-transferable, revocable license to download, install, and execute our client software (including <em>DeskSync</em>, <em>QuickMark</em>, and <em>PromptCraft</em>) in object-code format solely for your internal business operations or personal productivity.
 					</p>
-					<h3>Contact Information</h3>
+
+					<h3>4.2 Local-First Architecture</h3>
 					<p>
-						For questions regarding these Terms or legal matters, please contact:
-						<br />
-						<strong>FluxFuse Technologies Limited</strong>
-						<br />
-						Email: <a href="mailto:contact@fluxfuse.net" class="text-primary-600 dark:text-primary-400 underline">contact@fluxfuse.net</a>
+						Certain FluxFuse applications operate on a local-first architecture (e.g. DeskSync storing databases locally on your storage volume). You retain absolute custody and responsibility for your local database backups, device security, and storage environment.
 					</p>
+
+					<h3>4.3 Updates & Beta Releases</h3>
+					<p>
+						We may issue automatic or manual software updates, patches, bug fixes, or enhancements. Some tools may be designated as "Beta", "Experimental", or "Preview". Beta products are provided strictly for testing purposes, may contain errors or breaking changes, and are provided without warranty of any kind.
+					</p>
+				</div>
+			</Col>
+		</Row>
+	</SectionSticky>
+
+	{/* 5. Client Engineering & Consulting Services */}
+	<SectionSticky>
+		<Header
+			title="Client Engineering"
+			subtitle="Section 05"
+			headingLevel="h2"
+			titleClasses="bg-white dark:bg-neutral-950"
+			slot="sidebar"
+		/>
+		<Row decorationBorder="top bottom" decorationBorderStyle="dashed" style="transparent">
+			<Col span="12" style="transparent">
+				<div class="text-basic bg-white p-8 dark:bg-neutral-950 [&_h3]:text-xl! [&_h3]:font-bold [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:mb-4 [&_p]:leading-relaxed">
+					<h3>5.1 Statements of Work (SOW)</h3>
+					<p>
+						When clients contract FluxFuse for bespoke engineering, AI automation pipelines, design systems, or technical advisory, the project scope, deliverables, sprint schedules, milestones, and fees will be defined in a mutually executed Statement of Work ("SOW") or Services Agreement. In the event of a conflict between these general Terms and a specific executed SOW, the terms of the SOW shall govern for that engagement.
+					</p>
+
+					<h3>5.2 Intellectual Property in Client Work</h3>
+					<p>
+						Unless otherwise stipulated in an executed SOW, upon receipt of full and final payment for all agreed milestones, FluxFuse assigns to the client all right, title, and interest in the bespoke code and digital deliverables crafted specifically for that client. FluxFuse retains ownership of its pre-existing proprietary frameworks, libraries, scaffolding tools, and generalized architectural knowledge ("Background IP").
+					</p>
+				</div>
+			</Col>
+		</Row>
+	</SectionSticky>
+
+	{/* 6. Fees, Billing & Payment Terms */}
+	<SectionSticky>
+		<Header
+			title="Fees & Payment"
+			subtitle="Section 06"
+			headingLevel="h2"
+			titleClasses="bg-white dark:bg-neutral-950"
+			slot="sidebar"
+		/>
+		<Row decorationBorder="top bottom" decorationBorderStyle="dashed" style="transparent">
+			<Col span="12" style="transparent">
+				<div class="text-basic bg-white p-8 dark:bg-neutral-950 [&_h3]:text-xl! [&_h3]:font-bold [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:mb-4 [&_p]:leading-relaxed">
+					<h3>6.1 Pricing & Subscriptions</h3>
+					<p>
+						Pricing for subscription products (such as FuseFlow or PulseBot) is billed in advance on a recurring monthly or annual basis via verified payment processors (e.g., Stripe). Consulting sprints and bespoke engineering engagements are invoiced according to the milestone schedule detailed in your project contract.
+					</p>
+
+					<h3>6.2 Taxes</h3>
+					<p>
+						All quoted fees are exclusive of applicable value-added taxes (VAT), sales tax, duties, or other governmental withholdings. You are responsible for all applicable taxes associated with your purchases.
+					</p>
+
+					<h3>6.3 Cancellation & Refunds</h3>
+					<p>
+						Subscription services may be canceled at any time through your billing dashboard or by emailing <a href="mailto:billing@fluxfuse.net" class="text-primary-600 dark:text-primary-400 font-semibold underline">billing@fluxfuse.net</a> prior to the renewal date. Except where required by applicable consumer law or explicitly defined in a client contract, payments made are non-refundable.
+					</p>
+				</div>
+			</Col>
+		</Row>
+	</SectionSticky>
+
+	{/* 7. Artificial Intelligence & Third-Party APIs */}
+	<SectionSticky>
+		<Header
+			title="AI & Third Parties"
+			subtitle="Section 07"
+			headingLevel="h2"
+			titleClasses="bg-white dark:bg-neutral-950"
+			slot="sidebar"
+		/>
+		<Row decorationBorder="top bottom" decorationBorderStyle="dashed" style="transparent">
+			<Col span="12" style="transparent">
+				<div class="text-basic bg-white p-8 dark:bg-neutral-950 [&_h3]:text-xl! [&_h3]:font-bold [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:mb-4 [&_p]:leading-relaxed">
+					<h3>7.1 AI Processing & Content Rights</h3>
+					<p>
+						FluxFuse tools leverage machine learning models and API integrations to process, automate, and analyze inputs you provide ("Customer Prompts and Inputs"). Between you and FluxFuse, you retain all ownership rights in your inputs and resulting generated outputs. We do not use proprietary customer data or confidential client inputs to train public foundational models.
+					</p>
+
+					<h3>7.2 Third-Party Providers</h3>
+					<p>
+						Our software and automation pipelines frequently interact with third-party APIs (including OpenAI, Anthropic, Google Cloud, AWS, Supabase, GitHub, and Slack). FluxFuse is not responsible for the availability, latency, data practices, or modifications enacted by third-party API providers.
+					</p>
+				</div>
+			</Col>
+		</Row>
+	</SectionSticky>
+
+	{/* 8. Disclaimers & Limitations of Liability */}
+	<SectionSticky>
+		<Header
+			title="Warranties & Liability"
+			subtitle="Section 08"
+			headingLevel="h2"
+			titleClasses="bg-white dark:bg-neutral-950"
+			slot="sidebar"
+		/>
+		<Row decorationBorder="top bottom" decorationBorderStyle="dashed" style="transparent">
+			<Col span="12" style="transparent">
+				<div class="text-basic bg-white p-8 dark:bg-neutral-950 [&_h3]:text-xl! [&_h3]:font-bold [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:mb-4 [&_p]:leading-relaxed">
+					<h3>8.1 Disclaimer of Warranties</h3>
+					<p class="uppercase text-xs tracking-wider text-neutral-500 font-mono">
+						Please read this section carefully:
+					</p>
+					<p>
+						TO THE MAXIMUM EXTENT PERMITTED UNDER APPLICABLE LAW, FLUXFUSE TECHNOLOGIES LIMITED PROVIDES ALL SOFTWARE, WEBSITES, APIS, AND SERVICES ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE, INCLUDING IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. WE DO NOT WARRANT THAT OUR PLATFORMS WILL BE UNINTERRUPTED, SECURE, BUG-FREE, OR ERROR-FREE.
+					</p>
+
+					<h3>8.2 Limitation of Liability</h3>
+					<p>
+						TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL FLUXFUSE TECHNOLOGIES LIMITED, ITS DIRECTORS, EMPLOYEES, CONTRACTORS, OR AGENTS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, PUNITIVE, OR CONSEQUENTIAL DAMAGES (INCLUDING LOSS OF PROFITS, DATA CORRUPTION, BUSINESS INTERRUPTION, LOSS OF REVENUE, OR HARDWARE FAILURE) ARISING OUT OF OR IN CONNECTION WITH YOUR ACCESS TO OR INABILITY TO USE OUR SOFTWARE OR SERVICES.
+					</p>
+
+					<h3>8.3 Aggregate Liability Cap</h3>
+					<p>
+						OUR TOTAL CUMULATIVE LIABILITY FOR ALL CLAIMS OF ANY KIND ARISING UNDER OR RELATED TO THESE TERMS SHALL NOT EXCEED THE TOTAL AMOUNT PAID BY YOU TO FLUXFUSE IN THE TWELVE (12) MONTHS IMMEDIATELY PRECEDING THE EVENT GIVING RISE TO LIABILITY, OR ONE HUNDRED US DOLLARS (USD $100.00), WHICHEVER IS GREATER.
+					</p>
+				</div>
+			</Col>
+		</Row>
+	</SectionSticky>
+
+	{/* 9. Indemnification & Termination */}
+	<SectionSticky>
+		<Header
+			title="Indemnity & Termination"
+			subtitle="Section 09"
+			headingLevel="h2"
+			titleClasses="bg-white dark:bg-neutral-950"
+			slot="sidebar"
+		/>
+		<Row decorationBorder="top bottom" decorationBorderStyle="dashed" style="transparent">
+			<Col span="12" style="transparent">
+				<div class="text-basic bg-white p-8 dark:bg-neutral-950 [&_h3]:text-xl! [&_h3]:font-bold [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:mb-4 [&_p]:leading-relaxed">
+					<h3>9.1 Indemnification</h3>
+					<p>
+						You agree to defend, indemnify, and hold harmless FluxFuse Technologies Limited and its officers, directors, employees, and agents from and against all third-party claims, damages, liabilities, losses, and reasonable legal expenses arising out of or related to: (a) your breach of these Terms; (b) your violation of third-party intellectual property or privacy rights; or (c) your misuse of our software or APIs.
+					</p>
+
+					<h3>9.2 Termination</h3>
+					<p>
+						We may suspend or terminate your access to our applications and services immediately, without prior notice, if you breach these Terms or if we are required to do so by applicable legal process. Upon termination, your right to use our software ceases immediately.
+					</p>
+
+					<h3>9.3 Governing Law & Jurisdiction</h3>
+					<p>
+						These Terms and any dispute arising from them shall be governed by and construed in accordance with the laws applicable to FluxFuse Technologies Limited, without regard to conflict of laws principles. The parties agree to submit to the exclusive jurisdiction of the competent courts having jurisdiction over FluxFuse.
+					</p>
+
+					<h3>9.4 Changes to These Terms</h3>
+					<p>
+						We reserve the right to amend these Terms at any time. When modifications are made, we will update the "Effective Date" at the top of this document. Continued use of our platforms following the publication of revised Terms signifies your binding acceptance.
+					</p>
+				</div>
+			</Col>
+		</Row>
+	</SectionSticky>
+
+	{/* 10. Contact Information */}
+	<SectionSticky>
+		<Header
+			title="Legal Inquiries"
+			subtitle="Section 10"
+			headingLevel="h2"
+			titleClasses="bg-white dark:bg-neutral-950"
+			slot="sidebar"
+		/>
+		<Row decorationBorder="top bottom" decorationBorderStyle="dashed" style="transparent">
+			<Col span="12" style="transparent">
+				<div class="text-basic bg-white p-8 dark:bg-neutral-950 [&_h3]:text-xl! [&_h3]:font-bold [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:mb-4 [&_p]:leading-relaxed">
+					<h3>Contact Our Legal Team</h3>
+					<p>
+						If you have any questions, legal notices, or compliance inquiries regarding these Terms of Service, please reach out to:
+					</p>
+					<div class="rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/60 p-6 my-4 font-mono text-sm leading-relaxed">
+						<strong>FluxFuse Technologies Limited</strong><br />
+						Legal & Compliance Department<br />
+						Email: <a href="mailto:legal@fluxfuse.net" class="text-primary-600 dark:text-primary-400 underline">legal@fluxfuse.net</a><br />
+						General Inquiries: <a href="mailto:contact@fluxfuse.net" class="text-primary-600 dark:text-primary-400 underline">contact@fluxfuse.net</a><br />
+						Website: <a href="https://fluxfuse.net" class="text-primary-600 dark:text-primary-400 underline">https://fluxfuse.net</a>
+					</div>
 				</div>
 			</Col>
 		</Row>

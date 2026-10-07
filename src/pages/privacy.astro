@@ -1,0 +1,305 @@
+---
+// Privacy Policy Page
+// -------------------
+// Description: Comprehensive, GDPR and CCPA/CPRA compliant Privacy Policy for FluxFuse Technologies Limited.
+
+import Layout from '../layouts/Layout.astro'
+import Row from '../components/ui/Row.astro'
+import Col from '../components/ui/Col.astro'
+import Hero from '../components/blocks/hero/SimpleHeroNeutral.astro'
+import SectionSticky from '../components/blocks/basic/StickySidebarTransparent.astro'
+import Header from '../components/ui/Header.astro'
+
+const lastUpdated = 'October 7, 2026'
+
+const SEO = {
+	title: 'Privacy Policy — FluxFuse Technologies',
+	description:
+		'Read the comprehensive FluxFuse Privacy Policy. Learn how we collect, safeguard, and process data across our software applications, browser extensions, and client engineering services.',
+	keywords: [
+		'FluxFuse Privacy Policy',
+		'Data Protection',
+		'GDPR Compliance',
+		'CCPA Compliance',
+		'AI Data Privacy',
+		'Local-First Privacy Architecture',
+		'FluxFuse Technologies Privacy'
+	],
+	breadcrumbs: [
+		{ name: 'Home', url: '/' },
+		{ name: 'Privacy Policy', url: '/privacy' }
+	]
+}
+
+const heroData = {
+	title: 'Privacy Policy',
+	subtitle: `Effective Date: ${lastUpdated}`,
+	text: 'At FluxFuse Technologies Limited, data privacy and transparency are foundational architectural principles. This policy explains what information we collect, how it is processed, and how your privacy rights are protected across our digital ecosystem.'
+}
+---
+
+<Layout
+	title={SEO.title}
+	description={SEO.description}
+	keywords={SEO.keywords}
+	breadcrumbs={SEO.breadcrumbs}
+>
+	<Hero
+		title={heroData.title}
+		subtitle={heroData.subtitle}
+		text={heroData.text}
+		textClasses="max-w-2xl!"
+	/>
+
+	{/* 1. Overview & Data Controller */}
+	<SectionSticky>
+		<Header
+			title="Scope & Controller"
+			subtitle="Section 01"
+			headingLevel="h2"
+			titleClasses="bg-white dark:bg-neutral-950"
+			slot="sidebar"
+		/>
+		<Row decorationBorder="top bottom" decorationBorderStyle="dashed" style="transparent">
+			<Col span="12" style="transparent">
+				<div class="text-basic bg-white p-8 dark:bg-neutral-950 [&_h3]:text-xl! [&_h3]:font-bold [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:mb-4 [&_p]:leading-relaxed">
+					<h3>1.1 Who We Are</h3>
+					<p>
+						This Privacy Policy applies to all websites, products, browser extensions, APIs, software applications, and services operated by <strong>FluxFuse Technologies Limited</strong> ("FluxFuse", "we", "us", or "our").
+					</p>
+					<p>
+						For the purposes of the General Data Protection Regulation (GDPR), the UK Data Protection Act, and applicable international privacy legislation, FluxFuse Technologies Limited acts as the <strong>Data Controller</strong> for personal data collected through our public websites and marketing channels, and acts as a <strong>Data Processor</strong> when handling data on behalf of enterprise clients under a Master Services Agreement.
+					</p>
+
+					<h3>1.2 Our Architectural Privacy Principle</h3>
+					<p>
+						We engineer software with a <strong>local-first and minimal-telemetry philosophy</strong>. Where possible, our standalone tools store databases and documents locally on your devices rather than syncing them indiscriminately to remote cloud vaults. We never sell your personal data, and we do not monetize user tracking.
+					</p>
+				</div>
+			</Col>
+		</Row>
+	</SectionSticky>
+
+	{/* 2. Information We Collect */}
+	<SectionSticky>
+		<Header
+			title="Data We Collect"
+			subtitle="Section 02"
+			headingLevel="h2"
+			titleClasses="bg-white dark:bg-neutral-950"
+			slot="sidebar"
+		/>
+		<Row decorationBorder="top bottom" decorationBorderStyle="dashed" style="transparent">
+			<Col span="12" style="transparent">
+				<div class="text-basic bg-white p-8 dark:bg-neutral-950 [&_h3]:text-xl! [&_h3]:font-bold [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:mb-4 [&_p]:leading-relaxed">
+					<h3>2.1 Information You Provide Directly</h3>
+					<ul class="list-disc pl-6 space-y-2 mb-4 text-neutral-700 dark:text-neutral-300">
+						<li><strong>Contact & Communication Data:</strong> When you submit inquiry forms, book architecture calls, or email our support desk, we collect your name, email address, company name, and details of your request.</li>
+						<li><strong>Account Registration Data:</strong> When signing up for developer dashboards or cloud tools, we record your username, email, encrypted credentials, and profile settings.</li>
+						<li><strong>Billing Information:</strong> Payment transactions are handled directly by PCI-DSS certified payment processors (e.g. Stripe). FluxFuse does not store full credit card numbers or security codes on our servers.</li>
+					</ul>
+
+					<h3>2.2 Product-Specific & Local Data</h3>
+					<ul class="list-disc pl-6 space-y-2 mb-4 text-neutral-700 dark:text-neutral-300">
+						<li><strong>Desktop & Local-First Applications (DeskSync):</strong> DeskSync stores your file indexes, local vector databases, and assets on your local hardware. Background cloud synchronization only occurs if you explicitly link and authorize a remote backup provider.</li>
+						<li><strong>Browser Extensions (PromptCraft, TabShield):</strong> Our browser extensions operate on minimal permissions. They do not monitor, store, or transmit your overall browsing history. Prompt vaults and user preferences are retained locally in your browser’s extension storage sandbox.</li>
+					</ul>
+
+					<h3>2.3 Automatically Collected Technical Data</h3>
+					<p>
+						When you browse our websites or use online APIs, our servers automatically log technical metadata, including: IP address (anonymized where applicable), browser type and version, operating system, referrer URL, timestamps, and performance telemetry necessary to prevent DDoS attacks and ensure server reliability.
+					</p>
+				</div>
+			</Col>
+		</Row>
+	</SectionSticky>
+
+	{/* 3. AI & Data Handling Guarantees */}
+	<SectionSticky>
+		<Header
+			title="AI & LLM Practices"
+			subtitle="Section 03"
+			headingLevel="h2"
+			titleClasses="bg-white dark:bg-neutral-950"
+			slot="sidebar"
+		/>
+		<Row decorationBorder="top bottom" decorationBorderStyle="dashed" style="transparent">
+			<Col span="12" style="transparent">
+				<div class="text-basic bg-white p-8 dark:bg-neutral-950 [&_h3]:text-xl! [&_h3]:font-bold [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:mb-4 [&_p]:leading-relaxed">
+					<h3>3.1 Zero Model Training on Customer Data</h3>
+					<p>
+						We respect the confidentiality of your proprietary business logic, prompts, and document contents. <strong>FluxFuse does NOT use customer inputs, client codebases, or private prompts to train, fine-tune, or improve public machine learning models.</strong>
+					</p>
+
+					<h3>3.2 Secure API Processing</h3>
+					<p>
+						When our AI automation pipelines communicate with enterprise foundation models (such as OpenAI, Anthropic, or Google Vertex AI), requests are transmitted exclusively over encrypted TLS connections using enterprise-tier API endpoints bound by contractual zero-data-retention or strict non-training policies.
+					</p>
+				</div>
+			</Col>
+		</Row>
+	</SectionSticky>
+
+	{/* 4. How We Use Information */}
+	<SectionSticky>
+		<Header
+			title="Use of Information"
+			subtitle="Section 04"
+			headingLevel="h2"
+			titleClasses="bg-white dark:bg-neutral-950"
+			slot="sidebar"
+		/>
+		<Row decorationBorder="top bottom" decorationBorderStyle="dashed" style="transparent">
+			<Col span="12" style="transparent">
+				<div class="text-basic bg-white p-8 dark:bg-neutral-950 [&_h3]:text-xl! [&_h3]:font-bold [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:mb-4 [&_p]:leading-relaxed">
+					<h3>4.1 Purposes of Processing</h3>
+					<p>We process personal data strictly for legitimate operational purposes:</p>
+					<ul class="list-disc pl-6 space-y-2 mb-4 text-neutral-700 dark:text-neutral-300">
+						<li>To build, deploy, execute, and maintain our software applications and services.</li>
+						<li>To perform engineering sprint deliverables and client commitments outlined in signed contracts.</li>
+						<li>To process billing, invoices, account renewals, and subscriptions.</li>
+						<li>To provide technical support, troubleshoot bug reports, and respond to inquiries.</li>
+						<li>To monitor security, investigate unauthorized activities, and safeguard system integrity.</li>
+						<li>To comply with statutory tax, accounting, and legal requirements.</li>
+					</ul>
+
+					<h3>4.2 Legal Bases Under GDPR</h3>
+					<p>If you reside in the European Economic Area (EEA) or UK, our lawful bases for collecting personal data include:</p>
+					<ul class="list-disc pl-6 space-y-2 mb-4 text-neutral-700 dark:text-neutral-300">
+						<li><strong>Performance of a Contract:</strong> Providing services you have requested or purchased.</li>
+						<li><strong>Legitimate Interests:</strong> Securing our networks, improving software stability, and managing client relationships.</li>
+						<li><strong>Legal Obligation:</strong> Maintaining accounting and tax compliance records.</li>
+						<li><strong>Consent:</strong> Where you provide explicit opt-in consent for specific notifications or cookies.</li>
+					</ul>
+				</div>
+			</Col>
+		</Row>
+	</SectionSticky>
+
+	{/* 5. Cookies & Analytics */}
+	<SectionSticky>
+		<Header
+			title="Cookies & Analytics"
+			subtitle="Section 05"
+			headingLevel="h2"
+			titleClasses="bg-white dark:bg-neutral-950"
+			slot="sidebar"
+		/>
+		<Row decorationBorder="top bottom" decorationBorderStyle="dashed" style="transparent">
+			<Col span="12" style="transparent">
+				<div class="text-basic bg-white p-8 dark:bg-neutral-950 [&_h3]:text-xl! [&_h3]:font-bold [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:mb-4 [&_p]:leading-relaxed">
+					<h3>5.1 Essential Cookies & Local Storage</h3>
+					<p>
+						Our website uses essential local browser storage to save your UI preferences (such as light or dark theme modes). These items are strictly functional and do not track you across external websites.
+					</p>
+
+					<h3>5.2 Privacy-Respecting Analytics</h3>
+					<p>
+						We may utilize aggregated, privacy-conscious analytics tools (such as Google Analytics 4 with IP anonymization enabled) to understand traffic patterns and optimize page speed. You can disable cookies at any time via your browser settings without impacting website functionality.
+					</p>
+				</div>
+			</Col>
+		</Row>
+	</SectionSticky>
+
+	{/* 6. Third-Party Disclosures & Security */}
+	<SectionSticky>
+		<Header
+			title="Sharing & Security"
+			subtitle="Section 06"
+			headingLevel="h2"
+			titleClasses="bg-white dark:bg-neutral-950"
+			slot="sidebar"
+		/>
+		<Row decorationBorder="top bottom" decorationBorderStyle="dashed" style="transparent">
+			<Col span="12" style="transparent">
+				<div class="text-basic bg-white p-8 dark:bg-neutral-950 [&_h3]:text-xl! [&_h3]:font-bold [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:mb-4 [&_p]:leading-relaxed">
+					<h3>6.1 Third-Party Service Providers</h3>
+					<p>
+						We do not sell, rent, or trade your personal information to third parties. We share data only with trusted service providers who adhere to strict data security standards:
+					</p>
+					<ul class="list-disc pl-6 space-y-2 mb-4 text-neutral-700 dark:text-neutral-300">
+						<li><strong>Hosting & Edge Delivery:</strong> Vercel and Cloudflare.</li>
+						<li><strong>Payment Processing:</strong> Stripe, Inc.</li>
+						<li><strong>Cloud Databases & Storage:</strong> Supabase, AWS, or client-specified infrastructure.</li>
+					</ul>
+
+					<h3>6.2 Security Safeguards</h3>
+					<p>
+						We implement industry-standard organizational and technical safeguards, including modern TLS 1.3 encryption in transit, AES-256 encryption at rest for cloud databases, multi-factor authentication for administrative access, and regular code reviews.
+					</p>
+
+					<h3>6.3 Data Retention</h3>
+					<p>
+						We retain personal data only for as long as necessary to fulfill the purposes outlined in this policy, maintain active customer accounts, resolve disputes, and satisfy statutory tax and legal obligations.
+					</p>
+				</div>
+			</Col>
+		</Row>
+	</SectionSticky>
+
+	{/* 7. Your Legal Privacy Rights */}
+	<SectionSticky>
+		<Header
+			title="Your Privacy Rights"
+			subtitle="Section 07"
+			headingLevel="h2"
+			titleClasses="bg-white dark:bg-neutral-950"
+			slot="sidebar"
+		/>
+		<Row decorationBorder="top bottom" decorationBorderStyle="dashed" style="transparent">
+			<Col span="12" style="transparent">
+				<div class="text-basic bg-white p-8 dark:bg-neutral-950 [&_h3]:text-xl! [&_h3]:font-bold [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:mb-4 [&_p]:leading-relaxed">
+					<h3>7.1 Rights Under GDPR (EEA & UK Users)</h3>
+					<p>If you reside in the EEA or UK, you possess the following rights:</p>
+					<ul class="list-disc pl-6 space-y-2 mb-4 text-neutral-700 dark:text-neutral-300">
+						<li><strong>Right of Access:</strong> Request a copy of the personal data we hold about you.</li>
+						<li><strong>Right to Rectification:</strong> Request correction of inaccurate or incomplete records.</li>
+						<li><strong>Right to Erasure ("Right to be Forgotten"):</strong> Request deletion of your personal data under certain conditions.</li>
+						<li><strong>Right to Restrict Processing:</strong> Request temporary restriction of processing activities.</li>
+						<li><strong>Right to Data Portability:</strong> Receive your data in a structured, commonly used, machine-readable format.</li>
+						<li><strong>Right to Object:</strong> Object to processing based on legitimate interests or direct marketing.</li>
+					</ul>
+
+					<h3>7.2 Rights Under CCPA / CPRA (California Residents)</h3>
+					<p>
+						California residents have the right to know what personal information is collected, request deletion of their information, opt out of any sale or sharing of personal data (FluxFuse does not sell personal data), and receive equal service without discrimination.
+					</p>
+
+					<h3>7.3 Exercising Your Rights</h3>
+					<p>
+						To exercise any of these rights, please submit a written request to <a href="mailto:privacy@fluxfuse.net" class="text-primary-600 dark:text-primary-400 font-semibold underline">privacy@fluxfuse.net</a>. We will respond within thirty (30) days following identity verification.
+					</p>
+				</div>
+			</Col>
+		</Row>
+	</SectionSticky>
+
+	{/* 8. Contact & Privacy Office */}
+	<SectionSticky>
+		<Header
+			title="Privacy Contacts"
+			subtitle="Section 08"
+			headingLevel="h2"
+			titleClasses="bg-white dark:bg-neutral-950"
+			slot="sidebar"
+		/>
+		<Row decorationBorder="top bottom" decorationBorderStyle="dashed" style="transparent">
+			<Col span="12" style="transparent">
+				<div class="text-basic bg-white p-8 dark:bg-neutral-950 [&_h3]:text-xl! [&_h3]:font-bold [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:mb-4 [&_p]:leading-relaxed">
+					<h3>Data Protection Inquiries</h3>
+					<p>
+						If you have any questions, concerns, or complaints regarding this Privacy Policy or our data protection practices, please contact our Data Protection Officer:
+					</p>
+					<div class="rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/60 p-6 my-4 font-mono text-sm leading-relaxed">
+						<strong>FluxFuse Technologies Limited</strong><br />
+						Attn: Data Protection Officer / Privacy Office<br />
+						Email: <a href="mailto:privacy@fluxfuse.net" class="text-primary-600 dark:text-primary-400 underline">privacy@fluxfuse.net</a><br />
+						General Inquiries: <a href="mailto:contact@fluxfuse.net" class="text-primary-600 dark:text-primary-400 underline">contact@fluxfuse.net</a><br />
+						Website: <a href="https://fluxfuse.net" class="text-primary-600 dark:text-primary-400 underline">https://fluxfuse.net</a>
+					</div>
+				</div>
+			</Col>
+		</Row>
+	</SectionSticky>
+</Layout>
