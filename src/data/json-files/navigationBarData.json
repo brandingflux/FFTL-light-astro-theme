@@ -10,6 +10,8 @@
 			"name": "Products",
 			"link": "/products",
 			"submenu": [
+				{ "name": "Software", "link": "/products#software" },
+				{ "name": "Notchgent (Free)", "link": "/products/notchgent" },
 				{ "name": "Apps", "link": "/products#apps" },
 				{ "name": "Extensions", "link": "/products#extensions" },
 				{ "name": "SaaS", "link": "/products#saas" }

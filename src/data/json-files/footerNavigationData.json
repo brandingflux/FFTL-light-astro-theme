@@ -11,6 +11,8 @@
 		{
 			"title": "Products",
 			"links": [
+				{ "label": "Software", "href": "/products#software" },
+				{ "label": "Notchgent (Free)", "href": "/products/notchgent" },
 				{ "label": "Apps", "href": "/products#apps" },
 				{ "label": "Extensions", "href": "/products#extensions" },
 				{ "label": "SaaS", "href": "/products#saas" }

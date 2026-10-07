@@ -16,17 +16,29 @@ const SEO = {
 		'Explore the FluxFuse software ecosystem: DeskSync local vault, QuickMark mobile capture, PromptCraft AI copilot, and FuseFlow cloud automation platform.',
 	keywords: [
 		'FluxFuse Products',
+		'Notchgent',
+		'Dynamic Island Windows',
+		'Antigravity HUD',
 		'DeskSync',
 		'QuickMark',
 		'PromptCraft',
 		'TabShield',
 		'FuseFlow',
 		'PulseBot',
+		'Open Source Desktop Software',
 		'Productivity Software',
 		'AI Browser Extensions',
 		'Cloud Automation Platform'
 	],
 	softwareApps: [
+		{
+			name: 'Notchgent',
+			description: 'Always-on-top Dynamic Island HUD for Antigravity & VS Code on Windows. Review and approve agent actions with 1 click or global hotkey without Alt-Tabbing or video interruptions.',
+			operatingSystem: 'Windows 10, Windows 11',
+			applicationCategory: 'DeveloperApplication',
+			price: '0',
+			priceCurrency: 'USD'
+		},
 		{
 			name: 'DeskSync',
 			description: 'Local-first digital asset vault with automated cloud sync, real-time file watch, and zero-latency local vector indexing.',
@@ -69,6 +81,29 @@ const SEO = {
 		{ name: 'Products', url: '/products' }
 	]
 }
+
+const software = [
+	{
+		title: 'Notchgent',
+		badge: 'Windows HUD • Open Source',
+		status: 'Free & Open Source',
+		statusColor: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20',
+		description: 'Always-on-top "Dynamic Island" HUD for Antigravity & VS Code on Windows. Watch movies, streams, or stay focused while AI coding agents work in the background. Review and approve pending commands with 1 click or a global hotkey—without Alt-Tabbing, without window focus popups, and without video interruptions.',
+		features: [
+			'Persistent fullscreen overlay (HWND_TOPMOST & DirectFlip bypass)',
+			'15ms zero-interruption Win32 keystroke approval & auto re-minimize',
+			'Dynamic multi-workspace routing across active VS Code projects',
+			'Universal global hotkeys (Alt+1 / Alt+2) & hands-free 15-minute auto mode',
+			'Zero-hook architecture observing raw JSONL transcripts directly',
+			'Standalone release executable (Notchgent.exe) with zero dependencies'
+		],
+		actionText: 'Explore Dedicated Page',
+		actionLink: '/products/notchgent',
+		githubText: 'GitHub (Free)',
+		githubLink: 'https://github.com/brandingflux/notchgent',
+		icon: 'computer-desktop'
+	}
+]
 
 const apps = [
 	{
@@ -165,11 +200,14 @@ const saas = [
 					Software built for the work that matters.
 				</h1>
 				<p class="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed">
-					From standalone native apps and browser productivity tools to enterprise SaaS platforms, explore the technology built by FluxFuse.
+					From standalone native apps and open-source developer software to browser productivity tools and cloud platforms, explore the technology built by FluxFuse.
 				</p>
 
 				{/* Quick jump navigation */}
 				<div class="flex flex-wrap items-center justify-center gap-3 mt-10">
+					<a href="#software" class="px-5 py-2 rounded-full border border-neutral-200 dark:border-neutral-800 bg-white/80 dark:bg-neutral-900/80 text-sm font-semibold hover:border-primary-500 transition-colors">
+						Software ↓
+					</a>
 					<a href="#apps" class="px-5 py-2 rounded-full border border-neutral-200 dark:border-neutral-800 bg-white/80 dark:bg-neutral-900/80 text-sm font-semibold hover:border-primary-500 transition-colors">
 						Apps ↓
 					</a>
@@ -184,12 +222,99 @@ const saas = [
 		</Row>
 	</Section>
 
-	{/* Category 1: Apps */}
+	{/* Category 1: Software */}
+	<Section id="software" classes="py-16! lg:py-24!" decorationBorder="none">
+		<Row style="transparent" decorationBorder="none">
+			<Col span="12" style="transparent">
+				<div class="mb-12">
+					<div class="flex items-center gap-2 mb-2">
+						<span class="text-xs font-mono font-bold uppercase tracking-wider text-primary-600 dark:text-primary-400">01. Category</span>
+						<span class="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-none bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+							Open Source & Free
+						</span>
+					</div>
+					<h2 class="text-3xl font-bold tracking-tight text-neutral-950 dark:text-white mt-1">Desktop Software & Developer Tools</h2>
+					<p class="text-neutral-600 dark:text-neutral-400 text-base max-w-2xl mt-2">
+						Native desktop applications engineered for high performance, zero focus stealing, and uninterrupted deep work.
+					</p>
+				</div>
+			</Col>
+		</Row>
+
+		<Row style="transparent" decorationBorder="none" classes="gap-6 lg:gap-8">
+			{software.map((item) => (
+				<Col span="12" style="transparent">
+					<div class="rounded-none border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0C0A09] p-8 md:p-10 transition-all duration-300 hover:border-neutral-400 dark:hover:border-neutral-700 hover:shadow-xl dark:hover:shadow-black/70">
+						<div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
+							<div class="flex-1">
+								<div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+									<div class="flex items-center gap-3">
+										<div class="size-12 rounded-none bg-primary-500/10 dark:bg-primary-500/20 border border-primary-500/30 flex items-center justify-center text-primary-600 dark:text-primary-400">
+											<Icon name={item.icon} class="size-6" />
+										</div>
+										<div>
+											<h3 class="text-2xl md:text-3xl font-black text-neutral-950 dark:text-white">{item.title}</h3>
+											<p class="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mt-0.5">{item.badge}</p>
+										</div>
+									</div>
+									<span class={`text-xs font-mono font-bold px-3 py-1.5 rounded-none border ${item.statusColor}`}>
+										{item.status}
+									</span>
+								</div>
+
+								<p class="text-base md:text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed mb-6">
+									{item.description}
+								</p>
+
+								<div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8 pt-4 border-t border-neutral-200/80 dark:border-neutral-800">
+									{item.features.map((feat) => (
+										<div class="flex items-center text-xs md:text-sm text-neutral-700 dark:text-neutral-300">
+											<span class="size-1.5 rounded-none bg-primary-500 mr-2.5 flex-shrink-0"></span>
+											<span>{feat}</span>
+										</div>
+									))}
+								</div>
+							</div>
+
+							<div class="w-full lg:w-76 flex-shrink-0 flex flex-col justify-between p-6 bg-neutral-50 dark:bg-neutral-900/60 border border-neutral-200 dark:border-neutral-800">
+								<div>
+									<span class="text-[11px] font-mono font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 block mb-2">
+										License & Availability
+									</span>
+									<p class="text-xl font-bold text-neutral-950 dark:text-white mb-1">100% Free</p>
+									<p class="text-xs text-neutral-600 dark:text-neutral-400 mb-6">
+										Open source under MIT License. Precompiled standalone .exe binary and source code available on GitHub.
+									</p>
+								</div>
+
+								<div class="space-y-3">
+									<Button link={item.actionLink} style="primary" classes="w-full text-xs md:text-sm justify-center">
+										{item.actionText} →
+									</Button>
+									<a
+										href={item.githubLink}
+										target="_blank"
+										rel="noopener noreferrer"
+										class="inline-flex items-center justify-center w-full px-4 py-2.5 text-xs md:text-sm font-semibold text-neutral-800 dark:text-neutral-200 bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 hover:border-neutral-900 dark:hover:border-neutral-500 transition-colors gap-2"
+									>
+										<Icon name="github" class="size-4" />
+										<span>{item.githubText} ↗</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</Col>
+			))}
+		</Row>
+	</Section>
+
+	{/* Category 2: Apps */}
 	<Section id="apps" classes="py-16! lg:py-24!" decorationBorder="none">
 		<Row style="transparent" decorationBorder="none">
 			<Col span="12" style="transparent">
 				<div class="mb-12">
-					<span class="text-xs font-mono font-bold uppercase tracking-wider text-primary-600 dark:text-primary-400">01. Category</span>
+					<span class="text-xs font-mono font-bold uppercase tracking-wider text-primary-600 dark:text-primary-400">02. Category</span>
 					<h2 class="text-3xl font-bold tracking-tight text-neutral-950 dark:text-white mt-1">Standalone Apps</h2>
 					<p class="text-neutral-600 dark:text-neutral-400 text-base max-w-2xl mt-2">
 						Focused software built to solve specific workflow friction with local-first performance and rock-solid reliability.
@@ -236,12 +361,12 @@ const saas = [
 		</Row>
 	</Section>
 
-	{/* Category 2: Extensions */}
+	{/* Category 3: Extensions */}
 	<Section id="extensions" classes="py-16! lg:py-24!" decorationBorder="none">
 		<Row style="transparent" decorationBorder="none">
 			<Col span="12" style="transparent">
 				<div class="mb-12">
-					<span class="text-xs font-mono font-bold uppercase tracking-wider text-primary-600 dark:text-primary-400">02. Category</span>
+					<span class="text-xs font-mono font-bold uppercase tracking-wider text-primary-600 dark:text-primary-400">03. Category</span>
 					<h2 class="text-3xl font-bold tracking-tight text-neutral-950 dark:text-white mt-1">Productivity Extensions</h2>
 					<p class="text-neutral-600 dark:text-neutral-400 text-base max-w-2xl mt-2">
 						Lightweight tools that integrate directly into existing browsers and environments to speed up daily output.
@@ -288,12 +413,12 @@ const saas = [
 		</Row>
 	</Section>
 
-	{/* Category 3: SaaS */}
+	{/* Category 4: SaaS */}
 	<Section id="saas" classes="py-16! lg:py-24!" decorationBorder="none">
 		<Row style="transparent" decorationBorder="none">
 			<Col span="12" style="transparent">
 				<div class="mb-12">
-					<span class="text-xs font-mono font-bold uppercase tracking-wider text-primary-600 dark:text-primary-400">03. Category</span>
+					<span class="text-xs font-mono font-bold uppercase tracking-wider text-primary-600 dark:text-primary-400">04. Category</span>
 					<h2 class="text-3xl font-bold tracking-tight text-neutral-950 dark:text-white mt-1">SaaS Platforms</h2>
 					<p class="text-neutral-600 dark:text-neutral-400 text-base max-w-2xl mt-2">
 						Cloud platforms built for recurring team operations, intelligent automation, and multi-tenant reliability.

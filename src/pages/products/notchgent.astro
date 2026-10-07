@@ -1,0 +1,697 @@
+---
+// Notchgent Dedicated Product Showcase Page
+// ------------
+// Description: Dedicated product landing page for Notchgent, the open-source Dynamic Island HUD for Windows.
+
+import Layout from '../../layouts/Layout.astro'
+import Section from '../../components/ui/Section.astro'
+import Row from '../../components/ui/Row.astro'
+import Col from '../../components/ui/Col.astro'
+import { Icon } from 'astro-icon/components'
+
+const SEO = {
+	title: 'Notchgent — Always-on-Top Dynamic Island HUD for Antigravity & VS Code',
+	description:
+		'Free & open-source Windows HUD. Watch movies or focus in fullscreen while Antigravity AI agents code in the background. Review and approve commands with 1 click or global hotkeys—without Alt-Tabbing or video interruptions.',
+	keywords: [
+		'Notchgent',
+		'Antigravity HUD',
+		'Dynamic Island Windows',
+		'VS Code background approval',
+		'agy cli',
+		'AI coding assistant HUD',
+		'Windows always on top overlay',
+		'DirectFlip DWM bypass',
+		'open source developer tools',
+		'FluxFuse Technologies'
+	],
+	softwareApps: [
+		{
+			name: 'Notchgent',
+			description:
+				'Always-on-top Dynamic Island HUD for Antigravity & VS Code on Windows. Review and approve agent actions with 1 click or global hotkey without Alt-Tabbing or video interruptions.',
+			operatingSystem: 'Windows 10, Windows 11',
+			applicationCategory: 'DeveloperApplication',
+			price: '0',
+			priceCurrency: 'USD'
+		}
+	],
+	breadcrumbs: [
+		{ name: 'Home', url: '/' },
+		{ name: 'Products', url: '/products' },
+		{ name: 'Notchgent', url: '/products/notchgent' }
+	]
+}
+
+const features = [
+	{
+		title: 'Fullscreen Overlay Persistence',
+		badge: 'DWM Bypass',
+		desc: 'Floats permanently on top of fullscreen video players (Windows Media Player, VLC, MPC-HC, Chrome, Netflix, YouTube) via continuous HWND_TOPMOST re-assertion that bypasses Windows DWM fullscreen suppression.',
+		icon: 'computer-desktop'
+	},
+	{
+		title: 'Zero Video Interruption (15ms Shift)',
+		badge: 'Win32 Native',
+		desc: 'Approving an action briefly shifts focus in the background for ~15ms via native Win32 keybd_event and AttachThreadInput, then instantly pins your fullscreen movie player back on top. VS Code never covers your video.',
+		icon: 'bolt'
+	},
+	{
+		title: 'Dynamic Multi-Workspace Routing',
+		badge: 'Intelligent Matcher',
+		desc: "Running multiple VS Code projects simultaneously? Notchgent inspects the pending tool call's working directory (Cwd), target file, and active agy.exe environment to dynamically target the exact VS Code window where that agent is running.",
+		icon: 'cube-transparent'
+	},
+	{
+		title: 'Universal Global Hotkeys',
+		badge: 'System-Wide',
+		desc: 'Approve instantly from anywhere with Alt+1, Alt+A, or F8. Reject with Alt+2, Alt+D, or F9. No mouse movement required.',
+		icon: 'key'
+	},
+	{
+		title: '15-Minute Hands-Free Auto Mode',
+		badge: 'Countdown Timer',
+		desc: 'Optional 15-minute timer that auto-approves pending agent actions after an audible soft chime, allowing autonomous hands-free progress while you step away.',
+		icon: 'clock'
+	},
+	{
+		title: 'Auto Re-minimization',
+		badge: 'Clean Taskbar',
+		desc: 'If VS Code was minimized to the taskbar, it receives the approval keystroke in the background and is immediately tucked back into the taskbar (SW_MINIMIZE).',
+		icon: 'shield-check'
+	},
+	{
+		title: 'Zero-Hook Architecture',
+		badge: 'Stock Antigravity',
+		desc: 'Runs against the stock Antigravity CLI without modifying hooks.json or intercepting terminal streams. It observes live JSONL transcripts directly at 400ms intervals.',
+		icon: 'code-bracket'
+	},
+	{
+		title: 'Standalone Release Binary',
+		badge: 'Zero Dependencies',
+		desc: 'Precompiled standalone Notchgent.exe with embedded PyQt6 runtimes and high-res icon assets. Run instantly without installing Python or dependencies.',
+		icon: 'rocket'
+	}
+]
+
+const hotkeys = [
+	{
+		action: 'Approve Action',
+		control: '[ ✓ 1. Approve (Alt+1) ]',
+		hotkeys: ['Alt + 1', 'Alt + A', 'F8'],
+		purpose: 'Injects "1" + Enter into targeted VS Code terminal and restores focus to fullscreen player in <15ms.'
+	},
+	{
+		action: 'Reject Action',
+		control: '[ ✕ 2 (Alt+2) ]',
+		hotkeys: ['Alt + 2', 'Alt + D', 'F9'],
+		purpose: 'Injects "2" + Enter to deny or skip the pending agent tool execution.'
+	},
+	{
+		action: 'Toggle Auto Mode',
+		control: '[ ⏱ Auto ] / [ ⏱ 14:59 ]',
+		hotkeys: ['Click button on capsule'],
+		purpose: 'Initiates 15-minute countdown for automatic command clearance.'
+	},
+	{
+		action: 'Reposition HUD',
+		control: 'Click and drag capsule',
+		hotkeys: ['Mouse drag'],
+		purpose: 'Freely move the Dynamic Island anywhere across single or multi-monitor setups.'
+	},
+	{
+		action: 'Close HUD',
+		control: '[ ✕ ] Button',
+		hotkeys: ['Click button on capsule'],
+		purpose: 'Cleanly terminates the background observer and releases Win32 hooks.'
+	}
+]
+
+const files = [
+	{ name: 'dist/Notchgent.exe', desc: 'Compiled standalone release binary (zero dependencies needed)' },
+	{ name: 'notchgent.py', desc: 'Main application: PyQt6 HUD, Win32 window manager & transcript watcher' },
+	{ name: 'make_icon.py', desc: 'High-res multi-resolution icon generator' },
+	{ name: 'app_icon.ico', desc: 'Application and taskbar icon (256x256 down to 16x16)' },
+	{ name: 'build.bat', desc: 'PyInstaller release build script for compilation' },
+	{ name: 'start.bat', desc: 'Quick launcher (prefers compiled exe, falls back to pythonw)' },
+	{ name: 'restart.bat', desc: 'Process-safe restart script (reads .notchgent.pid)' },
+	{ name: 'stop.bat', desc: 'Graceful background termination script' },
+	{ name: 'config.json', desc: 'User configuration settings (geometry, hotkeys, opacity)' }
+]
+---
+
+<Layout
+	title={SEO.title}
+	description={SEO.description}
+	keywords={SEO.keywords}
+	softwareApps={SEO.softwareApps}
+	breadcrumbs={SEO.breadcrumbs}
+	footer="motion"
+>
+	{/* Hero Section */}
+	<Section classes="pt-24! lg:pt-32! pb-16! text-center" decorationBorder="none">
+		<Row style="transparent" decorationBorder="none">
+			<Col span="12" style="transparent">
+				{/* Breadcrumb Bar */}
+				<nav class="flex items-center justify-center space-x-2 text-xs font-mono mb-6 text-neutral-500 dark:text-neutral-400">
+					<a href="/" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Home</a>
+					<span>/</span>
+					<a href="/products" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Products</a>
+					<span>/</span>
+					<span class="text-neutral-900 dark:text-white font-semibold">Notchgent</span>
+				</nav>
+
+				{/* Badges */}
+				<div class="inline-flex items-center gap-2 px-3 py-1.5 border border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-bold uppercase tracking-wider mb-6">
+					<span class="size-2 rounded-full bg-emerald-500 animate-pulse"></span>
+					<span>Free & Open Source • Windows 10 & 11</span>
+				</div>
+
+				<h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-neutral-950 dark:text-white max-w-5xl mx-auto leading-tight mb-6">
+					The Always-on-Top <span class="text-primary-600 dark:text-primary-500">"Dynamic Island"</span> HUD for Antigravity & VS Code.
+				</h1>
+
+				<p class="text-lg md:text-xl text-neutral-600 dark:text-neutral-300 max-w-3xl mx-auto leading-relaxed mb-10">
+					Watch movies, streams, or focus in fullscreen while Antigravity AI agents code in the background. Review and approve pending commands with 1 click or a global hotkey—<strong class="text-neutral-900 dark:text-white font-semibold">without Alt-Tabbing, without window focus popups, and without video interruptions.</strong>
+				</p>
+
+				{/* Primary Call to Action Buttons */}
+				<div class="flex flex-wrap items-center justify-center gap-4 mb-16">
+					<a
+						href="https://github.com/brandingflux/notchgent"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="inline-flex items-center justify-center px-8 py-4 text-sm md:text-base font-bold text-white bg-neutral-950 dark:bg-white dark:text-neutral-950 border border-neutral-900 dark:border-white hover:bg-primary-600 dark:hover:bg-primary-500 dark:hover:text-white dark:hover:border-primary-500 transition-all gap-3 shadow-lg"
+					>
+						<Icon name="github" class="size-5" />
+						<span>View on GitHub (Free) ↗</span>
+					</a>
+					<a
+						href="#quickstart"
+						class="inline-flex items-center justify-center px-8 py-4 text-sm md:text-base font-bold text-neutral-900 dark:text-white bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800 hover:border-neutral-900 dark:hover:border-neutral-600 transition-all gap-2"
+					>
+						<span>Get Started & Setup ↓</span>
+					</a>
+				</div>
+
+				{/* Dynamic Island HUD Interactive Mockup Simulation */}
+				<div class="max-w-4xl mx-auto relative mt-8">
+					{/* Outer Screen Simulation Frame */}
+					<div class="rounded-xl border border-neutral-300 dark:border-neutral-800 bg-neutral-900 text-white shadow-2xl overflow-hidden relative">
+						{/* Background screen simulating a fullscreen movie / workspace */}
+						<div class="h-64 sm:h-80 w-full bg-gradient-to-br from-neutral-950 via-[#120F1D] to-[#0A121A] flex flex-col justify-between p-6 relative overflow-hidden">
+							{/* Background ambient video player mock */}
+							<div class="absolute inset-0 opacity-20 pointer-events-none flex items-center justify-center">
+								<div class="text-center">
+									<Icon name="play-circle" class="size-20 mx-auto text-neutral-400 mb-2" />
+									<p class="font-mono text-xs text-neutral-400 tracking-widest uppercase">Fullscreen Media Playback Active (1080p / 4K)</p>
+								</div>
+							</div>
+
+							{/* Simulated Dynamic Island Pill floating at the top center */}
+							<div class="relative z-20 flex justify-center w-full">
+								<div class="w-full max-w-lg bg-black/95 border border-neutral-700/80 rounded-2xl p-4 shadow-[0_10px_40px_rgba(0,0,0,0.8)] backdrop-blur-xl transition-all">
+									{/* Capsule Header */}
+									<div class="flex items-center justify-between pb-3 border-b border-neutral-800">
+										<div class="flex items-center gap-2.5">
+											<span class="size-2.5 rounded-full bg-amber-400 animate-ping"></span>
+											<span class="text-xs font-mono font-bold text-amber-300 tracking-wide">
+												Approval Needed • FFTL-light-astro-theme
+											</span>
+										</div>
+										<div class="flex items-center gap-2">
+											<span class="text-[10px] font-mono px-2 py-0.5 rounded-sm bg-neutral-800 text-neutral-400 border border-neutral-700">
+												HWND_TOPMOST
+											</span>
+											<button type="button" class="text-neutral-500 hover:text-white text-xs px-1">✕</button>
+										</div>
+									</div>
+
+									{/* Pending Tool Call Details */}
+									<div class="py-3 text-left">
+										<div class="flex items-center gap-2 mb-1">
+											<span class="text-[11px] font-mono font-semibold text-primary-400">tool_call:</span>
+											<span class="text-xs font-mono font-bold text-neutral-200">replace_file_content</span>
+										</div>
+										<p class="text-xs font-mono text-neutral-400 truncate">
+											Target: src/pages/products.astro
+										</p>
+									</div>
+
+									{/* Action Buttons mimicking Notchgent HUD */}
+									<div class="grid grid-cols-3 gap-2 pt-2">
+										<div class="px-3 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold font-mono text-center cursor-pointer transition-all flex items-center justify-center gap-1.5 shadow-md shadow-emerald-950">
+											<span>✓ 1. Approve</span>
+											<span class="text-[10px] opacity-80">(Alt+1)</span>
+										</div>
+										<div class="px-3 py-2 rounded-lg bg-neutral-800 hover:bg-rose-900/80 border border-neutral-700 hover:border-rose-700 text-neutral-200 text-xs font-bold font-mono text-center cursor-pointer transition-all flex items-center justify-center gap-1.5">
+											<span>✕ 2. Reject</span>
+											<span class="text-[10px] opacity-70">(Alt+2)</span>
+										</div>
+										<div class="px-3 py-2 rounded-lg bg-neutral-800 border border-neutral-700 hover:border-amber-600 text-amber-400 text-xs font-bold font-mono text-center cursor-pointer transition-all flex items-center justify-center gap-1.5">
+											<span>⏱ 14:59</span>
+											<span class="text-[10px] opacity-80">Auto</span>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							{/* Bottom HUD status indicators */}
+							<div class="relative z-10 flex flex-wrap items-center justify-between gap-3 text-[11px] font-mono text-neutral-400 border-t border-neutral-800/80 pt-3">
+								<div class="flex items-center gap-2">
+									<span class="size-1.5 rounded-full bg-emerald-400"></span>
+									<span>15ms Focus Switch (Zero Window Popups)</span>
+								</div>
+								<div class="flex items-center gap-2">
+									<span class="size-1.5 rounded-full bg-blue-400"></span>
+									<span>Active VS Code Window Routed Automatically</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<p class="text-xs font-mono text-neutral-500 dark:text-neutral-400 mt-4">
+						Simulated HUD preview. Floats permanently on top of all Windows 10/11 fullscreen layers.
+					</p>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	{/* The Problem & Solution Breakdown */}
+	<Section classes="py-16! lg:py-24!" decorationBorder="none">
+		<Row style="transparent" decorationBorder="none">
+			<Col span="12" style="transparent">
+				<div class="text-center max-w-3xl mx-auto mb-16">
+					<span class="text-xs font-mono font-bold uppercase tracking-wider text-primary-600 dark:text-primary-400">01. The Problem Solved</span>
+					<h2 class="text-3xl sm:text-4xl font-black tracking-tight text-neutral-950 dark:text-white mt-2">
+						Why standard HUDs fail during fullscreen media & deep work.
+					</h2>
+					<p class="text-base md:text-lg text-neutral-600 dark:text-neutral-400 mt-4 leading-relaxed">
+						When you run AI coding agents in the background while watching media or editing files, traditional Windows interfaces break your flow. Notchgent was built from the ground up to solve four critical OS obstacles.
+					</p>
+				</div>
+			</Col>
+		</Row>
+
+		<Row style="transparent" decorationBorder="none" classes="gap-6 lg:gap-8">
+			<Col span="6" spanTablet="12" spanMobile="12" style="transparent">
+				<div class="p-8 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0C0A09] h-full flex flex-col justify-between">
+					<div>
+						<div class="flex items-center gap-3 mb-4">
+							<span class="text-xs font-mono font-bold px-2 py-0.5 bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20">Problem</span>
+							<h3 class="text-xl font-bold text-neutral-950 dark:text-white">Windows DWM Fullscreen Suppression</h3>
+						</div>
+						<p class="text-sm md:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed mb-4">
+							When media players (VLC, Chrome, Windows Media Player) go fullscreen using DirectFlip or Multi-Plane Overlays (MPO), Desktop Window Manager hides ordinary "always on top" windows.
+						</p>
+					</div>
+					<div class="p-4 bg-emerald-500/5 dark:bg-emerald-500/10 border border-emerald-500/20">
+						<span class="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 block mb-1">Notchgent Solution:</span>
+						<p class="text-xs md:text-sm text-neutral-700 dark:text-neutral-300">
+							Continuously re-asserts <code class="font-mono text-xs bg-neutral-100 dark:bg-neutral-800 px-1 py-0.5">HWND_TOPMOST</code> with <code class="font-mono text-xs bg-neutral-100 dark:bg-neutral-800 px-1 py-0.5">SWP_NOACTIVATE</code>, guaranteeing the capsule remains visible without causing media player flicker.
+						</p>
+					</div>
+				</div>
+			</Col>
+
+			<Col span="6" spanTablet="12" spanMobile="12" style="transparent">
+				<div class="p-8 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0C0A09] h-full flex flex-col justify-between">
+					<div>
+						<div class="flex items-center gap-3 mb-4">
+							<span class="text-xs font-mono font-bold px-2 py-0.5 bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20">Problem</span>
+							<h3 class="text-xl font-bold text-neutral-950 dark:text-white">Focus Stealing & Window Popups</h3>
+						</div>
+						<p class="text-sm md:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed mb-4">
+							Approving a command usually requires Alt-Tabbing into VS Code, pulling the IDE to the front, destroying your fullscreen view, and forcing manual window rearranging.
+						</p>
+					</div>
+					<div class="p-4 bg-emerald-500/5 dark:bg-emerald-500/10 border border-emerald-500/20">
+						<span class="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 block mb-1">Notchgent Solution:</span>
+						<p class="text-xs md:text-sm text-neutral-700 dark:text-neutral-300">
+							Uses Win32 <code class="font-mono text-xs bg-neutral-100 dark:bg-neutral-800 px-1 py-0.5">AttachThreadInput</code> to bypass <code class="font-mono text-xs bg-neutral-100 dark:bg-neutral-800 px-1 py-0.5">LockSetForegroundWindow</code>, sends keystrokes in ~15ms, and instantly pins your fullscreen player back on top.
+						</p>
+					</div>
+				</div>
+			</Col>
+
+			<Col span="6" spanTablet="12" spanMobile="12" style="transparent">
+				<div class="p-8 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0C0A09] h-full flex flex-col justify-between">
+					<div>
+						<div class="flex items-center gap-3 mb-4">
+							<span class="text-xs font-mono font-bold px-2 py-0.5 bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20">Problem</span>
+							<h3 class="text-xl font-bold text-neutral-950 dark:text-white">Multiple VS Code Windows & Ambiguity</h3>
+						</div>
+						<p class="text-sm md:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed mb-4">
+							If you develop across several projects with multiple VS Code windows open, generic key senders send keystrokes to the wrong window or crash.
+						</p>
+					</div>
+					<div class="p-4 bg-emerald-500/5 dark:bg-emerald-500/10 border border-emerald-500/20">
+						<span class="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 block mb-1">Notchgent Solution:</span>
+						<p class="text-xs md:text-sm text-neutral-700 dark:text-neutral-300">
+							Inspects working directories (<code class="font-mono text-xs bg-neutral-100 dark:bg-neutral-800 px-1 py-0.5">Cwd</code>) and active process trees to dynamically match and target the exact window running that specific agent.
+						</p>
+					</div>
+				</div>
+			</Col>
+
+			<Col span="6" spanTablet="12" spanMobile="12" style="transparent">
+				<div class="p-8 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0C0A09] h-full flex flex-col justify-between">
+					<div>
+						<div class="flex items-center gap-3 mb-4">
+							<span class="text-xs font-mono font-bold px-2 py-0.5 bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20">Problem</span>
+							<h3 class="text-xl font-bold text-neutral-950 dark:text-white">Brittle Hooks & CLI Tampering</h3>
+						</div>
+						<p class="text-sm md:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed mb-4">
+							Custom CLI wrappers break upon official Antigravity updates or require complicated monkey-patching of <code class="font-mono text-xs bg-neutral-100 dark:bg-neutral-800 px-1 py-0.5">hooks.json</code>.
+						</p>
+					</div>
+					<div class="p-4 bg-emerald-500/5 dark:bg-emerald-500/10 border border-emerald-500/20">
+						<span class="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 block mb-1">Notchgent Solution:</span>
+						<p class="text-xs md:text-sm text-neutral-700 dark:text-neutral-300">
+							Zero-hook architecture. Reads unmodified JSONL trajectories directly from disk, keeping it 100% resilient across future CLI updates.
+						</p>
+					</div>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	{/* Key Features Grid */}
+	<Section classes="py-16! lg:py-24!" decorationBorder="none">
+		<Row style="transparent" decorationBorder="none">
+			<Col span="12" style="transparent">
+				<div class="mb-12">
+					<span class="text-xs font-mono font-bold uppercase tracking-wider text-primary-600 dark:text-primary-400">02. Engineering Specs</span>
+					<h2 class="text-3xl sm:text-4xl font-black tracking-tight text-neutral-950 dark:text-white mt-2">
+						Engineered for speed, resilience, and native OS control.
+					</h2>
+					<p class="text-neutral-600 dark:text-neutral-400 text-base max-w-2xl mt-2">
+						Every interaction in Notchgent is designed around zero latency and total non-intrusiveness.
+					</p>
+				</div>
+			</Col>
+		</Row>
+
+		<Row style="transparent" decorationBorder="none" classes="gap-6 lg:gap-8">
+			{features.map((feat) => (
+				<Col span="6" spanTablet="12" spanMobile="12" style="transparent">
+					<div class="p-8 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0C0A09] h-full flex flex-col justify-between hover:border-neutral-400 dark:hover:border-neutral-700 transition-colors">
+						<div>
+							<div class="flex items-center justify-between mb-4">
+								<div class="size-10 rounded-none bg-primary-500/10 dark:bg-primary-500/20 border border-primary-500/30 flex items-center justify-center text-primary-600 dark:text-primary-400">
+									<Icon name={feat.icon} class="size-5" />
+								</div>
+								<span class="text-[11px] font-mono font-bold px-2 py-0.5 rounded-none border border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400">
+									{feat.badge}
+								</span>
+							</div>
+							<h3 class="text-xl font-bold text-neutral-950 dark:text-white mb-2">{feat.title}</h3>
+							<p class="text-sm md:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">{feat.desc}</p>
+						</div>
+					</div>
+				</Col>
+			))}
+		</Row>
+	</Section>
+
+	{/* Architecture Flow Section */}
+	<Section id="architecture" classes="py-16! lg:py-24!" decorationBorder="none">
+		<Row style="transparent" decorationBorder="none">
+			<Col span="12" style="transparent">
+				<div class="mb-12">
+					<span class="text-xs font-mono font-bold uppercase tracking-wider text-primary-600 dark:text-primary-400">03. System Architecture</span>
+					<h2 class="text-3xl sm:text-4xl font-black tracking-tight text-neutral-950 dark:text-white mt-2">
+						How Notchgent orchestrates background approval
+					</h2>
+					<p class="text-neutral-600 dark:text-neutral-400 text-base max-w-2xl mt-2">
+						A 7-stage non-blocking loop between the live Antigravity CLI trajectory, PyQt6 Dynamic Island HUD, and native Win32 window APIs.
+					</p>
+				</div>
+			</Col>
+		</Row>
+
+		<Row style="transparent" decorationBorder="none">
+			<Col span="12" style="transparent">
+				<div class="p-8 md:p-12 border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-[#0C0A09]">
+					<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+						{/* Step 1 */}
+						<div class="p-6 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+							<span class="text-xs font-mono font-bold text-primary-600 dark:text-primary-400 block mb-2">Stage 01</span>
+							<h4 class="text-base font-bold text-neutral-950 dark:text-white mb-2">Antigravity CLI</h4>
+							<p class="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
+								Agent generates a tool call and appends structured trajectory entries into <code class="font-mono text-[11px] bg-neutral-100 dark:bg-neutral-800 px-1">transcript.jsonl</code>.
+							</p>
+						</div>
+
+						{/* Step 2 */}
+						<div class="p-6 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+							<span class="text-xs font-mono font-bold text-primary-600 dark:text-primary-400 block mb-2">Stage 02</span>
+							<h4 class="text-base font-bold text-neutral-950 dark:text-white mb-2">Transcript Watcher</h4>
+							<p class="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
+								Polling thread reads trailing JSON lines every 400ms without file locking or process hook dependencies.
+							</p>
+						</div>
+
+						{/* Step 3 */}
+						<div class="p-6 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+							<span class="text-xs font-mono font-bold text-primary-600 dark:text-primary-400 block mb-2">Stage 03</span>
+							<h4 class="text-base font-bold text-neutral-950 dark:text-white mb-2">Dynamic Island HUD</h4>
+							<p class="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
+								Capsule expands with active project name, tool summary, and plays an optional notification chime.
+							</p>
+						</div>
+
+						{/* Step 4 */}
+						<div class="p-6 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+							<span class="text-xs font-mono font-bold text-primary-600 dark:text-primary-400 block mb-2">Stage 04</span>
+							<h4 class="text-base font-bold text-neutral-950 dark:text-white mb-2">15ms Keystroke Inject</h4>
+							<p class="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
+								Press <kbd class="px-1 border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 rounded font-mono text-[10px]">Alt+1</kbd>. Sends "1" + Enter, auto-minimizes VS Code, and re-pins fullscreen media on top.
+							</p>
+						</div>
+					</div>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	{/* Global Hotkeys & Controls Table */}
+	<Section classes="py-16! lg:py-24!" decorationBorder="none">
+		<Row style="transparent" decorationBorder="none">
+			<Col span="12" style="transparent">
+				<div class="mb-12">
+					<span class="text-xs font-mono font-bold uppercase tracking-wider text-primary-600 dark:text-primary-400">04. Cheat Sheet</span>
+					<h2 class="text-3xl sm:text-4xl font-black tracking-tight text-neutral-950 dark:text-white mt-2">
+						Global hotkeys & on-screen controls
+					</h2>
+					<p class="text-neutral-600 dark:text-neutral-400 text-base max-w-2xl mt-2">
+						Control background operations with universal system hotkeys that work across any active window.
+					</p>
+				</div>
+			</Col>
+		</Row>
+
+		<Row style="transparent" decorationBorder="none">
+			<Col span="12" style="transparent">
+				<div class="overflow-x-auto border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0C0A09]">
+					<table class="w-full text-left border-collapse text-xs md:text-sm">
+						<thead>
+							<tr class="border-b border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/50 font-mono text-neutral-500 dark:text-neutral-400 uppercase text-[11px]">
+								<th class="p-4 md:p-5">Action</th>
+								<th class="p-4 md:p-5">On-Screen Control</th>
+								<th class="p-4 md:p-5">Global Hotkeys</th>
+								<th class="p-4 md:p-5">OS Mechanics & Purpose</th>
+							</tr>
+						</thead>
+						<tbody class="divide-y divide-neutral-200 dark:divide-neutral-800 text-neutral-700 dark:text-neutral-300">
+							{hotkeys.map((h) => (
+								<tr class="hover:bg-neutral-50/50 dark:hover:bg-neutral-900/30 transition-colors">
+									<td class="p-4 md:p-5 font-bold text-neutral-950 dark:text-white font-mono whitespace-nowrap">
+										{h.action}
+									</td>
+									<td class="p-4 md:p-5 font-mono text-xs text-neutral-600 dark:text-neutral-400">
+										{h.control}
+									</td>
+									<td class="p-4 md:p-5">
+										<div class="flex flex-wrap gap-1.5">
+											{h.hotkeys.map((k) => (
+												<kbd class="px-2 py-0.5 rounded border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 font-mono text-xs font-semibold text-neutral-900 dark:text-neutral-200 shadow-xs">
+													{k}
+												</kbd>
+											))}
+										</div>
+									</td>
+									<td class="p-4 md:p-5 text-neutral-600 dark:text-neutral-400">
+										{h.purpose}
+									</td>
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	{/* Quick Start & Installation */}
+	<Section id="quickstart" classes="py-16! lg:py-24!" decorationBorder="none">
+		<Row style="transparent" decorationBorder="none">
+			<Col span="12" style="transparent">
+				<div class="mb-12">
+					<span class="text-xs font-mono font-bold uppercase tracking-wider text-primary-600 dark:text-primary-400">05. Quick Start</span>
+					<h2 class="text-3xl sm:text-4xl font-black tracking-tight text-neutral-950 dark:text-white mt-2">
+						Get started with Notchgent in 60 seconds
+					</h2>
+					<p class="text-neutral-600 dark:text-neutral-400 text-base max-w-2xl mt-2">
+						Download the precompiled binary directly or run from source using Python 3.10+.
+					</p>
+				</div>
+			</Col>
+		</Row>
+
+		<Row style="transparent" decorationBorder="none" classes="gap-6 lg:gap-8">
+			{/* Option 1: Standalone Binary */}
+			<Col span="6" spanTablet="12" spanMobile="12" style="transparent">
+				<div class="p-8 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0C0A09] h-full flex flex-col justify-between">
+					<div>
+						<div class="flex items-center gap-2 mb-4">
+							<span class="text-xs font-mono font-bold px-2 py-0.5 bg-primary-500/10 text-primary-600 dark:text-primary-400 border border-primary-500/20">
+								Recommended
+							</span>
+							<h3 class="text-xl font-bold text-neutral-950 dark:text-white">Standalone Release (.exe)</h3>
+						</div>
+						<p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">
+							Requires zero Python installation or setup. Single executable file bundled with Qt6 runtimes and Win32 hooks.
+						</p>
+
+						<ol class="space-y-4 text-xs md:text-sm text-neutral-700 dark:text-neutral-300 mb-8 list-decimal list-inside">
+							<li>Clone or download repository from GitHub.</li>
+							<li>Double-click <code class="font-mono text-xs bg-neutral-100 dark:bg-neutral-800 px-1 py-0.5">start.bat</code> or run <code class="font-mono text-xs bg-neutral-100 dark:bg-neutral-800 px-1 py-0.5">dist\Notchgent.exe</code>.</li>
+							<li>The Dynamic Island appears at the top center of your primary monitor.</li>
+						</ol>
+					</div>
+
+					<a
+						href="https://github.com/brandingflux/notchgent"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="inline-flex items-center justify-center w-full px-6 py-3 text-xs md:text-sm font-bold text-white bg-neutral-950 dark:bg-white dark:text-neutral-950 border border-neutral-900 dark:border-white hover:bg-primary-600 dark:hover:bg-primary-500 dark:hover:text-white transition-all gap-2"
+					>
+						<Icon name="github" class="size-4" />
+						<span>Download Release on GitHub ↗</span>
+					</a>
+				</div>
+			</Col>
+
+			{/* Option 2: Run from Python */}
+			<Col span="6" spanTablet="12" spanMobile="12" style="transparent">
+				<div class="p-8 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0C0A09] h-full flex flex-col justify-between">
+					<div>
+						<div class="flex items-center gap-2 mb-4">
+							<span class="text-xs font-mono font-bold px-2 py-0.5 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border border-neutral-300 dark:border-neutral-700">
+								Developer Mode
+							</span>
+							<h3 class="text-xl font-bold text-neutral-950 dark:text-white">Run from Python Source</h3>
+						</div>
+						<p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">
+							Inspect or customize the PyQt6 UI and Win32 focus loop directly in Python.
+						</p>
+
+						<div class="space-y-3 mb-6">
+							<p class="text-xs font-mono text-neutral-500 dark:text-neutral-400">1. Install Dependencies:</p>
+							<div class="p-3 bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 font-mono text-xs text-neutral-800 dark:text-neutral-200 overflow-x-auto select-all">
+								pip install PyQt6 pywin32 psutil pynput pyautogui
+							</div>
+
+							<p class="text-xs font-mono text-neutral-500 dark:text-neutral-400 mt-3">2. Launch HUD:</p>
+							<div class="p-3 bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 font-mono text-xs text-neutral-800 dark:text-neutral-200 overflow-x-auto select-all">
+								python notchgent.py
+							</div>
+						</div>
+					</div>
+
+					<div class="text-xs font-mono text-neutral-500 dark:text-neutral-400 pt-2 border-t border-neutral-200 dark:border-neutral-800">
+						Use <code class="text-neutral-700 dark:text-neutral-300">restart.bat</code> to reload changes cleanly via process tracking PID.
+					</div>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	{/* Project Repository Structure */}
+	<Section classes="py-16! lg:py-24!" decorationBorder="none">
+		<Row style="transparent" decorationBorder="none">
+			<Col span="12" style="transparent">
+				<div class="mb-12">
+					<span class="text-xs font-mono font-bold uppercase tracking-wider text-primary-600 dark:text-primary-400">06. Repository Structure</span>
+					<h2 class="text-3xl sm:text-4xl font-black tracking-tight text-neutral-950 dark:text-white mt-2">
+						Clean, modular codebase architecture
+					</h2>
+					<p class="text-neutral-600 dark:text-neutral-400 text-base max-w-2xl mt-2">
+						Zero bloat. Built strictly with standard PyQt6, native Win32 libraries, and automated build scripts.
+					</p>
+				</div>
+			</Col>
+		</Row>
+
+		<Row style="transparent" decorationBorder="none">
+			<Col span="12" style="transparent">
+				<div class="border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0C0A09] divide-y divide-neutral-200 dark:divide-neutral-800">
+					{files.map((file) => (
+						<div class="p-4 md:p-5 flex flex-col md:flex-row md:items-center justify-between gap-2 hover:bg-neutral-50/50 dark:hover:bg-neutral-900/30 transition-colors">
+							<div class="flex items-center gap-3">
+								<Icon name="code-bracket" class="size-4 text-primary-600 dark:text-primary-400 flex-shrink-0" />
+								<span class="font-mono text-xs md:text-sm font-bold text-neutral-900 dark:text-white">{file.name}</span>
+							</div>
+							<p class="text-xs md:text-sm text-neutral-600 dark:text-neutral-400">{file.desc}</p>
+						</div>
+					))}
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	{/* GitHub Community Banner CTA */}
+	<Section classes="py-16! lg:py-24!" decorationBorder="none">
+		<Row style="transparent" decorationBorder="none">
+			<Col span="12" style="transparent">
+				<div class="p-10 md:p-16 border border-neutral-200 dark:border-neutral-800 bg-neutral-950 text-white relative overflow-hidden text-center">
+					<div class="max-w-3xl mx-auto relative z-10">
+						<span class="text-xs font-mono font-bold uppercase tracking-widest text-primary-400 block mb-4">
+							Open Source & Community Driven
+						</span>
+						<h2 class="text-3xl sm:text-5xl font-black tracking-tight mb-6">
+							Contribute, Star, or Fork on GitHub.
+						</h2>
+						<p class="text-neutral-300 text-base md:text-lg leading-relaxed mb-10">
+							Notchgent is released under the permissive MIT License. Contributions, bug reports, and pull requests are welcomed by the FluxFuse engineering community.
+						</p>
+
+						<div class="flex flex-wrap items-center justify-center gap-4">
+							<a
+								href="https://github.com/brandingflux/notchgent"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="inline-flex items-center justify-center px-8 py-4 text-sm md:text-base font-bold text-neutral-950 bg-white hover:bg-primary-500 hover:text-white transition-all gap-3 shadow-xl"
+							>
+								<Icon name="github" class="size-5" />
+								<span>Star Notchgent on GitHub ↗</span>
+							</a>
+							<a
+								href="/products"
+								class="inline-flex items-center justify-center px-8 py-4 text-sm md:text-base font-bold text-white bg-neutral-900 border border-neutral-700 hover:border-neutral-400 transition-all gap-2"
+							>
+								<span>← Back to Products Portfolio</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+</Layout>
+
+<style>
+	@reference '../../styles/global.css';
+</style>

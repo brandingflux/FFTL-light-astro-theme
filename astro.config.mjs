@@ -39,6 +39,7 @@ export default defineConfig({
   redirects: {
     "/features": "/products",
     "/pricing": "/services",
+    "/notchgent": "/products/notchgent",
   },
   image: {
     service: {
@@ -59,6 +60,7 @@ export default defineConfig({
           item.changefreq = "weekly";
         } else if (
           url.endsWith("/products") ||
+          url.endsWith("/products/notchgent") ||
           url.endsWith("/services")
         ) {
           item.priority = 0.9;
