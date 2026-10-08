@@ -14,14 +14,52 @@ import SectionSticky from '../../blocks/basic/StickySidebar.astro'
 import Header from '../../ui/Header.astro'
 import DecorationBorder from '../../ui/DecorationBorder.astro'
 
-// Content
-// - Props
+export interface FaqItem {
+	question: string
+	answer: string
+}
+
 type Props = {
 	title?: string
 	subtitle?: string
 	classes?: string
+	items?: FaqItem[]
 }
-const { title = '', subtitle = '', classes = '' } = Astro.props
+
+const defaultItems: FaqItem[] = [
+	{
+		question: 'What is FluxFuse Technologies?',
+		answer:
+			'FluxFuse Technologies Limited (fluxfuse.net) is an independent software development company and multi-product technology studio. We engineer native desktop software (such as Notchgent), productivity tools, AI workflow automations, and custom software systems.'
+	},
+	{
+		question: 'Is FluxFuse related to FlowFuse or Flux?',
+		answer:
+			'No. FluxFuse (FluxFuse Technologies Limited, fluxfuse.net) is completely independent and unaffiliated with FlowFuse (an industrial Node-RED IoT platform) or Flux / RunOnFlux (a decentralized Web3 cloud network). FluxFuse focuses specifically on developer tools, desktop HUDs, AI automation pipelines, and consumer productivity software.'
+	},
+	{
+		question: 'What software and tools does FluxFuse build?',
+		answer:
+			'FluxFuse builds native desktop utilities like Notchgent (open-source Dynamic Island HUD for Windows and Antigravity AI coding), DeskSync (local-first digital asset vault), QuickMark (mobile capture), PromptCraft (AI browser copilot), TabShield (memory-saving productivity extension), and FuseFlow (event-driven cloud automation platform).'
+	},
+	{
+		question: 'Is FluxFuse a blog or a software engineering company?',
+		answer:
+			'FluxFuse Technologies Limited is a software engineering company and product studio. While we publish engineering notes and articles on our site, our core operation is designing, coding, and releasing software products and custom AI automations.'
+	},
+	{
+		question: 'How long does it take to get started with FluxFuse?',
+		answer:
+			'Most teams are onboarded within days. For our standalone apps like DeskSync or browser extensions like PromptCraft, setup takes minutes. For custom software engineering and AI automation pipelines, we conduct a rapid discovery sprint and deploy working MVPs within 2 to 3 weeks.'
+	},
+	{
+		question: 'Can FluxFuse integrate with our existing stack?',
+		answer:
+			'Yes. We build integrations across existing CRMs, relational databases, cloud storage, Slack, Notion, and custom internal APIs, ensuring your workflows remain consistent while eliminating manual busywork.'
+	}
+]
+
+const { title = '', subtitle = '', classes = '', items = defaultItems } = Astro.props
 ---
 
 <SectionSticky classes={`${classes ? classes : ''}`}>
@@ -34,41 +72,13 @@ const { title = '', subtitle = '', classes = '' } = Astro.props
 	/>
 
 	<div class="faq">
-		<div class="faq__item">
-			<h3 class="faq__item__title">How long does it take to get started with FluxFuse?</h3>
-			<p class="faq__item__text">
-				Most teams are onboarded within days. For our standalone apps like DeskSync or browser extensions like PromptCraft, setup takes minutes. For custom software engineering and AI automation pipelines, we conduct a rapid discovery sprint and deploy working MVPs within 2 to 3 weeks.
-			</p>
-			<DecorationBorder type="top bottom" style="dashed" />
-		</div>
-		<div class="faq__item">
-			<h3 class="faq__item__title">Do I need technical skills to work with FluxFuse?</h3>
-			<p class="faq__item__text">
-				Not at all. FluxFuse builds intuitive, self-documenting solutions with clear interfaces anyone on your team can operate. We handle all backend complexity, API integrations, and maintenance, providing full onboarding and training.
-			</p>
-			<DecorationBorder type="top bottom" style="dashed" />
-		</div>
-		<div class="faq__item">
-			<h3 class="faq__item__title">Can FluxFuse integrate with our existing stack?</h3>
-			<p class="faq__item__text">
-				Yes. We build integrations across existing CRMs, relational databases, cloud storage, Slack, Notion, and custom internal APIs, ensuring your workflows remain consistent while eliminating manual busywork.
-			</p>
-			<DecorationBorder type="top bottom" style="dashed" />
-		</div>
-		<div class="faq__item">
-			<h3 class="faq__item__title">How does FluxFuse ensure software security and reliability?</h3>
-			<p class="faq__item__text">
-				We architect with local-first and zero-bloat principles, employing end-to-end encryption, strict role-based access controls, and self-healing retry queues that protect data integrity and ensure high availability.
-			</p>
-			<DecorationBorder type="top bottom" style="dashed" />
-		</div>
-		<div class="faq__item">
-			<h3 class="faq__item__title">What happens as our business scales?</h3>
-			<p class="faq__item__text">
-				FluxFuse software is engineered for scalable cloud growth. Whether supporting a single founder or an enterprise operations department, our architectures dynamically scale with flexible permissions, microservices, and dedicated throughput.
-			</p>
-			<DecorationBorder type="top bottom" style="dashed" />
-		</div>
+		{items.map((item) => (
+			<div class="faq__item">
+				<h3 class="faq__item__title">{item.question}</h3>
+				<p class="faq__item__text">{item.answer}</p>
+				<DecorationBorder type="top bottom" style="dashed" />
+			</div>
+		))}
 	</div>
 </SectionSticky>
 

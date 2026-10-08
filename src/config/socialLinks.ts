@@ -9,15 +9,15 @@ export interface SocialLink {
 
 export const socialLinks: SocialLink[] = [
 	{
-		name: 'Instagram',
-		link: '/'
+		name: 'GitHub',
+		link: 'https://github.com/brandingflux'
+	},
+	{
+		name: 'Twitter',
+		link: 'https://x.com/FluxFuse'
 	},
 	{
 		name: 'LinkedIn',
-		link: '/'
-	},
-	{
-		name: 'Threads',
-		link: '/'
+		link: 'https://linkedin.com/company/fluxfuse'
 	}
 ]

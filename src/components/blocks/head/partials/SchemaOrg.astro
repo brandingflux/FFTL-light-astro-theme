@@ -83,12 +83,13 @@ const sameAs = socialLinks
 const organizationSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Organization',
+	additionalType: 'https://en.wikipedia.org/wiki/Software_company',
 	'@id': `${siteUrl}/#organization`,
 	name: configData.companyName,
 	legalName: configData.companyName,
-	alternateName: [configData.brandName, 'FFTL', 'FluxFuse Technologies'],
+	alternateName: [configData.brandName, 'FFTL', 'FluxFuse Technologies', 'fluxfuse.net'],
 	disambiguatingDescription:
-		'FluxFuse Technologies is an independent software studio and AI workflow engineering company developing productivity applications, browser extensions, and cloud platforms.',
+		'FluxFuse Technologies Limited (fluxfuse.net) is an independent software development company and multi-product technology studio building native desktop software (Notchgent), productivity applications (DeskSync, QuickMark), browser extensions (PromptCraft, TabShield), and cloud automation platforms (FuseFlow). FluxFuse is completely independent and unaffiliated with FlowFuse (an industrial low-code Node-RED IoT platform) or Flux / RunOnFlux (a decentralized Web3 cloud network).',
 	url: siteUrl,
 	logo: {
 		'@type': 'ImageObject',
@@ -101,6 +102,7 @@ const organizationSchema = {
 	knowsAbout: [
 		'Artificial Intelligence',
 		'Software Engineering',
+		'Desktop Software Development',
 		'Workflow Automation',
 		'Cloud Computing',
 		'Productivity Applications',
@@ -108,7 +110,8 @@ const organizationSchema = {
 	],
 	brand: {
 		'@type': 'Brand',
-		name: configData.brandName
+		name: configData.brandName,
+		alternateName: 'FluxFuse'
 	},
 	email: configData.contactEmail,
 	sameAs: sameAs.length > 0 ? sameAs : undefined,
@@ -135,7 +138,9 @@ const webSiteSchema = {
 	'@id': `${siteUrl}/#website`,
 	url: siteUrl,
 	name: configData.brandName,
-	description: configData.siteDescription,
+	alternateName: ['FluxFuse Technologies', 'fluxfuse.net', 'FluxFuse'],
+	description:
+		'Official website of FluxFuse Technologies Limited — Independent software development studio building desktop software, productivity apps, and AI automations.',
 	publisher: {
 		'@id': `${siteUrl}/#organization`
 	},

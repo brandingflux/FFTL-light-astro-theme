@@ -13,25 +13,40 @@ import FourPillars from '../components/blocks/features/FourPillars.astro'
 import FeaturedProducts from '../components/blocks/features/FeaturedProducts.astro'
 import ServicesB2B from '../components/blocks/services/ServicesB2B.astro'
 import CompanyStory from '../components/blocks/brand/CompanyStory.astro'
+import StickyFaq from '../components/blocks/faq/StickyFaq.astro'
 
 // SEO
 const SEO = {
 	title: 'FluxFuse — Software for the Work That Matters | Apps, AI & Automation',
 	description:
-		'FluxFuse builds high-performance apps, enterprise AI automations, and custom software solutions designed to eliminate operational friction and scale workflows.',
+		'FluxFuse Technologies Limited is an independent software studio building native desktop software (Notchgent), productivity apps, and custom enterprise AI workflow automations.',
 	keywords: [
 		'FluxFuse',
 		'FluxFuse Technologies',
+		'FluxFuse Software',
+		'Notchgent',
+		'Dynamic Island Windows',
 		'Software Product Studio',
 		'AI Automation Services',
 		'Custom Software Development',
 		'Workflow Automation',
 		'Enterprise AI Integration',
 		'DeskSync',
-		'PulseFlow',
-		'Productivity Tools'
+		'QuickMark',
+		'PromptCraft',
+		'TabShield',
+		'FuseFlow'
 	],
 	softwareApps: [
+		{
+			name: 'Notchgent',
+			description:
+				'Always-on-top Dynamic Island HUD for Antigravity & VS Code on Windows. Review and approve agent actions with 1 click or global hotkey without Alt-Tabbing or video interruptions.',
+			operatingSystem: 'Windows 10, Windows 11',
+			applicationCategory: 'DeveloperApplication',
+			price: '0',
+			priceCurrency: 'USD'
+		},
 		{
 			name: 'DeskSync',
 			description: 'Local-first digital asset vault with automated cloud sync, real-time file watch, and zero-latency local vector indexing.',
@@ -55,6 +70,38 @@ const SEO = {
 			description: 'Automation bridge connecting fragmented APIs, spreadsheets, and internal databases into self-healing background pipelines.',
 			operatingSystem: 'Web, Cloud',
 			applicationCategory: 'BusinessApplication'
+		}
+	],
+	faq: [
+		{
+			question: 'What is FluxFuse Technologies?',
+			answer:
+				'FluxFuse Technologies Limited (fluxfuse.net) is an independent software development company and multi-product technology studio. We engineer native desktop software (such as Notchgent), productivity tools, AI workflow automations, and custom software systems.'
+		},
+		{
+			question: 'Is FluxFuse related to FlowFuse or Flux?',
+			answer:
+				'No. FluxFuse (FluxFuse Technologies Limited, fluxfuse.net) is completely independent and unaffiliated with FlowFuse (an industrial Node-RED IoT platform) or Flux / RunOnFlux (a decentralized Web3 cloud network). FluxFuse focuses specifically on developer tools, desktop HUDs, AI automation pipelines, and consumer productivity software.'
+		},
+		{
+			question: 'What software and tools does FluxFuse build?',
+			answer:
+				'FluxFuse builds native desktop utilities like Notchgent (open-source Dynamic Island HUD for Windows and Antigravity AI coding), DeskSync (local-first digital asset vault), QuickMark (mobile capture), PromptCraft (AI browser copilot), TabShield (memory-saving productivity extension), and FuseFlow (event-driven cloud automation platform).'
+		},
+		{
+			question: 'Is FluxFuse a blog or a software engineering company?',
+			answer:
+				'FluxFuse Technologies Limited is a software engineering company and product studio. While we publish engineering notes and articles on our site, our core operation is designing, coding, and releasing software products and custom AI automations.'
+		},
+		{
+			question: 'How long does it take to get started with FluxFuse?',
+			answer:
+				'Most teams are onboarded within days. For our standalone apps like DeskSync or browser extensions like PromptCraft, setup takes minutes. For custom software engineering and AI automation pipelines, we conduct a rapid discovery sprint and deploy working MVPs within 2 to 3 weeks.'
+		},
+		{
+			question: 'Can FluxFuse integrate with our existing stack?',
+			answer:
+				'Yes. We build integrations across existing CRMs, relational databases, cloud storage, Slack, Notion, and custom internal APIs, ensuring your workflows remain consistent while eliminating manual busywork.'
 		}
 	],
 	services: [
@@ -122,6 +169,7 @@ const heroData = {
 	keywords={SEO.keywords}
 	softwareApps={SEO.softwareApps}
 	services={SEO.services}
+	faq={SEO.faq}
 	footer="motion"
 >
 	{/* 1. Hero */}
@@ -149,4 +197,7 @@ const heroData = {
 
 	{/* 5. Company Story - The Builder Differentiator */}
 	<CompanyStory />
+
+	{/* 6. Company Identity & Frequently Asked Questions */}
+	<StickyFaq title="Frequently Asked Questions" subtitle="Entity Identity & What We Build" />
 </Layout>

@@ -26,6 +26,23 @@ const SEO = {
 	breadcrumbs: [
 		{ name: 'Home', url: '/' },
 		{ name: 'About', url: '/about' }
+	],
+	faq: [
+		{
+			question: 'What is FluxFuse Technologies Limited?',
+			answer:
+				'FluxFuse Technologies Limited (fluxfuse.net) is an independent software development company and multi-product technology studio. We engineer native desktop utilities like Notchgent, productivity applications, browser extensions, and custom AI automations.'
+		},
+		{
+			question: 'Is FluxFuse affiliated with FlowFuse or Flux (RunOnFlux)?',
+			answer:
+				'No. FluxFuse Technologies Limited is an independent software company and is NOT affiliated with FlowFuse (an industrial Node-RED IoT platform) or Flux / RunOnFlux (a decentralized blockchain Web3 compute network).'
+		},
+		{
+			question: 'What software does FluxFuse build?',
+			answer:
+				'FluxFuse builds desktop software like Notchgent (open-source Dynamic Island HUD for Windows), DeskSync (local asset vault), QuickMark (mobile capture), PromptCraft (browser copilot), TabShield (memory optimizer), and FuseFlow (cloud automation).'
+		}
 	]
 }
 
@@ -59,6 +76,7 @@ const principles = [
 	keywords={SEO.keywords}
 	schemaType={SEO.schemaType}
 	breadcrumbs={SEO.breadcrumbs}
+	faq={SEO.faq}
 	footer="motion"
 >
 	{/* Hero */}
@@ -74,6 +92,38 @@ const principles = [
 				<p class="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed">
 					FluxFuse Technologies develops practical software and digital solutions across products, AI, automation, and creative technology.
 				</p>
+			</Col>
+		</Row>
+	</Section>
+
+	{/* Brand Entity Clarity & Independence Callout */}
+	<Section classes="py-12! bg-neutral-50 dark:bg-neutral-900/40 border-y border-neutral-200 dark:border-neutral-800" decorationBorder="none">
+		<Row style="transparent" decorationBorder="none" classes="max-w-4xl mx-auto">
+			<Col span="12" style="transparent">
+				<div class="p-8 md:p-10 border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-[#0C0A09]">
+					<div class="flex items-center gap-2 mb-3">
+						<span class="size-2 rounded-full bg-primary-500"></span>
+						<span class="text-xs font-mono font-bold uppercase tracking-wider text-primary-600 dark:text-primary-400">
+							Company Entity & Brand Clarity
+						</span>
+					</div>
+					<h2 class="text-2xl sm:text-3xl font-black tracking-tight text-neutral-950 dark:text-white mb-4">
+						FluxFuse Technologies Limited is an independent software company.
+					</h2>
+					<p class="text-base text-neutral-600 dark:text-neutral-300 leading-relaxed mb-4">
+						To avoid any ambiguity in search engines, generative AI models, or public directories: <strong>FluxFuse Technologies Limited (fluxfuse.net)</strong> is an independent software studio and engineering company.
+					</p>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6 pt-6 border-t border-neutral-200 dark:border-neutral-800 text-xs md:text-sm">
+						<div class="p-4 bg-neutral-50 dark:bg-neutral-900/60 border border-neutral-200 dark:border-neutral-800">
+							<strong class="text-neutral-950 dark:text-white block mb-1">What FluxFuse is:</strong>
+							<span class="text-neutral-600 dark:text-neutral-400">An independent software engineering studio developing desktop HUDs (Notchgent), consumer productivity apps, browser extensions, and custom AI automations.</span>
+						</div>
+						<div class="p-4 bg-neutral-50 dark:bg-neutral-900/60 border border-neutral-200 dark:border-neutral-800">
+							<strong class="text-neutral-950 dark:text-white block mb-1">What FluxFuse is NOT:</strong>
+							<span class="text-neutral-600 dark:text-neutral-400">FluxFuse is not FlowFuse (the industrial Node-RED IoT platform) and not Flux / RunOnFlux (the decentralized Web3 compute project). We have no corporate affiliation with either entity.</span>
+						</div>
+					</div>
+				</div>
 			</Col>
 		</Row>
 	</Section>
