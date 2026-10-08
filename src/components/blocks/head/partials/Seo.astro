@@ -4,6 +4,7 @@
 // Description: Enterprise-grade SEO meta tags, OpenGraph, Twitter Cards, and Schema.org structured data.
 
 import { configData } from '../../../../config/config'
+import { socialLinks } from '../../../../config/socialLinks'
 import SchemaOrg, {
 	type BreadcrumbItem,
 	type FaqItem,
@@ -89,6 +90,11 @@ const keywordsString = Array.isArray(keywords) ? keywords.join(', ') : keywords
 
 	{/* Canonical URL (Fixed: Single canonical tag, absolute URL) */}
 	{canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+
+	{/* Verified Profile Ownership Links (rel="me" Identity Anchors for Google & Web Verification) */}
+	{socialLinks.map((s) => (
+		<link rel="me" href={s.link} />
+	))}
 
 	{/* Robots Directives */}
 	{

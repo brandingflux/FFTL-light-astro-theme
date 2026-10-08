@@ -46,6 +46,9 @@ export const configData: Config = {
 	defaultKeywords: [
 		'FluxFuse',
 		'FluxFuse Technologies',
+		'FluxFuse Software',
+		'@fluxfuse',
+		'@fluxfuse_',
 		'AI Automation',
 		'Custom Software Development',
 		'Enterprise AI Integration',
