@@ -78,3 +78,15 @@ Modern work is too often overwhelmed by brittle glue code, noisy notifications, 
 At FluxFuse, our mission is to build technology that quietly gets work done, stays out of your way, and solves genuine operational bottlenecks. Whether through our free open-source utilities or enterprise automation systems, we take full pride in code quality and durability.
 
 To explore all our products, visit our [Products Catalog](/products) or read more [About FluxFuse](/about).
+
+---
+
+## 5. Official Channels & Profiles
+
+To follow product releases, updates, and engineering changelogs, connect with our official accounts:
+- **Website**: [fluxfuse.net](https://fluxfuse.net)
+- **X**: [@fluxfuse_](https://x.com/fluxfuse_)
+- **Instagram**: [@fluxfuse](https://www.instagram.com/fluxfuse)
+- **Threads**: [@fluxfuse](https://www.threads.net/@fluxfuse)
+- **GitHub**: [brandingflux](https://github.com/brandingflux)
+- **LinkedIn**: [FluxFuse Technologies](https://linkedin.com/company/fluxfuse)

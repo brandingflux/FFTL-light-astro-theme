@@ -17,6 +17,8 @@ export interface Config {
 	companyName: string
 	brandName: string
 	twitterHandle: string
+	instagramHandle: string
+	threadsHandle: string
 	defaultKeywords: string[]
 	contactEmail: string
 	salesEmail: string
@@ -36,7 +38,9 @@ export const configData: Config = {
 	siteUrl: 'https://fluxfuse.net',
 	companyName: 'FluxFuse Technologies Limited',
 	brandName: 'FluxFuse',
-	twitterHandle: '@FluxFuse',
+	twitterHandle: '@fluxfuse_',
+	instagramHandle: '@fluxfuse',
+	threadsHandle: '@fluxfuse',
 	defaultKeywords: [
 		'FluxFuse',
 		'FluxFuse Technologies',
