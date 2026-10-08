@@ -19,6 +19,7 @@ export interface Config {
 	twitterHandle: string
 	instagramHandle: string
 	threadsHandle: string
+	tiktokHandle: string
 	defaultKeywords: string[]
 	contactEmail: string
 	salesEmail: string
@@ -41,6 +42,7 @@ export const configData: Config = {
 	twitterHandle: '@fluxfuse_',
 	instagramHandle: '@fluxfuse',
 	threadsHandle: '@fluxfuse',
+	tiktokHandle: '@fluxfuse',
 	defaultKeywords: [
 		'FluxFuse',
 		'FluxFuse Technologies',

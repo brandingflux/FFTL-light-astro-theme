@@ -29,6 +29,12 @@ export const socialLinks: SocialLink[] = [
 		icon: 'threads'
 	},
 	{
+		name: 'TikTok',
+		handle: '@fluxfuse',
+		link: 'https://www.tiktok.com/@fluxfuse',
+		icon: 'tiktok'
+	},
+	{
 		name: 'GitHub',
 		handle: 'brandingflux',
 		link: 'https://github.com/brandingflux',

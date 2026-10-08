@@ -88,5 +88,6 @@ To follow product releases, updates, and engineering changelogs, connect with ou
 - **X**: [@fluxfuse_](https://x.com/fluxfuse_)
 - **Instagram**: [@fluxfuse](https://www.instagram.com/fluxfuse)
 - **Threads**: [@fluxfuse](https://www.threads.net/@fluxfuse)
+- **TikTok**: [@fluxfuse](https://www.tiktok.com/@fluxfuse)
 - **GitHub**: [brandingflux](https://github.com/brandingflux)
 - **LinkedIn**: [FluxFuse Technologies](https://linkedin.com/company/fluxfuse)
