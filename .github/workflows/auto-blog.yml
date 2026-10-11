@@ -1,0 +1,57 @@
+name: Autonomous Tech Blog Engine
+
+on:
+  schedule:
+    # Runs twice daily at 06:00 and 18:00 UTC (breaking morning & evening news)
+    - cron: '0 6,18 * * *'
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: 'Optional specific tech topic override'
+        required: false
+        type: string
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  generate-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Python dependencies
+        run: |
+          pip install google-genai
+
+      - name: Run Autonomous Gemini Tech Blogger
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GOOGLE_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          if [ -n "${{ inputs.topic }}" ]; then
+            python scripts/auto_tech_blog.py --topic "${{ inputs.topic }}"
+          else
+            python scripts/auto_tech_blog.py --auto
+          fi
+
+      - name: Commit and Push New Article
+        run: |
+          git config --global user.name "FluxFuse AI Editorial"
+          git config --global user.email "bot@fluxfuse.net"
+          git add src/content/blog/
+          if git diff --staged --quiet; then
+            echo "No new blog articles to commit."
+          else
+            git commit -m "feat(blog): publish breaking tech intelligence post via Gemini [skip ci]"
+            git push origin main
+          fi

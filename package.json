@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "blog:generate": "python scripts/auto_tech_blog.py --auto"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",
