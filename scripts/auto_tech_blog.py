@@ -22,18 +22,20 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
-from dotenv import load_dotenv
-
-# 1. Load Environment Variables (.env)
-ENV_CANDIDATES = [
-    Path(".env"),
-    Path(__file__).parent.parent / ".env",
-    Path("C:/Users/Administrator/Documents/TECH/TTS/ai-shorts-factory/.env"),
-]
-for env_path in ENV_CANDIDATES:
-    if env_path.exists():
-        load_dotenv(dotenv_path=env_path)
-        break
+try:
+    from dotenv import load_dotenv
+    # 1. Load Environment Variables (.env)
+    ENV_CANDIDATES = [
+        Path(".env"),
+        Path(__file__).parent.parent / ".env",
+        Path("C:/Users/Administrator/Documents/TECH/TTS/ai-shorts-factory/.env"),
+    ]
+    for env_path in ENV_CANDIDATES:
+        if env_path.exists():
+            load_dotenv(dotenv_path=env_path)
+            break
+except ImportError:
+    pass
 
 API_KEY = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
 
