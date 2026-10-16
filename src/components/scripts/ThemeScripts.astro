@@ -166,6 +166,12 @@
 <!-- Scroll animations -->
 <script>
 	const initializeScrollAnimationsAndCounters = () => {
+		const elements = document.querySelectorAll(
+			'.scroll-animation .col:not(.no-scroll-animation), .scroll-animate:not(.no-scroll-animation), .counter'
+		)
+
+		if (!elements.length) return
+
 		const observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
@@ -202,13 +208,17 @@
 					}
 				})
 			},
-			{ threshold: 0.2 }
+			{ threshold: 0.05, rootMargin: '0px 0px 50px 0px' }
 		)
-		document
-			.querySelectorAll(
-				'.scroll-animation .col:not(.no-scroll-animation), .scroll-animate:not(.no-scroll-animation), .counter'
-			)
-			.forEach((el) => observer.observe(el))
+
+		elements.forEach((el) => {
+			const rect = el.getBoundingClientRect()
+			if (rect.top < window.innerHeight + 50) {
+				el.classList.add('scroll-animated')
+			} else {
+				observer.observe(el)
+			}
+		})
 	}
 
 	const initializeParallax = () => {

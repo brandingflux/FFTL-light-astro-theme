@@ -239,17 +239,17 @@ h6,
 
 h1,
 .h1 {
-	@apply text-5xl leading-14 md:text-7xl md:leading-20 lg:text-[5.375rem] lg:leading-24 lg:tracking-[-2px];
+	@apply text-3xl leading-10 sm:text-5xl sm:leading-14 md:text-6xl md:leading-18 lg:text-[5.375rem] lg:leading-24 lg:tracking-[-2px] break-words;
 }
 
 h2,
 .h2 {
-	@apply text-4xl lg:text-[4rem] lg:leading-18;
+	@apply text-2xl leading-8 sm:text-4xl sm:leading-12 lg:text-[4rem] lg:leading-18 break-words;
 }
 
 h3,
 .h3 {
-	@apply text-2xl lg:leading-9;
+	@apply text-xl leading-7 sm:text-2xl sm:leading-9 break-words;
 }
 
 h4,
@@ -300,12 +300,87 @@ form button {
 	@apply inline-flex h-12 cursor-pointer items-center justify-center gap-2 bg-neutral-900 bg-[url('/bgs/dark.webp')] bg-size-[200px] px-6 text-sm font-medium tracking-wide whitespace-nowrap text-white transition duration-300 hover:bg-neutral-950 focus:bg-neutral-950 focus-visible:outline-none disabled:cursor-not-allowed disabled:border-neutral-300 disabled:bg-neutral-300 disabled:shadow-none;
 }
 
-/* Global basic styling */
+/* Global basic styling for blog articles and markdown */
 .basic-text {
-	@apply [&_blockquote_p]:font-headings [&_blockquote]:relative [&_blockquote]:mb-8 [&_blockquote]:border [&_blockquote]:border-[#E7E5E4] [&_blockquote]:bg-neutral-50/30 [&_blockquote]:py-24 [&_blockquote]:transition-colors [&_blockquote]:duration-400 [&_blockquote]:before:absolute [&_blockquote]:before:top-4 [&_blockquote]:before:left-7.5 [&_blockquote]:before:z-0 [&_blockquote]:before:block [&_blockquote]:before:h-12 [&_blockquote]:before:text-7xl [&_blockquote]:before:content-[url('/assets/quotemark.webp')] [&_blockquote]:dark:border-neutral-700 [&_blockquote]:dark:bg-neutral-900/40 [&_blockquote_p]:bg-neutral-50 [&_blockquote_p]:text-2xl [&_blockquote_p]:leading-12 [&_blockquote_p]:text-neutral-950 [&_blockquote_p]:lg:text-3xl [&_blockquote_p]:dark:border-neutral-700! [&_blockquote_p]:dark:bg-neutral-900 [&_blockquote_p]:dark:text-neutral-50 [&_blockquote>p]:border-y [&_blockquote>p]:border-dashed [&_blockquote>p]:border-[#E7E5E4] [&_blockquote>p]:p-8! [&_h1:not(:first-child)]:mt-12 [&_h2:not(:first-child)]:mt-12 [&_h3:not(:first-child)]:mask-t-to-12 [&_h4:not(:first-child)]:mt-12 [&_img]:rounded-sm [&_img]:border [&_img]:border-neutral-100 dark:[&_img]:border-neutral-600 [&_li]:mb-2 [&_li]:ml-4 [&_li]:pl-2 [&_li]:text-neutral-700 [&_li]:marker:text-neutral-500 [&_li]:dark:text-neutral-400 [&_li]:dark:marker:text-neutral-400 [&_ol_li]:list-decimal [&_pre]:mb-6 [&_pre]:rounded-sm [&_pre]:border [&_pre]:border-neutral-950 [&_pre]:bg-neutral-800! [&_pre]:p-6 [&_pre]:text-base [&_pre]:outline-hidden [&_pre]:dark:border-neutral-800! [&_pre]:dark:bg-neutral-900! [&_ul_li]:list-disc [&_ul_li]:marker:font-medium;
+	@apply w-full max-w-full;
+}
+
+.basic-text h1 {
+	@apply font-headings text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight mt-12 mb-6 text-neutral-950 dark:text-white break-words;
+}
+
+.basic-text h2 {
+	@apply font-headings text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight mt-10 mb-4 text-neutral-950 dark:text-white break-words;
+}
+
+.basic-text h3 {
+	@apply font-headings text-xl sm:text-2xl font-medium tracking-tight mt-8 mb-3 text-neutral-950 dark:text-white break-words;
+}
+
+.basic-text h4 {
+	@apply font-headings text-lg sm:text-xl font-medium mt-6 mb-2 text-neutral-950 dark:text-white break-words;
+}
+
+.basic-text p {
+	@apply mb-6 text-neutral-700 dark:text-neutral-200 leading-relaxed;
+}
+
+.basic-text a {
+	@apply text-primary-500 underline underline-offset-4 break-words hover:text-primary-600 dark:text-primary-400 dark:hover:text-primary-300;
+}
+
+.basic-text ul {
+	@apply mb-6 list-disc pl-6 space-y-2 text-neutral-700 dark:text-neutral-300;
+}
+
+.basic-text ol {
+	@apply mb-6 list-decimal pl-6 space-y-2 text-neutral-700 dark:text-neutral-300;
+}
+
+.basic-text li {
+	@apply mb-2 pl-1 leading-relaxed marker:text-primary-600 dark:marker:text-primary-400;
+}
+
+.basic-text pre {
+	@apply my-6 w-full max-w-full overflow-x-auto rounded border border-neutral-800 bg-neutral-900! p-4 sm:p-6 text-xs sm:text-sm font-mono text-neutral-100 dark:border-neutral-800! dark:bg-neutral-900!;
+}
+
+.basic-text code:not(pre code) {
+	@apply rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-sm text-neutral-800 break-all dark:bg-neutral-800 dark:text-neutral-200;
+}
+
+.basic-text blockquote {
+	@apply relative my-8 border-l-4 border-primary-500 bg-neutral-50/60 py-4 px-6 italic text-neutral-800 dark:bg-neutral-900/60 dark:border-primary-400 dark:text-neutral-200;
+}
+
+.basic-text table {
+	@apply my-6 block w-full max-w-full overflow-x-auto border-collapse text-left text-sm;
+}
+
+.basic-text th {
+	@apply border border-neutral-200 bg-neutral-100 px-3 py-2 font-medium text-neutral-900 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100;
+}
+
+.basic-text td {
+	@apply border border-neutral-200 px-3 py-2 text-neutral-700 dark:border-neutral-700 dark:text-neutral-300;
+}
+
+.basic-text img {
+	@apply my-6 h-auto max-w-full rounded border border-neutral-100 dark:border-neutral-700;
+}
+
+.basic-text hr {
+	@apply my-10 border-t border-neutral-200 dark:border-neutral-800;
 }
 
 /* Scroll animations */
+.no-scroll-animation,
+.col.no-scroll-animation {
+	opacity: 1 !important;
+	transform: none !important;
+	filter: none !important;
+}
+
 /* To disable scroll animations remove the class "scroll-animation" from root html in the layout file. To make a col not scroll animated add the class "no-scroll-animation" */
 .scroll-animation .col:not(.no-scroll-animation),
 .scroll-animation .scroll-animate {

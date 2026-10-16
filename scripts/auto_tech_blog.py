@@ -220,7 +220,7 @@ EDITORIAL DIRECTIVES:
    - Jump straight into the action with a punchy, hook-driven opening sentence.
 2. TECHNICAL DEPTH:
    - Don't just regurgitate the press release. Analyze the underlying architecture, compute economics, latency/throughput tradeoffs, developer implications, or systemic industry shifts.
-   - Include realistic markdown architecture snippets, bullet lists, or tables where it enhances understanding.
+   - Include realistic markdown architecture snippets, bullet lists, or tables where it enhances understanding. Avoid raw mermaid syntax; use clean ASCII diagrams, markdown tables, or standard code blocks instead.
 3. FLUXFUSE PERSPECTIVE:
    - Dedicate a distinct section ("The FluxFuse Perspective") analyzing what this development means for software engineers, product builders, and autonomous workflow creators.
 4. STRUCTURE:
