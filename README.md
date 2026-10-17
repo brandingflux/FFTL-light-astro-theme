@@ -1,167 +1,175 @@
-# Mizu Light Astro Theme
+# FluxFuse Technologies Limited — Official Web Platform
 
-Mizu Light is a product launch template designed specifically for modern SaaS products, digital launches, and ambitious startups. Perfect for landing pages, beta signups, and early access campaigns.
+<div align="center">
 
-![mizu](https://oxygenna-themes.b-cdn.net/mizu-light-astro/mizu-light-02.jpg)
+[![Website](https://img.shields.io/badge/Website-fluxfuse.net-FB5700?style=for-the-badge&logo=google-chrome&logoColor=white)](https://fluxfuse.net)
+[![Astro](https://img.shields.io/badge/Astro-v7.0-BC52EE?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.0-38BDF8?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+[![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com)
+[![Autonomous AI Blog](https://img.shields.io/badge/Editorial_Engine-Gemini_2.5_Flash-4285F4?style=for-the-badge&logo=google-gemini&logoColor=white)](https://ai.google.dev/)
 
-[![View live Demo](https://oxygenna-themes.b-cdn.net/mizu-astro/demo-button.svg)](https://mizu-light-theme.netlify.app/) [![Page Speed Insights (100%)](https://oxygenna-themes.b-cdn.net/mizu-astro/button-pagespeed.svg)](https://pagespeed.web.dev/analysis/https-mizu-light-theme-netlify-app/r1kw15xyy9?form_factor=desktop)
+<p align="center">
+  <strong>Software for the work that matters.</strong><br />
+  High-impact developer tools, desktop utilities, enterprise AI workflow automation, and digital systems.
+</p>
 
-## Introduction
+</div>
 
-### About
+---
 
-Mizu Light is a product launch template designed for modern SaaS companies, digital products, and ambitious startups. With its clean design, intuitive layout, and focus on user experience, it’s the perfect solution for promoting beta programs, early access signups, or pre-launch campaigns.
+## Overview
 
-### Features
+This repository powers **[fluxfuse.net](https://fluxfuse.net)**, the digital headquarters of **FluxFuse Technologies Limited**. Built with **Astro v7**, **Tailwind CSS v4**, and **TypeScript**, the platform delivers sub-second page loads, enterprise-grade technical SEO, responsive dark/light theming, and an autonomous AI-driven tech publication engine.
 
-- **Astro v6:** Built with the latest Astro framework for optimal performance.
-- **Pre-Built Pages:** Get started quickly with a full set of professionally designed pages, ready to launch right out of the box.
-- **Optimized 100/100 PageSpeed:** Mizu Light is built for speed, delivering lightning-fast load times and perfect scores on Google PageSpeed.
-- **Flexible Modular Blocks:** Every page is made from reusable, flexible blocks—easily add, rearrange, or expand content using our ever-growing library.
-- **Reusable UI Components:** Keep your design consistent and save time with a complete set of customizable, reusable components.
-- **Built with Astro & Tailwind CSS v4:** Harness the latest frameworks for blazing-fast development and modern, utility-first styling.
-- **Light & Dark Mode:** Let users switch seamlessly between light and dark themes for a fully customizable experience.
-- **SEO-Ready:** Crafted with clean, semantic HTML and optimized metadata to help your site rank higher in search engines.
-- **Content Collections:** Organize, manage, and display content efficiently with Astro’s powerful content collections system.
-- **Smooth Animations:** Enhance the user experience with subtle transitions and page effects.
-- **Analytics Ready:** Supports Google Analytics and Tag Manager for easy tracking and insights.
-- **Responsive Design:** Fully responsive across desktops, tablets, and mobile devices.
+---
 
-## Getting Started
+## Key Features
 
-### Commands
+### 1. High-Performance Modern Frontend
+* **Astro v7 Static Site Generation (SSG)**: Lightning-fast HTML output with zero unnecessary client-side JavaScript.
+* **Tailwind CSS v4**: Modern `@theme` and `@utility` architecture using `@tailwindcss/vite`.
+* **Adaptive Dark / Light Theming**: Smooth theme persistence with custom variable fonts (*Clash Display*, *Clash Grotesk*).
+* **Cinematic Components**: Interactive GSAP motion footers, parallax hero headers, and fluid mobile-first responsive grid layouts.
 
-After downloading the theme, install the dependencies and run it on your local server. Check the `package.json` file for available scripts.
+### 2. Autonomous Tech Editorial Engine
+* **Automated News Scraping & Ingestion**: Continuously tracks real-time high-tech news from curated feeds (Ars Technica, TechCrunch, The Verge, Hacker News).
+* **Powered by Google Gemini**: Synthesizes breaking developments into deep, analytical, developer-first briefings complete with technical teardowns and *"The FluxFuse Perspective"*.
+* **Self-Publishing GitHub Actions**: Runs twice daily (06:00 & 18:00 UTC) via `.github/workflows/auto-blog.yml`, creating markdown articles in `src/content/blog/` and automatically pushing updates to `main`.
+* **Zero-Intervention Formatting**: Automatically handles frontmatter, deduplication against existing posts, and optimized reading layouts.
 
-> **Note**: Requires Node.js version 22.12.0 or later.
+### 3. Enterprise Search Engine & AI Optimization (SEO / GEO / AEO)
+* **Schema.org Structured Data**: Automatic JSON-LD generation for `Organization`, `WebSite`, `BlogPosting`, `BreadcrumbList`, and `FAQPage`.
+* **Automated XML Sitemaps**: Dynamic `sitemap-index.xml` with automatic priority and `lastmod` tracking.
+* **Live RSS 2.0 Feed**: Fully compliant `/rss.xml` feed with Dublin Core metadata for Google News, Feedly, and RSS readers.
+* **Open Graph & Twitter Cards**: High-CTR social preview cards generated for every post and landing page.
 
-| Command           | Action                                       |
-| :---------------- | :------------------------------------------- |
-| `npm install`     | Installs dependencies                        |
-| `npm run dev`     | Starts local dev server at `localhost:4321`  |
-| `npm run build`   | Build your production site to `./dist/`      |
-| `npm run preview` | Preview your build locally, before deploying |
+---
 
-### Folder structure
-
-Inside Toki Astro project, you'll see the following folders and files:
+## Architecture & Folder Structure
 
 ```plaintext
-/
-├── public/
-│   └── favicon.svg
+FFTL-light-astro-theme/
+├── .github/
+│   └── workflows/
+│       └── auto-blog.yml       # Scheduled autonomous tech blogging workflow
+├── scripts/
+│   └── auto_tech_blog.py       # Gemini-powered RSS tracking & article generator
+├── public/                     # Static public assets (fonts, images, manifest)
 ├── src/
-│   ├── assets/
+│   ├── assets/                 # SVGs, feature graphics, branding assets
 │   ├── components/
-│   │   ├── blocks/
-│   │   │   └── ...
-│   │   ├── scripts/
-│   │   │   └── ...
-│   │   └── ui/
-│   │       └── ...
+│   │   ├── blocks/             # Composable page sections (hero, FAQ, CTA, contact)
+│   │   ├── scripts/            # Theme, analytics, and scroll observer scripts
+│   │   └── ui/                 # Atomic UI primitives (buttons, rows, cols, cards)
 │   ├── config/
-│   │   └── ...
+│   │   ├── config.ts           # Global brand, email, and metadata configuration
+│   │   ├── navigation.ts       # Header and menu navigation structures
+│   │   └── socialLinks.ts      # Verified social profiles
 │   ├── content/
-│   │   └── blog/
-│   ├── data/
-│   │   └── ...
-│   ├── icons/
-│   │   └── ...
+│   │   └── blog/               # Markdown articles published by editorial engine
 │   ├── layouts/
-│   │   └── ...
-│   └── pages/
-│       └── ...
-└── package.json
+│   │   ├── Layout.astro        # Master root layout with SEO & header/footer
+│   │   └── BlogLayout.astro    # Reader-optimized article layout with JSON-LD
+│   ├── pages/                  # File-based routing (/, /about, /products, /services, /contact, /blog)
+│   │   ├── blog/[...id].astro  # Dynamic blog article renderer
+│   │   ├── robots.txt.ts       # Search & AI bot crawler directives
+│   │   └── rss.xml.ts          # RSS 2.0 syndication feed generator
+│   └── styles/
+│       └── global.css          # Tailwind CSS v4 styling & typography rules
+├── astro.config.mjs            # Astro configuration, plugins & Vercel adapter
+└── package.json                # Project dependencies and development scripts
 ```
 
-| Directory/File           | Description                                                                                                                        |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
-| `public/`                | Contains static assets like images and the favicon. These files are served directly at the root URL.                               |
-| `src/assets/`            | Contains all images and assets used in the project.                                                                                |
-| `src/components/`        | Contains reusable components for your site. This directory is divided into `ui` for UI components and `blocks` for section blocks. |
-| `src/components/blocks/` | Contains Section blocks used throughout the site.                                                                                  |
-| `src/components/ui/`     | Contains individual UI components.                                                                                                 |
-| `src/config/`            | Contains configuration files for the project in typescript format.                                                                 |
-| `src/content/`           | Holds collection data, such as case studies.                                                                                       |
-| `src/data/`              | Contains JSON files with content data (like features, testimonials etc).                                                           |
-| `src/icons/`             | Contains all icons used in the project, most are sourced from [Heroicons](https://heroicons.com/).                                 |
-| `src/layouts/`           | Contains layout components that define the overall structure of your pages.                                                        |
-| `src/pages/`             | Contains `.astro` files for each page. Each file here is exposed as a route based on its file name.                                |
-| `package.json`           | Lists dependencies and scripts for your project, including metadata and various package requirements.                              |
+---
 
-## Theme Configuration
+## Local Development
 
-The configuration files are located in the `src/config` directory, written in TypeScript. They contain various settings for the theme, including:
+### Prerequisites
+* **Node.js**: `v22.12.0` or higher
+* **Python**: `3.10+` (for running the editorial script locally)
+* **Package Manager**: `npm`
 
-| Configuration Files        | Description                                                              |
-| -------------------------- | ------------------------------------------------------------------------ |
-| `src/config/config.ts`     | Basic configuration settings including SEO, mode, and scroll animations. |
-| `src/config/navigation.ts` | Menu TypeScript interface options and JSON files for navigation.         |
-| `src/config/analytics.ts`  | Analytics configuration file.                                            |
+### Installation
 
-## Theme Customization
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/brandingflux/FFTL-light-astro-theme.git
+   cd FFTL-light-astro-theme
+   ```
 
-### Customize the Colors
+2. **Install frontend dependencies**:
+   ```bash
+   npm install
+   ```
 
-The theme uses two main colors: primary and neutral. These colors are defined in the Tailwind CSS configuration file. To personalize the color scheme of your project, you can easily modify these color values.
+3. **Install Python dependencies** (optional, for local blog generation):
+   ```bash
+   pip install google-genai python-dotenv
+   ```
 
-To customize the colors, follow these steps:
+4. **Configure Environment Variables**:
+   Create a `.env` file in the project root:
+   ```env
+   GEMINI_API_KEY=your_google_gemini_api_key_here
+   ```
 
-1. Open the `global.css` file.
-2. Find the `theme` section within the file.
-3. Under `theme`, locate the `Colors`.
-4. Modify the color values for `primary` and `neutral` to suit your preferred color palette.
+5. **Start local development server**:
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:4321](http://localhost:4321) in your browser.
 
-You can use the [tailwind CSS colors](https://nodejs.org/en/download/) or create your [own palette](https://uicolors.app/create) .
+---
 
-### Customize the Fonts
+## Available Scripts
 
-To customize the fonts used in your project, follow these steps:
+| Command | Action |
+| :--- | :--- |
+| `npm run dev` | Starts local dev server at `localhost:4321` |
+| `npm run build` | Type-checks with `astro check` and builds static bundle to `./dist/` |
+| `npm run preview` | Previews the production build locally |
+| `npm run blog:generate` | Runs the Autonomous Gemini Blogger locally to publish new articles |
 
-1. **Add Your Custom Font Files**
-   Replace or add the desired font files in the public directory of your project.
+---
 
-2. **Update the Tailwind CSS Configuration**
+## Autonomous Blog Engine CLI Usage
 
-   Open the `global.css` file. In the `@font-face` section, find the `font-family` property and update the `font-family` object.
+You can trigger the AI blogger manually from the command line:
 
-### Dark/Light Mode
+```bash
+# Automatically fetch the top breaking tech news and generate an article:
+python scripts/auto_tech_blog.py --auto
 
-By default, the site uses forced modes, which can be either light or dark, depending on the chosen layout. The light layout sets the class to **`mode-light`** and the dark layout sets it to **`mode-dark`**. This setting allows you to maintain a fixed appearance across the site regardless of user preferences or system settings.
+# Generate an article on a custom topic override:
+python scripts/auto_tech_blog.py --topic "Apple M5 Architecture Teardown"
 
-However, if you want to give users the ability to switch between themes, you can configure the theme to use the **`mode-auto`** class. You can easily do this by adding the **`mode-auto`** class to the **`src/layouts/Layout.astro`** file instead of using **`mode-light`** or **`mode-dark`** and uncommenting the ThemeSwitcher component in the NavigationBar component.
+# Dry run (test prompt & JSON response without writing file to disk):
+python scripts/auto_tech_blog.py --auto --dry-run
+```
 
-## Want more themes?
+---
 
-### Mizu Full Version
+## Deployment
 
-Get the **Mizu** full version to unlock everything you need for a polished SaaS or product launch. Building on Mizu Light, it includes 14 ready-to-use pages, 34 reusable UI components, and 33 pre-built blocks, along with sliders and refined animations, a powerful Mega Menu, integrated analytics, and full light and dark mode support — making Mizu a complete solution for modern product and startup websites.
+The website is continuously deployed on **Vercel**:
+* **Primary Domain**: [https://fluxfuse.net](https://fluxfuse.net)
+* Every commit pushed to `main` triggers an automatic build and deployment.
+* GitHub Actions operates with repository secrets (`GEMINI_API_KEY`) and write permissions to push newly generated articles directly back to `main`.
 
-![mizu](https://oxygenna-themes.b-cdn.net/mizu-astro/mizu-theme.png)
+---
 
-[![Get Mizu](https://oxygenna-themes.b-cdn.net/mizu-astro/primary-button-get-mizu.svg)](https://astro.build/themes/details/mizu/)
-[![View live Demo](https://oxygenna-themes.b-cdn.net/mizu-astro/secondary-button-mizu-demo.svg)](https://mizu-theme.netlify.app/)
+## Contact & Inquiries
 
-### Toki
+* **Website**: [fluxfuse.net](https://fluxfuse.net)
+* **Support & Help**: [support@fluxfuse.net](mailto:support@fluxfuse.net)
+* **Sales & Enterprise Projects**: [sales@fluxfuse.net](mailto:sales@fluxfuse.net)
+* **Social**:
+  * X (Twitter): [@fluxfuse_](https://x.com/fluxfuse_)
+  * LinkedIn: [FluxFuse Technologies](https://linkedin.com/company/fluxfuse)
+  * GitHub: [@brandingflux](https://github.com/brandingflux)
 
-Check out **Toki**, a standout agency template with striking design, blazing speed, built for modern agencies and creatives.
+---
 
-![toki-theme](https://oxygenna-themes.b-cdn.net/toki-astro/promo/toki-theme-promo.png)
-
-[![Get Toki](https://oxygenna-themes.b-cdn.net/toki-astro/promo/primary-button-get-toki.svg)](https://astro.build/themes/details/toki/)
-[![View live Demo](https://oxygenna-themes.b-cdn.net/toki-astro/promo/secondary-button-toki-demo.svg)](https://toki-theme.netlify.app/)
-
-### Foxi Pro
-
-Check out **Foxi Pro**, our premium Astro website template with fully responsive, customizable Tailwind CSS components.
-
-![foxi-pro](https://oxygenna-themes.b-cdn.net/foxi-pro-astro/foxi-pro.png)
-
-[![Get Foxi Pro](https://oxygenna-themes.b-cdn.net/foxi-pro-astro/primary-button-get-foxi-pro.svg)](https://astro.build/themes/details/foxi-pro/)
-[![View live Demo](https://oxygenna-themes.b-cdn.net/foxi-pro-astro/secondary-button-foxi-pro-demo.svg)](https://foxi-pro.netlify.app)
-
-## License
-
-Copyright 2026 - Designed & Developed by [Oxygenna](http://www.oxygenna.com/)
-
-[![Hire Us](https://oxygenna-themes.b-cdn.net/foxi-astro/hireus.png)](mailto:themes@oxygenna.com,christos@oxygenna.com)
+<div align="center">
+  <sub>© 2026 FluxFuse Technologies Limited. All rights reserved.</sub>
+</div>
