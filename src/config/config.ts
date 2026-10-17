@@ -58,7 +58,7 @@ export const configData: Config = {
 		'Desktop and Mobile Apps',
 		'Digital Solutions'
 	],
-	contactEmail: 'contact@fluxfuse.net',
+	contactEmail: 'support@fluxfuse.net',
 	salesEmail: 'sales@fluxfuse.net',
 	supportEmail: 'support@fluxfuse.net',
 	ogImage: '/og.jpg',
