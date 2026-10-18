@@ -40,6 +40,8 @@ export default defineConfig({
     "/features": "/products",
     "/pricing": "/services",
     "/notchgent": "/products/notchgent",
+    "/fluxprompter": "/products/fluxprompter",
+    "/teleprompter": "/products/fluxprompter",
   },
   image: {
     service: {
@@ -61,6 +63,7 @@ export default defineConfig({
         } else if (
           url.endsWith("/products") ||
           url.endsWith("/products/notchgent") ||
+          url.endsWith("/products/fluxprompter") ||
           url.endsWith("/services")
         ) {
           item.priority = 0.9;

@@ -12,6 +12,7 @@
 			"submenu": [
 				{ "name": "Software", "link": "/products#software" },
 				{ "name": "Notchgent (Free)", "link": "/products/notchgent" },
+				{ "name": "FLUXPROMPTER (Free)", "link": "/products/fluxprompter" },
 				{ "name": "Apps", "link": "/products#apps" },
 				{ "name": "Extensions", "link": "/products#extensions" },
 				{ "name": "SaaS", "link": "/products#saas" }

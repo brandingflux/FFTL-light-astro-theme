@@ -1,0 +1,718 @@
+---
+// FLUXPROMPTER Dedicated Product Landing Page
+// ------------
+// Description: Dedicated product landing page for FLUXPROMPTER, the intelligent browser teleprompter Chrome extension.
+
+import Layout from '../../layouts/Layout.astro'
+import Section from '../../components/ui/Section.astro'
+import Row from '../../components/ui/Row.astro'
+import Col from '../../components/ui/Col.astro'
+import { Icon } from 'astro-icon/components'
+
+const SEO = {
+	title: 'FLUXPROMPTER — The Intelligent Browser Teleprompter | One-Take Camera Confidence',
+	description:
+		'Look directly into the camera. Deliver flawless presentations in one take. FLUXPROMPTER floats directly beneath your webcam, auto-syncs with your speaking voice, and stays invisible on screen shares.',
+	keywords: [
+		'FLUXPROMPTER',
+		'browser teleprompter',
+		'Chrome teleprompter extension',
+		'voice synced teleprompter',
+		'floating webcam teleprompter',
+		'Zoom teleprompter stealth mode',
+		'teleprompter for Google Meet',
+		'eye contact video recorder',
+		'speech coaching extension',
+		'FluxFuse Technologies'
+	],
+	softwareApps: [
+		{
+			name: 'FLUXPROMPTER',
+			description:
+				'The intelligent browser teleprompter Chrome extension. Floats beneath your webcam, synchronizes automatically to your natural voice speed, and keeps your eyes locked on your audience.',
+			operatingSystem: 'Chrome, Edge, Brave, Opera, Vivaldi',
+			applicationCategory: 'BrowserExtension',
+			price: '0',
+			priceCurrency: 'USD'
+		}
+	],
+	faq: [
+		{
+			question: 'Will people on my Zoom or Teams call be able to see the teleprompter?',
+			answer:
+				'No. FLUXPROMPTER runs locally as an overlay in your browser. When you share a specific application window or presentation tab, or when you are on camera, other meeting attendees only see you and your presentation. The floating notch stays strictly on your screen.'
+		},
+		{
+			question: 'Do I need to buy any extra hardware, pedals, or special glasses?',
+			answer:
+				'No extra hardware is needed. FLUXPROMPTER works with your existing laptop screen, built-in webcam, or external camera. If you do own professional teleprompter glass, FLUXPROMPTER includes built-in horizontal and vertical mirror modes.'
+		},
+		{
+			question: 'What if I have a regional accent or English is my second language?',
+			answer:
+				'FLUXPROMPTER was built specifically with universal accent recognition. Whether you speak with an Indian, Arabic, Asian, European, or regional American accent, the voice-matching engine adapts to your speech automatically without any configuration.'
+		},
+		{
+			question: 'Is my audio private? Does this upload my voice to the cloud?',
+			answer:
+				'Your privacy is completely protected. FLUXPROMPTER processes 100% of your voice locally on your computer using built-in browser speech engines. Zero audio recordings, voice clips, or script files are ever sent to external cloud servers or third parties.'
+		},
+		{
+			question: 'How much does it cost?',
+			answer:
+				'FLUXPROMPTER is completely free to install and use. No credit card is required, and there are no hidden paywalls on core prompter features.'
+		}
+	],
+	breadcrumbs: [
+		{ name: 'Home', url: '/' },
+		{ name: 'Products', url: '/products' },
+		{ name: 'FLUXPROMPTER', url: '/products/fluxprompter' }
+	]
+}
+
+const painPoints = [
+	{
+		title: 'The Shifty-Eye Look',
+		problem: 'You put notes on a second monitor or desk. When reading them, your eyes dart sideways, signaling to everyone on the call that you are reading from a cheat sheet.',
+		icon: 'eye-slash'
+	},
+	{
+		title: 'The 25-Take Nightmare',
+		problem: 'You misplace one word in paragraph three, stumble, get frustrated, and hit stop. A 2-minute video ends up taking 45 minutes of exhausting retakes.',
+		icon: 'arrow-path'
+	},
+	{
+		title: 'The Runaway Prompter',
+		problem: 'Traditional apps scroll at a rigid mechanical speed. You sprint to keep up, run out of breath, sound robotic, and lose all your natural warmth and charisma.',
+		icon: 'clock'
+	},
+	{
+		title: 'The Awkward Mouse Reach',
+		problem: 'Every time you need to pause or restart your script, you have to lean forward, grab your mouse, and click the screen, breaking camera presence instantly.',
+		icon: 'cursor-arrow-ripple'
+	}
+]
+
+const steps = [
+	{
+		step: '01',
+		title: 'Open Your Script Right Under Your Webcam',
+		desc: 'Click the extension on any tab. Your script appears inside a sleek, dark notch floating directly below your computer camera lens. Your gaze stays aligned naturally.',
+		badge: 'Instant Setup'
+	},
+	{
+		step: '02',
+		title: 'Just Talk. FLUXPROMPTER Follows Your Voice.',
+		desc: 'No rushing. No lagging. When you speak, text scrolls. When you pause to take a sip of water or emphasize a point, the prompter pauses and waits for you.',
+		badge: 'Smart Voice Sync'
+	},
+	{
+		step: '03',
+		title: 'Finish Calmly and Review Your Delivery Score',
+		desc: 'When you say your final word, FLUXPROMPTER gently concludes your take and reveals your presentation score: speaking pace (WPM), composure rating, and filler word radar.',
+		badge: 'Speech Debrief'
+	}
+]
+
+const features = [
+	{
+		title: 'The Camera Notch: Unbroken Eye Contact',
+		badge: 'Webcam Anchored',
+		desc: 'Most teleprompters span the entire width of your screen, forcing your eyes to bounce back and forth like a tennis match. FLUXPROMPTER holds your script in a narrow 440-pixel column anchored directly below your camera. Your audience will swear you memorized every word.',
+		icon: 'eye'
+	},
+	{
+		title: 'Smart Voice Follow: Never Get Rushed Again',
+		badge: 'Dynamic Sync',
+		desc: 'Listens locally through your microphone and scrolls dynamically as you speak. Speak fast during an exciting point? It speeds up. Pause for dramatic effect? It freezes. Natural accent recognition requires zero configuration.',
+		icon: 'microphone'
+	},
+	{
+		title: 'Pocket Remote: Turn Your Phone into a Secret Controller',
+		badge: 'QR Code Pairing',
+		desc: 'Do not reach for your keyboard or lean into the camera. Scan a quick QR code with your phone camera, and your phone transforms into a silent, wireless controller in your lap to pause, resume, or adjust scroll speed.',
+		icon: 'device-phone-mobile'
+	},
+	{
+		title: 'Visual Breathing Badges: Never Run Out of Air',
+		badge: 'Cadence Guides',
+		desc: 'Automatically highlights punctuation in warm colors: amber dots cue full diaphragm breaths, emerald markers guide vocal inflection lifts, and stage directions like [SMILE] or [PAUSE 2s] keep your delivery human.',
+		icon: 'bolt'
+	},
+	{
+		title: 'Meeting Stealth Mode: Invisible on Screen Shares',
+		badge: 'Alt + S Quick Toggle',
+		desc: 'Sharing your screen on Zoom, Google Meet, or Teams? Press Alt + S. The teleprompter turns semi-transparent, and all mouse clicks pass straight through to your slide deck or web browser while remaining clearly legible to you.',
+		icon: 'computer-desktop'
+	},
+	{
+		title: 'Post-Take Debrief: Your Personal Speaking Coach',
+		badge: 'Private Analytics',
+		desc: 'Instant, 100% private coaching after every take: Composure Score evaluates steady delivery, Pacing Check tracks optimal 130-150 WPM conversational rhythm, and Filler Word Radar flags verbal crutches like "um" and "like".',
+		icon: 'chart-bar'
+	}
+]
+
+const audiences = [
+	{
+		role: 'Content Creators & YouTubers',
+		desc: 'Stop wasting hours editing together 40 separate jump cuts. Deliver clean, charismatic 10-minute videos in a single continuous take.',
+		icon: 'play-circle'
+	},
+	{
+		role: 'Remote Sales Reps & Executives',
+		desc: 'Pitch prospects, lead client meetings, and present quarterly reviews on Zoom with the presence and polish of a seasoned executive.',
+		icon: 'rocket'
+	},
+	{
+		role: 'Online Educators & Course Builders',
+		desc: 'Explain complex lessons without glancing down at notes or losing your train of thought. Maintain direct eye contact with students from start to finish.',
+		icon: 'book'
+	},
+	{
+		role: 'Founders & Job Seekers',
+		desc: 'Nail high-stakes investor pitches and virtual interviews. Stay on message with complete confidence without looking like you are reading a script.',
+		icon: 'identification'
+	}
+]
+
+const comparison = [
+	{
+		metric: 'Eye Contact',
+		oldWay: 'Eyes dart back and forth across wide screen',
+		fluxWay: 'Focused directly into the webcam lens'
+	},
+	{
+		metric: 'Scrolling Pace',
+		oldWay: 'Fixed mechanical speed; forced to keep up',
+		fluxWay: 'Dynamic Voice Sync; scrolls only when you talk'
+	},
+	{
+		metric: 'Handling Pauses',
+		oldWay: 'Prompter keeps rolling away while you pause',
+		fluxWay: 'Prompter freezes and waits patiently for your voice'
+	},
+	{
+		metric: 'Remote Control',
+		oldWay: 'Requires bulky pedals or visible mouse clicks',
+		fluxWay: 'Instant phone remote via quick QR scan'
+	},
+	{
+		metric: 'Video Calls',
+		oldWay: 'Covers your window and blocks clicks',
+		fluxWay: 'Stealth Mode: click through to slides easily'
+	},
+	{
+		metric: 'Pacing Insight',
+		oldWay: 'Guesswork and tedious re-watching',
+		fluxWay: 'Instant post-take composure & speed score'
+	},
+	{
+		metric: 'Average Takes Required',
+		oldWay: '5 to 20 exhausting takes',
+		fluxWay: '1 to 2 confident takes'
+	}
+]
+
+const testimonials = [
+	{
+		quote:
+			'I used to record 15 takes for every 60-second video. With FLUXPROMPTER floating right under my camera lens, I recorded four videos in 20 minutes on my first try. People keep asking how I memorized everything.',
+		author: 'Marcus T.',
+		title: 'Tech Educator & YouTuber'
+	},
+	{
+		quote:
+			"Using this on client sales calls has been a game-changer. I have my talking points right at eye level, my prospects feel like I'm looking straight at them, and I never stumble over pricing or feature details.",
+		author: 'Elena R.',
+		title: 'Senior Account Executive'
+	},
+	{
+		quote:
+			'The phone remote is pure genius. I put my phone on my leg under the desk and can adjust the speed without lifting a finger on camera.',
+		author: 'David K.',
+		title: 'Startup Founder'
+	}
+]
+---
+
+<Layout
+	title={SEO.title}
+	description={SEO.description}
+	keywords={SEO.keywords}
+	softwareApps={SEO.softwareApps}
+	faq={SEO.faq}
+	breadcrumbs={SEO.breadcrumbs}
+	footer="motion"
+>
+	{/* Hero Section */}
+	<Section classes="pt-24! lg:pt-32! pb-16! text-center" decorationBorder="none">
+		<Row style="transparent" decorationBorder="none">
+			<Col span="12" style="transparent">
+				{/* Breadcrumbs */}
+				<nav class="flex items-center justify-center space-x-2 text-xs font-mono mb-6 text-neutral-500 dark:text-neutral-400">
+					<a href="/" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Home</a>
+					<span>/</span>
+					<a href="/products" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Products</a>
+					<span>/</span>
+					<span class="text-neutral-900 dark:text-white font-semibold">FLUXPROMPTER</span>
+				</nav>
+
+				{/* Eyebrow Badge */}
+				<div class="inline-flex items-center gap-2 px-3.5 py-1.5 border border-primary-500/30 bg-primary-500/10 text-primary-600 dark:text-primary-400 text-xs font-mono font-bold uppercase tracking-wider mb-6">
+					<span class="size-2 rounded-full bg-primary-500 animate-pulse"></span>
+					<span>The Intelligent Browser Teleprompter • Free Chrome Extension</span>
+				</div>
+
+				<h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-neutral-950 dark:text-white max-w-5xl mx-auto leading-tight mb-6 break-words">
+					Look Directly Into The Camera. <span class="text-primary-600 dark:text-primary-500">Deliver Flawless Presentations in One Take.</span>
+				</h1>
+
+				<p class="text-base sm:text-lg md:text-xl text-neutral-600 dark:text-neutral-300 max-w-3xl mx-auto leading-relaxed mb-8">
+					FLUXPROMPTER floats directly beneath your webcam, synchronizes automatically to your natural speaking speed, and keeps your eyes locked on your audience. No awkward pauses. No memorization. No robotic reading.
+				</p>
+
+				{/* Action Buttons */}
+				<div class="flex flex-wrap items-center justify-center gap-4 mb-4">
+					<a
+						href="#install"
+						class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-primary-600 hover:bg-primary-500 border border-primary-600 shadow-xl hover:shadow-primary-600/30 transition-all gap-3"
+					>
+						<Icon name="puzzle-piece" class="size-5" />
+						<span>Add to Chrome — It’s Free</span>
+					</a>
+					<a
+						href="#how-it-works"
+						class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-neutral-900 dark:text-white bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800 hover:border-neutral-900 dark:hover:border-neutral-600 transition-all gap-2"
+					>
+						<span>See How It Works ↓</span>
+					</a>
+				</div>
+
+				<p class="text-xs font-mono text-neutral-500 dark:text-neutral-400 mb-12">
+					Free forever. No credit card required. Installs in 10 seconds.
+				</p>
+
+				{/* Quick Highlights Strip */}
+				<div class="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-14">
+					<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+						<span class="text-emerald-500 font-bold">✓</span> Natural Eye Contact (Webcam Hug)
+					</span>
+					<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+						<span class="text-emerald-500 font-bold">✓</span> Voice-Activated Scrolling
+					</span>
+					<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+						<span class="text-emerald-500 font-bold">✓</span> Stealth Mode (Zoom & Meet Safe)
+					</span>
+					<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+						<span class="text-emerald-500 font-bold">✓</span> Works on Any Website Tab
+					</span>
+				</div>
+
+				{/* Interactive Floating Notch Simulator */}
+				<div class="max-w-4xl mx-auto relative">
+					{/* Computer Screen Mockup */}
+					<div class="rounded-xl border border-neutral-300 dark:border-neutral-800 bg-[#0E0C15] text-white shadow-2xl overflow-hidden relative text-left">
+						{/* Browser Chrome Header with Virtual Camera Dot */}
+						<div class="bg-neutral-950 px-4 py-3 border-b border-neutral-800 flex items-center justify-between">
+							<div class="flex items-center gap-2">
+								<span class="size-3 rounded-full bg-red-500/80 inline-block"></span>
+								<span class="size-3 rounded-full bg-amber-500/80 inline-block"></span>
+								<span class="size-3 rounded-full bg-emerald-500/80 inline-block"></span>
+							</div>
+							{/* Center Virtual Webcam Dot */}
+							<div class="flex items-center gap-2">
+								<div class="size-3 rounded-full bg-neutral-900 border-2 border-neutral-700 flex items-center justify-center">
+									<div class="size-1 rounded-full bg-emerald-400 animate-pulse"></div>
+								</div>
+								<span class="text-[10px] font-mono tracking-widest uppercase text-neutral-400">Webcam Active</span>
+							</div>
+							<div class="text-[11px] font-mono text-neutral-500">Google Meet / Zoom Screen</div>
+						</div>
+
+						{/* Screen Content Simulation */}
+						<div class="p-6 sm:p-10 relative bg-gradient-to-b from-neutral-950 via-[#111019] to-neutral-950 min-h-[380px] flex flex-col items-center justify-start">
+							{/* Floating Teleprompter Capsule anchored directly beneath the camera */}
+							<div class="w-full max-w-lg bg-black/90 border border-primary-500/50 rounded-2xl p-5 shadow-[0_15px_50px_rgba(251,87,0,0.2)] backdrop-blur-xl transition-all">
+								{/* Prompter Header */}
+								<div class="flex items-center justify-between pb-3 border-b border-neutral-800/80 mb-4">
+									<div class="flex items-center gap-2">
+										<span class="size-2 rounded-full bg-emerald-400 animate-ping"></span>
+										<span class="text-xs font-mono font-bold text-emerald-400 tracking-wide">
+											Voice Sync: Listening
+										</span>
+									</div>
+									<div class="flex items-center gap-2">
+										<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-neutral-800 text-neutral-300 border border-neutral-700">
+											142 WPM
+										</span>
+										<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-primary-950 text-primary-300 border border-primary-800">
+											Composure: 98%
+										</span>
+									</div>
+								</div>
+
+								{/* The Script Text with Breathing Highlights */}
+								<div class="space-y-3 font-headings text-sm sm:text-base leading-relaxed text-neutral-200">
+									<p class="text-neutral-400 text-xs font-mono uppercase tracking-wider mb-1">
+										[SMILE WARMELY] &bull; Camera Eye-Level
+									</p>
+									<p>
+										"Welcome everyone. Today, I want to walk you through our newest product release.
+										<span class="inline-flex items-center gap-1 px-1.5 py-0.5 bg-amber-500/20 text-amber-300 text-xs font-mono rounded ml-1 font-bold">
+											&bull; [PAUSE 1s]
+										</span>
+										Notice how effortlessly our eyes stay connected with yours, without reading off notes on a second screen."
+									</p>
+								</div>
+
+								{/* Prompter Controls Footer */}
+								<div class="mt-4 pt-3 border-t border-neutral-800/80 flex items-center justify-between text-xs font-mono text-neutral-400">
+									<div class="flex items-center gap-2">
+										<span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800 text-[11px] text-neutral-300">
+											Alt + S Stealth Mode
+										</span>
+										<span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800 text-[11px] text-neutral-300">
+											📱 Phone Remote Active
+										</span>
+									</div>
+									<span class="text-primary-400 font-bold text-[11px]">FLUXPROMPTER</span>
+								</div>
+							</div>
+
+							{/* Subtle Background Watermark */}
+							<p class="mt-8 text-xs font-mono text-neutral-600 text-center">
+								Simulated live overlay. In real use, this prompter floats on top of any website or slide deck with 100% click-through transparency.
+							</p>
+						</div>
+					</div>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	{/* Section 2: The Pain Point */}
+	<Section classes="py-20! bg-neutral-50 dark:bg-neutral-900/40 border-y border-neutral-200 dark:border-neutral-800">
+		<Row style="transparent">
+			<Col span="12" style="transparent">
+				<div class="text-center max-w-3xl mx-auto mb-16">
+					<p class="text-xs font-mono font-bold uppercase tracking-widest text-primary-600 dark:text-primary-400 mb-2">
+						Sound Familiar?
+					</p>
+					<h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-neutral-950 dark:text-white">
+						Why Talking to a Camera Still Feels Unnatural
+					</h2>
+					<p class="mt-4 text-base sm:text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed">
+						Have you ever tried recording a quick video or giving a live presentation on Zoom, only to experience this frustration:
+					</p>
+				</div>
+			</Col>
+		</Row>
+
+		<Row style="transparent" classes="gap-6 lg:gap-8">
+			{
+				painPoints.map((pain) => (
+					<Col span="6" spanTablet="12" spanMobile="12" style="transparent">
+						<div class="p-8 h-full bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 relative transition-all duration-300 hover:border-red-500/40">
+							<div class="size-12 rounded bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20 flex items-center justify-center mb-6">
+								<Icon name={pain.icon} class="size-6" />
+							</div>
+							<h3 class="text-xl font-bold tracking-tight text-neutral-950 dark:text-white mb-3">
+								{pain.title}
+							</h3>
+							<p class="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
+								{pain.problem}
+							</p>
+						</div>
+					</Col>
+				))
+			}
+		</Row>
+
+		<Row style="transparent" classes="mt-12">
+			<Col span="12" style="transparent">
+				<div class="p-6 sm:p-8 bg-neutral-900 text-white border border-neutral-800 text-center max-w-3xl mx-auto">
+					<p class="text-lg sm:text-xl font-headings font-medium leading-relaxed">
+						You do not need better public speaking genes. You just need a teleprompter that works <span class="text-primary-400 font-bold">with you</span> instead of against you.
+					</p>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	{/* Section 3: How It Works */}
+	<Section id="how-it-works" classes="py-20! lg:py-28!">
+		<Row style="transparent">
+			<Col span="12" style="transparent">
+				<div class="text-center max-w-3xl mx-auto mb-16">
+					<p class="text-xs font-mono font-bold uppercase tracking-widest text-primary-600 dark:text-primary-400 mb-2">
+						Simple & Frictionless
+					</p>
+					<h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-neutral-950 dark:text-white">
+						3 Steps to One-Take Confidence
+					</h2>
+				</div>
+			</Col>
+		</Row>
+
+		<Row style="transparent" classes="gap-8">
+			{
+				steps.map((item) => (
+					<Col span="4" spanTablet="12" spanMobile="12" style="transparent">
+						<div class="p-8 h-full bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 relative flex flex-col justify-between">
+							<div>
+								<div class="flex items-center justify-between mb-6">
+									<span class="text-4xl font-black font-mono text-primary-600 dark:text-primary-500">
+										{item.step}
+									</span>
+									<span class="text-xs font-mono px-2.5 py-1 bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400">
+										{item.badge}
+									</span>
+								</div>
+								<h3 class="text-xl font-bold tracking-tight text-neutral-950 dark:text-white mb-3">
+									{item.title}
+								</h3>
+								<p class="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
+									{item.desc}
+								</p>
+							</div>
+						</div>
+					</Col>
+				))
+			}
+		</Row>
+	</Section>
+
+	{/* Section 4: Features Deep Dive */}
+	<Section classes="py-20! bg-neutral-50 dark:bg-neutral-900/30 border-y border-neutral-200 dark:border-neutral-800">
+		<Row style="transparent">
+			<Col span="12" style="transparent">
+				<div class="text-center max-w-3xl mx-auto mb-16">
+					<p class="text-xs font-mono font-bold uppercase tracking-widest text-primary-600 dark:text-primary-400 mb-2">
+						Engineered for Natural Delivery
+					</p>
+					<h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-neutral-950 dark:text-white">
+						Features You Will Fall in Love With
+					</h2>
+				</div>
+			</Col>
+		</Row>
+
+		<Row style="transparent" classes="gap-6 lg:gap-8">
+			{
+				features.map((feature) => (
+					<Col span="6" spanTablet="12" spanMobile="12" style="transparent">
+						<div class="p-8 h-full bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 transition-all duration-300 hover:border-primary-500/50">
+							<div class="flex items-center justify-between mb-6">
+								<div class="size-12 rounded bg-neutral-100 dark:bg-neutral-900 text-primary-600 dark:text-primary-400 border border-neutral-200 dark:border-neutral-800 flex items-center justify-center">
+									<Icon name={feature.icon} class="size-6" />
+								</div>
+								<span class="text-xs font-mono font-semibold px-2.5 py-1 bg-primary-500/10 text-primary-600 dark:text-primary-400 border border-primary-500/20">
+									{feature.badge}
+								</span>
+							</div>
+							<h3 class="text-xl font-bold tracking-tight text-neutral-950 dark:text-white mb-3">
+								{feature.title}
+							</h3>
+							<p class="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
+								{feature.desc}
+							</p>
+						</div>
+					</Col>
+				))
+			}
+		</Row>
+	</Section>
+
+	{/* Section 5: Built for Everyone Who Speaks on Camera */}
+	<Section classes="py-20! lg:py-28!">
+		<Row style="transparent">
+			<Col span="12" style="transparent">
+				<div class="text-center max-w-3xl mx-auto mb-16">
+					<p class="text-xs font-mono font-bold uppercase tracking-widest text-primary-600 dark:text-primary-400 mb-2">
+						Universal Utility
+					</p>
+					<h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-neutral-950 dark:text-white">
+						Built for Everyone Who Speaks on Camera
+					</h2>
+				</div>
+			</Col>
+		</Row>
+
+		<Row style="transparent" classes="gap-6 lg:gap-8">
+			{
+				audiences.map((aud) => (
+					<Col span="3" spanTablet="6" spanMobile="12" style="transparent">
+						<div class="p-6 sm:p-8 h-full bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 flex flex-col justify-between">
+							<div>
+								<div class="size-10 rounded bg-neutral-100 dark:bg-neutral-900 text-primary-600 dark:text-primary-400 border border-neutral-200 dark:border-neutral-800 flex items-center justify-center mb-5">
+									<Icon name={aud.icon} class="size-5" />
+								</div>
+								<h3 class="text-lg font-bold tracking-tight text-neutral-950 dark:text-white mb-2">
+									{aud.role}
+								</h3>
+								<p class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+									{aud.desc}
+								</p>
+							</div>
+						</div>
+					</Col>
+				))
+			}
+		</Row>
+	</Section>
+
+	{/* Section 6: The Comparison Table */}
+	<Section classes="py-20! bg-neutral-50 dark:bg-neutral-900/40 border-y border-neutral-200 dark:border-neutral-800">
+		<Row style="transparent">
+			<Col span="12" style="transparent">
+				<div class="text-center max-w-3xl mx-auto mb-14">
+					<p class="text-xs font-mono font-bold uppercase tracking-widest text-primary-600 dark:text-primary-400 mb-2">
+						Side-by-Side Reality
+					</p>
+					<h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-neutral-950 dark:text-white">
+						The Old Way vs. The FLUXPROMPTER Way
+					</h2>
+				</div>
+
+				<div class="w-full max-w-4xl mx-auto overflow-x-auto">
+					<table class="w-full border-collapse border border-neutral-200 dark:border-neutral-800 text-left bg-white dark:bg-neutral-950 text-sm sm:text-base">
+						<thead>
+							<tr class="bg-neutral-100 dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-800">
+								<th class="p-4 font-bold text-neutral-900 dark:text-white">Delivery Experience</th>
+								<th class="p-4 font-bold text-neutral-500 dark:text-neutral-400">Old Prompters & Notes</th>
+								<th class="p-4 font-bold text-primary-600 dark:text-primary-400">With FLUXPROMPTER</th>
+							</tr>
+						</thead>
+						<tbody>
+							{
+								comparison.map((item, idx) => (
+									<tr class={idx % 2 === 0 ? 'bg-transparent' : 'bg-neutral-50/50 dark:bg-neutral-900/20'}>
+										<td class="p-4 font-semibold text-neutral-900 dark:text-white border-t border-neutral-200 dark:border-neutral-800">
+											{item.metric}
+										</td>
+										<td class="p-4 text-neutral-600 dark:text-neutral-400 border-t border-neutral-200 dark:border-neutral-800">
+											{item.oldWay}
+										</td>
+										<td class="p-4 font-medium text-emerald-600 dark:text-emerald-400 border-t border-neutral-200 dark:border-neutral-800">
+											<span class="inline-flex items-center gap-1.5">
+												<span>✓</span> {item.fluxWay}
+											</span>
+										</td>
+									</tr>
+								))
+							}
+						</tbody>
+					</table>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	{/* Section 7: Presenter Testimonials */}
+	<Section classes="py-20! lg:py-28!">
+		<Row style="transparent">
+			<Col span="12" style="transparent">
+				<div class="text-center max-w-3xl mx-auto mb-16">
+					<p class="text-xs font-mono font-bold uppercase tracking-widest text-primary-600 dark:text-primary-400 mb-2">
+						Social Proof
+					</p>
+					<h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-neutral-950 dark:text-white">
+						What Presenters Are Saying
+					</h2>
+				</div>
+			</Col>
+		</Row>
+
+		<Row style="transparent" classes="gap-6 lg:gap-8">
+			{
+				testimonials.map((t) => (
+					<Col span="4" spanTablet="12" spanMobile="12" style="transparent">
+						<div class="p-8 h-full bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 flex flex-col justify-between">
+							<p class="text-sm sm:text-base italic text-neutral-700 dark:text-neutral-300 leading-relaxed mb-6">
+								"{t.quote}"
+							</p>
+							<div class="pt-4 border-t border-neutral-100 dark:border-neutral-800">
+								<p class="font-bold text-neutral-950 dark:text-white text-sm mb-0!">
+									{t.author}
+								</p>
+								<p class="text-xs font-mono text-primary-600 dark:text-primary-400 mb-0!">
+									{t.title}
+								</p>
+							</div>
+						</div>
+					</Col>
+				))
+			}
+		</Row>
+	</Section>
+
+	{/* Section 8: Frequently Asked Questions */}
+	<Section classes="py-20! bg-neutral-50 dark:bg-neutral-900/30 border-y border-neutral-200 dark:border-neutral-800">
+		<Row style="transparent">
+			<Col span="12" style="transparent">
+				<div class="text-center max-w-3xl mx-auto mb-16">
+					<p class="text-xs font-mono font-bold uppercase tracking-widest text-primary-600 dark:text-primary-400 mb-2">
+						Got Questions?
+					</p>
+					<h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-neutral-950 dark:text-white">
+						Frequently Asked Questions
+					</h2>
+				</div>
+
+				<div class="max-w-3xl mx-auto space-y-4">
+					{
+						SEO.faq.map((item) => (
+							<details class="group border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 p-6 [&_summary::-webkit-details-marker]:hidden">
+								<summary class="flex cursor-pointer items-center justify-between gap-4 font-bold text-neutral-950 dark:text-white text-base sm:text-lg">
+									<span>{item.question}</span>
+									<span class="transition duration-300 group-open:-rotate-180 text-primary-600 dark:text-primary-400">
+										<Icon name="chevron-down" class="size-5" />
+									</span>
+								</summary>
+								<p class="mt-4 text-sm sm:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed pt-2 border-t border-neutral-100 dark:border-neutral-800/80">
+									{item.answer}
+								</p>
+							</details>
+						))
+					}
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	{/* Section 9: Final Call to Action */}
+	<Section id="install" classes="py-24! text-center bg-neutral-950 text-white relative overflow-hidden">
+		<Row style="transparent">
+			<Col span="12" style="transparent">
+				<div class="max-w-3xl mx-auto">
+					<p class="text-xs font-mono font-bold uppercase tracking-widest text-primary-400 mb-3">
+						Get Started in 10 Seconds
+					</p>
+					<h2 class="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-white mb-6">
+						Ready to Record Flawless Takes on Your Very First Try?
+					</h2>
+					<p class="text-base sm:text-lg text-neutral-300 leading-relaxed mb-10 max-w-2xl mx-auto">
+						Join thousands of creators, remote leaders, and educators who have eliminated presentation anxiety.
+					</p>
+
+					<div class="flex flex-wrap items-center justify-center gap-4 mb-6">
+						<a
+							href="https://chromewebstore.google.com"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="inline-flex items-center justify-center px-10 py-5 text-base sm:text-lg font-bold text-white bg-primary-600 hover:bg-primary-500 shadow-2xl hover:shadow-primary-600/40 transition-all gap-3"
+						>
+							<Icon name="puzzle-piece" class="size-6" />
+							<span>Add FLUXPROMPTER to Chrome — Free</span>
+						</a>
+					</div>
+
+					<p class="text-xs font-mono text-neutral-400">
+						No sign-up required &bull; Installs in two clicks &bull; 100% private and on-device processing
+					</p>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+</Layout>

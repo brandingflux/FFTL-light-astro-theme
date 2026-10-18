@@ -16,6 +16,10 @@ const SEO = {
 		'Explore the FluxFuse software ecosystem: DeskSync local vault, QuickMark mobile capture, PromptCraft AI copilot, and FuseFlow cloud automation platform.',
 	keywords: [
 		'FluxFuse Products',
+		'FLUXPROMPTER',
+		'Browser Teleprompter',
+		'Chrome Teleprompter Extension',
+		'Voice Synced Teleprompter',
 		'Notchgent',
 		'Dynamic Island Windows',
 		'Antigravity HUD',
@@ -31,6 +35,14 @@ const SEO = {
 		'Cloud Automation Platform'
 	],
 	softwareApps: [
+		{
+			name: 'FLUXPROMPTER',
+			description: 'The intelligent browser teleprompter Chrome extension. Floats beneath your webcam, synchronizes automatically to your natural voice speed, and keeps your eyes locked on your audience.',
+			operatingSystem: 'Chrome, Edge, Brave, Opera, Vivaldi',
+			applicationCategory: 'BrowserExtension',
+			price: '0',
+			priceCurrency: 'USD'
+		},
 		{
 			name: 'Notchgent',
 			description: 'Always-on-top Dynamic Island HUD for Antigravity & VS Code on Windows. Review and approve agent actions with 1 click or global hotkey without Alt-Tabbing or video interruptions.',
@@ -132,6 +144,27 @@ const apps = [
 
 const extensions = [
 	{
+		title: 'FLUXPROMPTER',
+		badge: 'Chrome Extension • Free',
+		status: 'Live & Free',
+		statusColor: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20',
+		description: 'The intelligent browser teleprompter that floats directly beneath your webcam, auto-syncs with your speaking voice, and keeps your eyes locked on the camera. Deliver confident one-take presentations without memorization or robotic scrolling.',
+		features: [
+			'Webcam-anchored 440px narrow notch for unbroken eye contact',
+			'Voice-activated dynamic scrolling (moves only when you speak)',
+			'Pocket Remote: Control prompter from your phone via QR scan',
+			'Visual breathing badges & cadence guides [BREATHE / SMILE]',
+			'Meeting Stealth Mode (Alt + S) invisible on screen shares',
+			'Post-take debrief: Speaking pace (WPM), composure & filler words'
+		],
+		actionText: 'Explore Dedicated Page',
+		actionLink: '/products/fluxprompter',
+		secondaryText: 'Add to Chrome (Free)',
+		secondaryLink: 'https://chromewebstore.google.com',
+		icon: 'microphone',
+		featured: true
+	},
+	{
 		title: 'PromptCraft',
 		badge: 'Chrome & Edge Extension',
 		status: 'Beta',
@@ -140,7 +173,8 @@ const extensions = [
 		features: ['One-click shortcut insertion', 'Cross-browser synced vaults', 'Contextual variable replacement'],
 		actionText: 'Add to Chrome',
 		actionLink: '/contact',
-		icon: 'puzzle-piece'
+		icon: 'puzzle-piece',
+		featured: false
 	},
 	{
 		title: 'TabShield',
@@ -151,7 +185,8 @@ const extensions = [
 		features: ['Zero CPU background suspension', 'Workspace tab grouping', 'One-click session recovery'],
 		actionText: 'Install Extension',
 		actionLink: '/contact',
-		icon: 'shield-check'
+		icon: 'shield-check',
+		featured: false
 	}
 ]
 
@@ -377,7 +412,7 @@ const saas = [
 
 		<Row style="transparent" decorationBorder="none" classes="gap-6 lg:gap-8">
 			{extensions.map((item) => (
-				<Col span="6" spanTablet="12" spanMobile="12" style="transparent">
+				<Col span={item.featured ? '12' : '6'} spanTablet="12" spanMobile="12" style="transparent">
 					<div class="rounded-none border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0C0A09] p-8 h-full flex flex-col justify-between transition-all duration-300 hover:border-neutral-400 dark:hover:border-neutral-700 hover:shadow-lg dark:hover:shadow-black/60">
 						<div>
 							<div class="flex items-center justify-between mb-6">
@@ -393,7 +428,7 @@ const saas = [
 							</div>
 							<p class="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-3">{item.badge}</p>
 							<p class="text-base text-neutral-600 dark:text-neutral-300 leading-relaxed mb-6">{item.description}</p>
-							<ul class="space-y-2 mb-8 pt-4 border-t border-neutral-200/80 dark:border-neutral-800">
+							<ul class={`space-y-2 mb-8 pt-4 border-t border-neutral-200/80 dark:border-neutral-800 ${item.featured ? 'grid grid-cols-1 md:grid-cols-2 gap-2.5 space-y-0' : ''}`}>
 								{item.features.map((feat) => (
 									<li class="flex items-center text-xs md:text-sm text-neutral-700 dark:text-neutral-300">
 										<span class="size-1.5 rounded-none bg-primary-500 mr-2.5 flex-shrink-0"></span>
@@ -402,10 +437,20 @@ const saas = [
 								))}
 							</ul>
 						</div>
-						<div>
-							<Button link={item.actionLink} style="neutral" classes="w-full text-xs md:text-sm">
+						<div class={item.featured ? 'flex flex-wrap items-center gap-4' : ''}>
+							<Button link={item.actionLink} style={item.featured ? 'primary' : 'neutral'} classes={item.featured ? 'text-xs md:text-sm' : 'w-full text-xs md:text-sm'}>
 								{item.actionText} →
 							</Button>
+							{item.secondaryText && (
+								<a
+									href={item.secondaryLink || item.actionLink}
+									target={item.secondaryLink?.startsWith('http') ? '_blank' : undefined}
+									rel={item.secondaryLink?.startsWith('http') ? 'noopener noreferrer' : undefined}
+									class="inline-flex items-center justify-center px-4 py-2.5 text-xs md:text-sm font-semibold text-neutral-800 dark:text-neutral-200 bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 hover:border-neutral-900 dark:hover:border-neutral-500 transition-colors"
+								>
+									<span>{item.secondaryText} ↗</span>
+								</a>
+							)}
 						</div>
 					</div>
 				</Col>
